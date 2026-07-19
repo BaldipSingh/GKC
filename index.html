@@ -1,0 +1,1347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grade 7 Honors — U.S. and NYS History Study Hub</title>
+<style>
+:root{
+  --navy:#1d2d44;
+  --navy-deep:#14213a;
+  --slate:#3e5c76;
+  --parchment:#f7f3ea;
+  --card:#fffdf8;
+  --gold:#b98b2f;
+  --gold-soft:#f0e6cf;
+  --ink:#22242a;
+  --ink-soft:#5a5e68;
+  --line:#e3dccb;
+  --green:#2e6b4f;
+  --green-soft:#e2efe8;
+  --red:#a13a34;
+  --red-soft:#f6e3e1;
+  --radius:14px;
+  --shadow:0 2px 10px rgba(29,45,68,.08);
+  --shadow-lg:0 8px 26px rgba(29,45,68,.14);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:"Avenir Next","Segoe UI",system-ui,-apple-system,sans-serif;
+  background:var(--parchment);
+  color:var(--ink);
+  font-size:17px;
+  line-height:1.6;
+  padding-bottom:76px; /* room for mobile tab bar */
+}
+h1,h2,h3,h4,.serif{font-family:Georgia,"Iowan Old Style","Times New Roman",serif;}
+button{font:inherit;cursor:pointer;border:none;background:none;min-height:44px;}
+a{color:var(--slate);}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px;border-radius:4px;}
+
+/* ---------- Header ---------- */
+header.site{
+  position:sticky;top:0;z-index:60;
+  background:var(--navy);
+  color:#fff;
+  padding:14px 18px 12px;
+  box-shadow:0 2px 12px rgba(20,33,58,.35);
+}
+header.site .crest{
+  display:flex;align-items:center;gap:12px;max-width:1060px;margin:0 auto;
+}
+.crest-mark{
+  width:40px;height:40px;flex:0 0 40px;border:2px solid var(--gold);
+  border-radius:8px;display:flex;align-items:center;justify-content:center;
+  font-family:Georgia,serif;font-weight:700;font-size:17px;color:var(--gold);
+  background:rgba(255,255,255,.04);letter-spacing:.5px;
+}
+header.site h1{font-size:1.05rem;line-height:1.3;font-weight:600;}
+header.site .sub{font-size:.78rem;color:#c7d0de;letter-spacing:.04em;}
+
+/* ---------- Tab bars ---------- */
+nav.tabs{
+  position:fixed;bottom:0;left:0;right:0;z-index:70;
+  background:var(--navy-deep);
+  display:flex;justify-content:space-around;
+  border-top:1px solid rgba(255,255,255,.12);
+  padding:4px 2px calc(4px + env(safe-area-inset-bottom));
+}
+nav.tabs button{
+  flex:1;color:#aeb9ca;font-size:.68rem;font-weight:600;letter-spacing:.02em;
+  padding:6px 2px;display:flex;flex-direction:column;align-items:center;gap:3px;
+  border-radius:8px;min-width:44px;
+}
+nav.tabs button .glyph{
+  width:20px;height:20px;border:2px solid currentColor;border-radius:5px;
+  display:block;position:relative;
+}
+nav.tabs button.g-home .glyph{border-radius:5px 5px 3px 3px;}
+nav.tabs button.g-units .glyph{border-radius:2px;}
+nav.tabs button.g-units .glyph::after{content:"";position:absolute;left:3px;right:3px;top:4px;height:2px;background:currentColor;box-shadow:0 5px 0 currentColor;}
+nav.tabs button.g-time .glyph{border-radius:50%;}
+nav.tabs button.g-time .glyph::after{content:"";position:absolute;left:50%;top:3px;width:2px;height:7px;background:currentColor;transform:translateX(-50%);}
+nav.tabs button.g-gloss .glyph::after{content:"A";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;border:none;}
+nav.tabs button.g-skills .glyph{transform:rotate(45deg) scale(.85);}
+nav.tabs button.g-quiz .glyph::after{content:"?";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;}
+nav.tabs button.g-res .glyph{border-radius:50% 50% 4px 4px;}
+nav.tabs button.active{color:var(--gold);background:rgba(185,139,47,.12);}
+nav.tabs button:hover{color:#fff;}
+
+/* ---------- Layout ---------- */
+main{max-width:1060px;margin:0 auto;padding:22px 16px 40px;}
+section.view{display:none;}
+section.view.active{display:block;animation:fadeUp .25s ease;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:none;}}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation:none !important;transition:none !important;}
+  html{scroll-behavior:auto;}
+}
+
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  box-shadow:var(--shadow);padding:20px;margin-bottom:16px;
+}
+.eyebrow{
+  font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:6px;font-family:inherit;
+}
+.view h2.page-title{font-size:1.6rem;color:var(--navy);margin-bottom:4px;}
+.page-intro{color:var(--ink-soft);margin-bottom:18px;max-width:640px;}
+
+/* ---------- Home ---------- */
+.hero{
+  background:linear-gradient(135deg,var(--navy) 0%,var(--slate) 100%);
+  color:#fff;border-radius:var(--radius);padding:26px 22px;margin-bottom:18px;
+  box-shadow:var(--shadow-lg);
+}
+.hero h2{font-size:1.5rem;margin-bottom:8px;}
+.hero p{color:#dbe2ec;max-width:600px;}
+.hero .rule{width:56px;height:3px;background:var(--gold);border-radius:2px;margin:12px 0 0;}
+.howto ol{margin:8px 0 0 22px;}
+.howto li{margin-bottom:8px;}
+.progress-grid{display:grid;gap:12px;grid-template-columns:1fr;}
+.prog-row{display:flex;align-items:center;gap:12px;}
+.prog-row .lbl{flex:0 0 118px;font-weight:600;font-size:.9rem;color:var(--navy);}
+.prog-bar{flex:1;height:12px;background:var(--gold-soft);border-radius:6px;overflow:hidden;}
+.prog-fill{height:100%;background:var(--gold);border-radius:6px;width:0;transition:width .4s ease;}
+.prog-row .pct{flex:0 0 84px;text-align:right;font-size:.85rem;color:var(--ink-soft);}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  background:var(--navy);color:#fff;border-radius:10px;padding:10px 20px;
+  font-weight:600;font-size:.95rem;transition:background .15s;min-height:44px;
+}
+.btn:hover{background:var(--slate);}
+.btn.gold{background:var(--gold);color:var(--navy-deep);}
+.btn.gold:hover{background:#a97e28;}
+.btn.ghost{background:transparent;color:var(--navy);border:2px solid var(--navy);}
+.btn.ghost:hover{background:var(--navy);color:#fff;}
+.btn.danger{background:transparent;color:var(--red);border:2px solid var(--red);}
+.btn.danger:hover{background:var(--red);color:#fff;}
+
+/* ---------- Search ---------- */
+.search-wrap{position:relative;margin-bottom:18px;}
+input.search{
+  width:100%;padding:13px 16px;font:inherit;border:2px solid var(--line);
+  border-radius:12px;background:var(--card);color:var(--ink);
+}
+input.search:focus{border-color:var(--gold);outline:none;}
+.search-hint{font-size:.8rem;color:var(--ink-soft);margin-top:6px;}
+
+/* ---------- Units ---------- */
+.unit-card{overflow:hidden;padding:0;}
+.unit-head{
+  width:100%;display:flex;align-items:center;gap:14px;text-align:left;
+  padding:18px 20px;background:none;
+}
+.unit-num{
+  flex:0 0 46px;height:46px;border-radius:10px;background:var(--navy);color:var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  font-family:Georgia,serif;font-size:1.25rem;font-weight:700;
+}
+.unit-head .t{flex:1;}
+.unit-head h3{font-size:1.08rem;color:var(--navy);line-height:1.35;}
+.unit-head .years{font-size:.78rem;color:var(--ink-soft);letter-spacing:.04em;}
+.chev{
+  flex:0 0 14px;width:14px;height:14px;border-right:3px solid var(--slate);
+  border-bottom:3px solid var(--slate);transform:rotate(45deg);transition:transform .2s;margin-top:-4px;
+}
+.unit-card.open .chev{transform:rotate(-135deg);margin-top:6px;}
+.unit-body{display:none;padding:0 20px 22px;border-top:1px solid var(--line);}
+.unit-card.open .unit-body{display:block;}
+.eq{
+  background:var(--gold-soft);border-left:4px solid var(--gold);border-radius:0 10px 10px 0;
+  padding:12px 16px;margin:16px 0;font-family:Georgia,serif;font-size:1.02rem;color:var(--navy);
+}
+.ub-sec{margin-top:18px;}
+.ub-sec h4{font-size:.8rem;text-transform:uppercase;letter-spacing:.12em;color:var(--gold);font-family:inherit;font-weight:700;margin-bottom:8px;}
+.term-list{list-style:none;}
+.term-list li{padding:8px 0;border-bottom:1px dashed var(--line);}
+.term-list li:last-child{border-bottom:none;}
+.term-list b{color:var(--navy);}
+.people-grid{display:grid;grid-template-columns:1fr;gap:8px;list-style:none;}
+.people-grid li{background:var(--parchment);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:.94rem;}
+.people-grid b{color:var(--navy);display:block;}
+.mini-tl{list-style:none;border-left:3px solid var(--gold);margin-left:6px;padding-left:16px;}
+.mini-tl li{position:relative;padding:5px 0;}
+.mini-tl li::before{content:"";position:absolute;left:-22px;top:14px;width:9px;height:9px;background:var(--gold);border-radius:50%;}
+.mini-tl b{color:var(--navy);}
+.matters{background:var(--green-soft);border-left:4px solid var(--green);border-radius:0 10px 10px 0;padding:12px 16px;margin-bottom:8px;font-size:.95rem;}
+.hidden{display:none !important;}
+mark{background:var(--gold-soft);color:inherit;border-radius:3px;padding:0 2px;}
+
+/* ---------- Timeline page ---------- */
+.timeline{list-style:none;position:relative;margin-left:8px;border-left:3px solid var(--slate);padding-left:22px;}
+.timeline li{position:relative;margin-bottom:18px;}
+.timeline li::before{content:"";position:absolute;left:-30px;top:8px;width:13px;height:13px;border-radius:50%;background:var(--card);border:3px solid var(--gold);}
+.tl-year{font-family:Georgia,serif;font-weight:700;color:var(--navy);font-size:1.05rem;}
+.tl-unit-tag{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.08em;color:#fff;background:var(--slate);border-radius:5px;padding:2px 7px;margin-left:8px;vertical-align:middle;}
+.tl-body{color:var(--ink);font-size:.95rem;}
+
+/* ---------- Glossary ---------- */
+.gloss-letter{font-family:Georgia,serif;color:var(--gold);font-size:1.3rem;margin:18px 0 6px;border-bottom:2px solid var(--gold-soft);padding-bottom:2px;}
+.gloss-item{padding:10px 0;border-bottom:1px dashed var(--line);}
+.gloss-item b{color:var(--navy);}
+.gloss-item .src{font-size:.75rem;color:var(--ink-soft);display:block;margin-top:2px;letter-spacing:.03em;}
+
+/* ---------- Skills ---------- */
+.skill-card h3{color:var(--navy);font-size:1.1rem;margin-bottom:6px;}
+.try{
+  background:var(--parchment);border:1px dashed var(--gold);border-radius:10px;
+  padding:12px 14px;margin-top:10px;font-size:.95rem;
+}
+.try b{color:var(--gold);text-transform:uppercase;font-size:.72rem;letter-spacing:.1em;font-family:inherit;}
+
+/* ---------- Quiz ---------- */
+.quiz-setup .modes{display:grid;gap:10px;grid-template-columns:1fr;}
+.mode-btn{
+  text-align:left;background:var(--card);border:2px solid var(--line);border-radius:12px;
+  padding:14px 16px;transition:border-color .15s,transform .1s;width:100%;
+}
+.mode-btn:hover{border-color:var(--gold);transform:translateY(-1px);}
+.mode-btn b{display:block;color:var(--navy);font-size:1rem;}
+.mode-btn span{font-size:.85rem;color:var(--ink-soft);}
+.q-progress{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:.85rem;color:var(--ink-soft);font-weight:600;}
+.q-track{height:8px;background:var(--gold-soft);border-radius:4px;overflow:hidden;margin-bottom:18px;}
+.q-track-fill{height:100%;background:var(--gold);width:0;transition:width .3s;}
+.stimulus{
+  background:var(--parchment);border:1px solid var(--line);border-left:4px solid var(--slate);
+  border-radius:0 10px 10px 0;padding:14px 16px;margin-bottom:14px;
+  font-family:Georgia,serif;font-size:.98rem;
+}
+.stimulus .stype{font-family:"Avenir Next","Segoe UI",system-ui,sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--slate);display:block;margin-bottom:6px;}
+.q-text{font-size:1.08rem;font-weight:600;color:var(--navy);margin-bottom:14px;}
+.choices{display:grid;gap:10px;}
+.choice{
+  text-align:left;background:var(--card);border:2px solid var(--line);border-radius:10px;
+  padding:12px 14px;width:100%;display:flex;gap:10px;align-items:flex-start;transition:border-color .12s;
+}
+.choice:hover{border-color:var(--slate);}
+.choice .letter{
+  flex:0 0 28px;height:28px;border-radius:50%;border:2px solid var(--slate);color:var(--slate);
+  display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;margin-top:1px;
+}
+.choice.correct{border-color:var(--green);background:var(--green-soft);}
+.choice.correct .letter{background:var(--green);border-color:var(--green);color:#fff;}
+.choice.wrong{border-color:var(--red);background:var(--red-soft);}
+.choice.wrong .letter{background:var(--red);border-color:var(--red);color:#fff;}
+.choice:disabled{cursor:default;}
+.feedback{border-radius:10px;padding:12px 15px;margin-top:14px;font-size:.95rem;display:none;}
+.feedback.show{display:block;}
+.feedback.good{background:var(--green-soft);border-left:4px solid var(--green);}
+.feedback.bad{background:var(--red-soft);border-left:4px solid var(--red);}
+.feedback b{display:block;margin-bottom:2px;}
+.quiz-nav{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap;}
+.score-pill{background:var(--navy);color:var(--gold);border-radius:20px;padding:4px 14px;font-weight:700;font-size:.85rem;}
+.results-big{font-family:Georgia,serif;font-size:2.4rem;color:var(--navy);}
+.review-list{list-style:none;margin-top:10px;}
+.review-list li{padding:8px 0;border-bottom:1px dashed var(--line);display:flex;justify-content:space-between;gap:10px;font-size:.95rem;}
+.tag-good{color:var(--green);font-weight:700;}
+.tag-warn{color:var(--red);font-weight:700;}
+.crq-q{margin-bottom:14px;}
+.crq-q .prompt{font-weight:600;color:var(--navy);margin-bottom:8px;}
+.model{background:var(--parchment);border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-top:8px;font-size:.95rem;display:none;}
+.model.show{display:block;}
+.model b{color:var(--green);}
+textarea.answer-box{
+  width:100%;min-height:96px;font:inherit;font-size:.95rem;padding:10px 12px;
+  border:2px solid var(--line);border-radius:10px;background:var(--card);resize:vertical;
+}
+textarea.answer-box:focus{border-color:var(--gold);outline:none;}
+.disclaimer{font-size:.8rem;color:var(--ink-soft);border-top:1px solid var(--line);margin-top:16px;padding-top:12px;}
+
+/* ---------- Resources ---------- */
+.res-item{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:10px;text-decoration:none;box-shadow:var(--shadow);transition:transform .1s,border-color .15s;}
+.res-item:hover{transform:translateY(-1px);border-color:var(--gold);}
+.res-item b{color:var(--navy);display:block;}
+.res-item span{color:var(--ink-soft);font-size:.88rem;}
+
+/* ---------- Desktop ---------- */
+@media (min-width: 760px){
+  body{padding-bottom:0;font-size:17px;}
+  nav.tabs{
+    position:sticky;top:64px;bottom:auto;z-index:55;
+    max-width:1060px;margin:0 auto;border-radius:0 0 14px 14px;
+    border-top:none;box-shadow:var(--shadow);padding:6px;
+  }
+  nav.tabs button{flex-direction:row;font-size:.85rem;gap:8px;padding:9px 6px;border-radius:9px;}
+  nav.tabs button .glyph{width:15px;height:15px;border-width:2px;}
+  nav.tabs button.g-gloss .glyph::after{font-size:9px;}
+  nav.tabs button.g-quiz .glyph::after{font-size:9px;}
+  header.site h1{font-size:1.25rem;}
+  main{padding-top:28px;}
+  .quiz-setup .modes{grid-template-columns:1fr 1fr;}
+  .people-grid{grid-template-columns:1fr 1fr;}
+  .progress-grid{grid-template-columns:1fr;}
+  .unit-head h3{font-size:1.18rem;}
+}
+@media (min-width: 1000px){
+  .quiz-setup .modes{grid-template-columns:1fr 1fr 1fr;}
+}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="crest">
+    <div class="crest-mark" aria-hidden="true">7H</div>
+    <div>
+      <h1>Grade 7 Honors — United States and New York State History</h1>
+      <div class="sub">NYCDOE Social Studies Scope &amp; Sequence</div>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs" role="tablist" aria-label="Main sections">
+  <button class="g-home active" role="tab" aria-selected="true" data-view="home"><span class="glyph" aria-hidden="true"></span>Home</button>
+  <button class="g-units" role="tab" aria-selected="false" data-view="units"><span class="glyph" aria-hidden="true"></span>Units</button>
+  <button class="g-time" role="tab" aria-selected="false" data-view="timeline"><span class="glyph" aria-hidden="true"></span>Timeline</button>
+  <button class="g-gloss" role="tab" aria-selected="false" data-view="glossary"><span class="glyph" aria-hidden="true"></span>Glossary</button>
+  <button class="g-skills" role="tab" aria-selected="false" data-view="skills"><span class="glyph" aria-hidden="true"></span>Skills</button>
+  <button class="g-quiz" role="tab" aria-selected="false" data-view="quiz"><span class="glyph" aria-hidden="true"></span>Practice</button>
+  <button class="g-res" role="tab" aria-selected="false" data-view="resources"><span class="glyph" aria-hidden="true"></span>Resources</button>
+</nav>
+
+<main>
+  <section id="view-home" class="view active" role="tabpanel" aria-label="Home"></section>
+  <section id="view-units" class="view" role="tabpanel" aria-label="Units"></section>
+  <section id="view-timeline" class="view" role="tabpanel" aria-label="Timeline"></section>
+  <section id="view-glossary" class="view" role="tabpanel" aria-label="Glossary"></section>
+  <section id="view-skills" class="view" role="tabpanel" aria-label="Skills"></section>
+  <section id="view-quiz" class="view" role="tabpanel" aria-label="Practice and Tests"></section>
+  <section id="view-resources" class="view" role="tabpanel" aria-label="Resources"></section>
+</main>
+
+<script>
+/* =====================================================================
+   EDITABLE CONTENT DATA
+   Teachers and students: everything the app displays lives in the
+   objects below. You can add, remove, or edit any entry — just keep
+   the same structure (commas, quotes, brackets) and refresh the page.
+   ===================================================================== */
+
+const UNITS = [
+{
+  id: 1,
+  title: "Native Americans, Early Encounters, and Colonial Development",
+  years: "Before 1607 – 1750s",
+  essentialQuestion: "How did the meeting of Indigenous, European, and African peoples shape colonial America — and colonial New York?",
+  bigPicture: "Long before Europeans arrived, Indigenous nations like the Haudenosaunee (Iroquois Confederacy) and the Lenape built complex societies across what is now New York. When Europeans crossed the Atlantic, the Columbian Exchange moved plants, animals, people, and diseases between hemispheres — changing life on both sides forever. The Dutch founded New Netherland (later seized by the English and renamed New York), and thirteen English colonies grew along the coast, each shaped by its geography and economy. From the earliest years, enslaved Africans were forced to labor in the colonies, including in New Amsterdam, planting the roots of American slavery.",
+  keyTerms: [
+    ["Haudenosaunee (Iroquois Confederacy)", "An alliance of five (later six) Indigenous nations in New York — Mohawk, Oneida, Onondaga, Cayuga, Seneca, and later Tuscarora — who governed together under the Great Law of Peace."],
+    ["Lenape", "The Indigenous people who lived in the area of present-day New York City and the lower Hudson Valley when Europeans arrived."],
+    ["wampum", "Beads made from shells that Indigenous nations of the Northeast used to record agreements, tell history, and mark important events."],
+    ["Columbian Exchange", "The massive transfer of plants, animals, people, ideas, and diseases between the Americas, Europe, and Africa after 1492."],
+    ["colony", "A settlement ruled by a distant 'parent' country. The parent country usually took the colony's resources and controlled its trade."],
+    ["New Netherland", "The Dutch colony centered on the Hudson River; its main town, New Amsterdam, became New York City when the English took over in 1664."],
+    ["patroon system", "A Dutch plan that gave huge pieces of Hudson Valley land to wealthy men (patroons) who promised to bring settlers over."],
+    ["mercantilism", "The idea that colonies exist to make the parent country rich — sell it raw materials, buy its finished goods."],
+    ["indentured servant", "A person who agreed to work for a set number of years (often 4–7) in exchange for passage to the colonies."],
+    ["Middle Passage", "The horrific forced voyage of enslaved Africans across the Atlantic Ocean to the Americas."],
+    ["triangular trade", "The three-legged Atlantic trade route linking Europe, Africa, and the Americas — including the trade in enslaved people."],
+    ["cash crop", "A crop grown mainly to sell for profit, like tobacco or rice, rather than to eat at home."]
+  ],
+  keyPeople: [
+    ["Hiawatha & the Great Peacemaker", "Traditional founders of the Haudenosaunee Confederacy, who united warring nations under the Great Law of Peace."],
+    ["Christopher Columbus", "Italian sailor for Spain whose 1492 voyage began lasting contact between Europe and the Americas — and its devastating effects on Indigenous peoples."],
+    ["Henry Hudson", "English explorer sailing for the Dutch in 1609; the river he explored now carries his name and drew Dutch settlement to New York."],
+    ["Peter Stuyvesant", "Last Dutch governor of New Netherland; surrendered the colony to the English in 1664."],
+    ["John Peter Zenger", "New York printer whose 1735 trial for criticizing the governor became an early landmark for freedom of the press."]
+  ],
+  timeline: [
+    ["c. 1100s–1400s", "Haudenosaunee Confederacy forms under the Great Law of Peace."],
+    ["1492", "Columbus reaches the Caribbean; the Columbian Exchange begins."],
+    ["1607", "Jamestown, Virginia — first permanent English colony — is founded."],
+    ["1609", "Henry Hudson sails up the Hudson River for the Dutch."],
+    ["1619", "First recorded Africans brought to English Virginia; slavery takes root in the colonies."],
+    ["1624–1626", "Dutch establish New Netherland and New Amsterdam on Manhattan."],
+    ["1664", "England seizes New Netherland and renames it New York."],
+    ["1735", "Zenger trial in New York strikes an early blow for press freedom."]
+  ],
+  matters: [
+    "NYS Connection: The Haudenosaunee Great Law of Peace is one of the world's oldest participatory democracies, and some historians argue it influenced later American ideas about uniting separate governments.",
+    "NYS Connection: New York City began as Dutch New Amsterdam — that heritage survives in place names like Brooklyn (Breukelen), Harlem (Haarlem), and the Bronx (Bronck's land).",
+    "Why It Matters: Slavery existed in New York from the Dutch era; by the 1700s New York City had one of the largest enslaved populations of any northern city. Understanding this challenges the myth that slavery was only a southern story."
+  ]
+},
+{
+  id: 2,
+  title: "The Road to Independence",
+  years: "1754 – 1783",
+  essentialQuestion: "Why did loyal British colonists decide to break away and build a new nation — and how did New York help win the Revolution?",
+  bigPicture: "The French and Indian War (1754–1763) left Britain victorious but deep in debt, so Parliament taxed the colonies — without asking them. Colonists protested 'taxation without representation' through boycotts, petitions, and sometimes violence. Enlightenment thinkers like John Locke taught that government's job is to protect people's natural rights, and that people may replace a government that fails. Those ideas fill the Declaration of Independence (1776). The Revolutionary War was fought heavily on New York soil: nearly one-third of its battles happened here, and the American victory at Saratoga in 1777 convinced France to join the fight — the war's great turning point.",
+  keyTerms: [
+    ["French and Indian War", "War (1754–1763) between Britain and France, each with Indigenous allies, for control of North America. Britain won — and got a mountain of debt."],
+    ["Proclamation of 1763", "British rule closing land west of the Appalachian Mountains to colonial settlement, angering colonists who wanted to move west."],
+    ["Stamp Act", "A 1765 tax requiring colonists to buy special stamped paper for documents and newspapers — the first direct tax on colonists, and they exploded in protest."],
+    ["boycott", "Refusing to buy certain goods as a protest. Colonists boycotted British goods to pressure Parliament."],
+    ["natural rights", "Rights every person is born with — life, liberty, and property — that government cannot rightly take away (an idea from John Locke)."],
+    ["Enlightenment", "A 1600s–1700s movement in Europe using reason to rethink government, rights, and society."],
+    ["Declaration of Independence", "The 1776 document, mainly written by Thomas Jefferson, announcing that the colonies were free states and explaining why."],
+    ["Patriot", "A colonist who supported independence from Britain."],
+    ["Loyalist", "A colonist who stayed loyal to Britain — very common in New York."],
+    ["Battle of Saratoga", "The 1777 American victory in upstate New York that convinced France to become an American ally — the turning point of the war."],
+    ["Treaty of Paris (1783)", "The agreement ending the Revolutionary War; Britain recognized American independence."],
+    ["mercenary", "A soldier hired to fight for a foreign country, like the German Hessians hired by Britain."]
+  ],
+  keyPeople: [
+    ["John Locke", "English Enlightenment philosopher whose ideas about natural rights and the social contract shaped the Declaration."],
+    ["Thomas Jefferson", "Main author of the Declaration of Independence."],
+    ["George Washington", "Commander of the Continental Army; held the army together through brutal defeats (many in New York) until final victory."],
+    ["Samuel Adams", "Boston protest organizer and leader of the Sons of Liberty."],
+    ["Benedict Arnold", "Hero of Saratoga who later betrayed the American cause by plotting to hand over West Point, New York."],
+    ["Alexander Hamilton", "Young New York immigrant who became Washington's trusted aide during the war."],
+    ["Mercy Otis Warren", "Patriot writer whose plays and essays attacked British policies and rallied support for independence."]
+  ],
+  timeline: [
+    ["1754–1763", "French and Indian War; Britain wins but owes huge debts."],
+    ["1765", "Stamp Act sparks colonial protests; Stamp Act Congress meets in New York City."],
+    ["1770", "Boston Massacre: British soldiers kill five colonists."],
+    ["1773", "Boston Tea Party protests the Tea Act."],
+    ["1775", "Fighting begins at Lexington and Concord."],
+    ["July 4, 1776", "Declaration of Independence is adopted."],
+    ["Aug 1776", "Battle of Brooklyn (Long Island) — largest battle of the war; Washington escapes across the East River."],
+    ["Oct 1777", "American victory at Saratoga brings France into the war."],
+    ["1781", "British surrender at Yorktown, Virginia."],
+    ["1783", "Treaty of Paris ends the war; British evacuate New York City (Evacuation Day, Nov 25)."]
+  ],
+  matters: [
+    "NYS Connection: About one-third of all Revolutionary War battles were fought in New York, including Brooklyn, White Plains, and Saratoga. The British held New York City for most of the war.",
+    "NYS Connection: The Stamp Act Congress (1765) met in New York City — one of the first times colonies acted together against Britain.",
+    "Why It Matters: The Declaration's promise that 'all men are created equal' set a standard the nation kept failing to meet — and later reformers, abolitionists, and civil rights leaders used its own words to demand change."
+  ]
+},
+{
+  id: 3,
+  title: "A New Nation: The United States Constitution",
+  years: "1781 – 1791",
+  essentialQuestion: "How does the Constitution balance power — between states and the nation, among three branches, and between government and the people?",
+  bigPicture: "America's first plan of government, the Articles of Confederation, made the national government so weak it could not tax, raise an army easily, or settle disputes — problems exposed by Shays' Rebellion. In 1787, delegates met in Philadelphia and wrote a new Constitution built on compromise: the Great Compromise created a two-house Congress, and the Three-Fifths Compromise counted enslaved people as three-fifths of a person for representation — embedding slavery into the new government. The Constitution divides power through federalism, separation of powers, and checks and balances. Federalists and Antifederalists battled over ratification — especially in New York, where the Federalist Papers were written — and the Bill of Rights was added in 1791 to protect individual freedoms.",
+  keyTerms: [
+    ["Articles of Confederation", "America's first constitution (1781–1789). It created a weak national government with no power to tax — and it nearly fell apart."],
+    ["Shays' Rebellion", "A 1786–87 uprising of Massachusetts farmers that scared leaders into strengthening the national government."],
+    ["Constitutional Convention", "The 1787 meeting in Philadelphia where delegates wrote the U.S. Constitution."],
+    ["Great Compromise", "The deal creating a two-house Congress: the Senate (equal votes per state) and the House of Representatives (votes based on population)."],
+    ["Three-Fifths Compromise", "The agreement to count three-fifths of a state's enslaved population for representation and taxes — giving slave states extra power in Congress."],
+    ["federalism", "Dividing power between the national government and the state governments."],
+    ["separation of powers", "Splitting government into three branches — legislative (makes laws), executive (carries out laws), judicial (interprets laws)."],
+    ["checks and balances", "Each branch can limit the others — for example, the president can veto a law, and Congress can override the veto."],
+    ["ratification", "Official approval. Nine of thirteen states had to ratify the Constitution for it to take effect."],
+    ["Federalists", "Supporters of the Constitution and a strong national government."],
+    ["Antifederalists", "Opponents who feared the Constitution gave the national government too much power and lacked a bill of rights."],
+    ["Bill of Rights", "The first ten amendments (1791), protecting freedoms like speech, religion, press, and fair trials."],
+    ["amendment", "An official change or addition to the Constitution."],
+    ["preamble", "The Constitution's opening statement of purpose, beginning 'We the People.'"]
+  ],
+  keyPeople: [
+    ["James Madison", "'Father of the Constitution' — his Virginia Plan shaped the document, and he later drafted the Bill of Rights."],
+    ["Alexander Hamilton", "New York delegate who co-wrote the Federalist Papers to win ratification in his skeptical home state."],
+    ["George Washington", "President of the Constitutional Convention; his support gave the document credibility. First U.S. president, inaugurated in New York City."],
+    ["Benjamin Franklin", "Elder statesman of the Convention who urged delegates to compromise."],
+    ["George Clinton", "New York's governor and a leading Antifederalist voice."],
+    ["John Jay", "New Yorker who co-wrote the Federalist Papers and became the first Chief Justice of the United States."]
+  ],
+  timeline: [
+    ["1781", "Articles of Confederation take effect."],
+    ["1786–87", "Shays' Rebellion exposes the weakness of the Articles."],
+    ["Summer 1787", "Constitutional Convention meets in Philadelphia."],
+    ["1787–88", "Federalist Papers published in New York newspapers."],
+    ["1788", "Constitution ratified; New York approves narrowly at the Poughkeepsie convention (30–27)."],
+    ["Apr 30, 1789", "Washington inaugurated as first president at Federal Hall in New York City — the nation's first capital."],
+    ["1791", "Bill of Rights ratified."]
+  ],
+  matters: [
+    "NYS Connection: New York City was the first capital of the United States. Washington took the oath of office at Federal Hall on Wall Street in 1789.",
+    "NYS Connection: The Federalist Papers — 85 essays by Hamilton, Madison, and Jay — were published in New York newspapers to persuade New Yorkers to ratify. They are still used today to interpret the Constitution.",
+    "Why It Matters: The same compromises that created the Union also protected slavery. The Three-Fifths Compromise gave slave states extra seats in Congress for decades — a tension that leads directly to Unit 5."
+  ]
+},
+{
+  id: 4,
+  title: "A Nation Grows: Expansion and Reform",
+  years: "1800 – 1860",
+  essentialQuestion: "As the United States grew bigger, faster, and richer, who was included in its promises — and who fought to widen them?",
+  bigPicture: "The Louisiana Purchase (1803) doubled the nation's size, and the War of 1812 confirmed its independence. New York's Erie Canal (1825) linked the Great Lakes to the Hudson River and the Atlantic, slashing shipping costs and turning New York City into America's busiest port. Many Americans embraced Manifest Destiny — the belief the nation was meant to stretch to the Pacific — with devastating consequences for Indigenous peoples, including forced removal on the Trail of Tears. The Industrial Revolution moved work from farms and homes into factories and mills. At the same time, the Second Great Awakening lit a fire of reform: abolitionists demanded an end to slavery, and at Seneca Falls, New York, in 1848, reformers demanded rights for women.",
+  keyTerms: [
+    ["Louisiana Purchase", "The 1803 deal in which the U.S. bought a huge territory from France for $15 million, doubling the nation's size."],
+    ["War of 1812", "War between the U.S. and Britain (1812–1815) over trade interference and the seizing of American sailors; it boosted American confidence and manufacturing."],
+    ["Erie Canal", "A 363-mile human-made waterway across New York (opened 1825) connecting Lake Erie to the Hudson River — and the Midwest to New York City."],
+    ["Manifest Destiny", "The belief that the United States was destined to expand across the continent to the Pacific Ocean."],
+    ["Indian Removal Act", "An 1830 law forcing Indigenous nations in the Southeast off their lands; the Cherokee's forced march west is called the Trail of Tears."],
+    ["Industrial Revolution", "The shift from making goods by hand at home to making them by machine in factories."],
+    ["textile mill", "A factory that spins and weaves cloth; early American mills often employed young women ('mill girls')."],
+    ["Second Great Awakening", "A wave of religious revivals in the early 1800s that inspired many people to fix society's problems."],
+    ["reform movement", "An organized effort to change society for the better — like abolition, temperance, education reform, and women's rights."],
+    ["abolitionist", "A person who worked to end (abolish) slavery."],
+    ["Seneca Falls Convention", "The first women's rights convention in the U.S., held in Seneca Falls, New York, in 1848."],
+    ["Declaration of Sentiments", "The Seneca Falls document, modeled on the Declaration of Independence, stating 'all men and women are created equal.'"],
+    ["temperance", "The movement urging people to stop drinking alcohol."],
+    ["suffrage", "The right to vote."]
+  ],
+  keyPeople: [
+    ["Thomas Jefferson", "President who made the Louisiana Purchase and sent Lewis and Clark to explore it."],
+    ["DeWitt Clinton", "New York governor who championed the Erie Canal — mockers called it 'Clinton's Ditch' until it succeeded spectacularly."],
+    ["Andrew Jackson", "President who signed the Indian Removal Act and championed the 'common man' — for white men."],
+    ["Elizabeth Cady Stanton", "Organizer of the Seneca Falls Convention and main author of the Declaration of Sentiments."],
+    ["Lucretia Mott", "Quaker minister and co-organizer of Seneca Falls."],
+    ["Frederick Douglass", "Formerly enslaved abolitionist, brilliant speaker, and Rochester, NY newspaper publisher who attended Seneca Falls and backed women's suffrage."],
+    ["Horace Mann", "Reformer who fought for free public schools for all children."],
+    ["Dorothea Dix", "Reformer who exposed the cruel treatment of people with mental illness and demanded humane care."]
+  ],
+  timeline: [
+    ["1803", "Louisiana Purchase doubles the size of the United States."],
+    ["1812–1815", "War of 1812 against Britain."],
+    ["1825", "Erie Canal opens; New York becomes the 'Empire State.'"],
+    ["1830", "Indian Removal Act signed."],
+    ["1838–39", "Trail of Tears: thousands of Cherokee die on the forced march west."],
+    ["1845", "Term 'Manifest Destiny' is coined."],
+    ["1846–48", "Mexican-American War adds vast western lands."],
+    ["1848", "Seneca Falls Convention launches the women's rights movement."]
+  ],
+  matters: [
+    "NYS Connection: The Erie Canal made New York City the nation's number-one port and earned New York the nickname 'the Empire State.' Cities like Buffalo, Rochester, and Syracuse boomed along its route.",
+    "NYS Connection: Upstate New York was called the 'Burned-Over District' because revival fires of the Second Great Awakening swept through it so often — which is why so many reform movements (abolition, women's rights) were born there.",
+    "Why It Matters: Seneca Falls borrowed the Declaration of Independence's own words to demand equality for women — proof that founding documents can become tools for people left out of them."
+  ]
+},
+{
+  id: 5,
+  title: "A Nation Divided",
+  years: "1820 – 1865",
+  essentialQuestion: "Why did compromise fail — and how did the Civil War transform the United States?",
+  bigPicture: "As the nation expanded, every new territory raised the same explosive question: slave or free? Compromises — Missouri (1820), 1850, Kansas-Nebraska (1854) — bought time but satisfied no one, while the Fugitive Slave Act and the Dred Scott decision convinced many northerners that slavery threatened everyone's liberty. Abolitionists like Frederick Douglass and Harriet Tubman resisted; the Underground Railroad ran straight through New York. When Abraham Lincoln won the 1860 election, southern states seceded and formed the Confederacy. The Civil War (1861–1865) killed roughly 750,000 Americans. The Emancipation Proclamation (1863) turned it into a war against slavery, and Black soldiers helped win it. New York sent more soldiers than any other state — yet also erupted in the deadly Draft Riots of 1863. The Union victory ended slavery through the 13th Amendment and settled that states cannot leave the Union.",
+  keyTerms: [
+    ["sectionalism", "Loyalty to your region (North or South) over the country as a whole."],
+    ["Missouri Compromise", "The 1820 deal admitting Missouri as a slave state and Maine as a free state, and drawing a line across the Louisiana Territory to divide future slave and free areas."],
+    ["Compromise of 1850", "A package deal admitting California as a free state but including a much harsher Fugitive Slave Act."],
+    ["Fugitive Slave Act", "An 1850 law forcing all Americans — even in free states — to help capture people escaping slavery."],
+    ["Kansas-Nebraska Act", "An 1854 law letting settlers in those territories vote on slavery ('popular sovereignty'), which erupted into violence called 'Bleeding Kansas.'"],
+    ["Dred Scott decision", "The 1857 Supreme Court ruling that African Americans were not citizens and Congress could not ban slavery in the territories."],
+    ["Underground Railroad", "A secret network of people, routes, and safe houses that helped enslaved people escape to freedom — many routes ran through New York toward Canada."],
+    ["secession", "Formally leaving the Union, as eleven southern states did in 1860–61."],
+    ["Confederacy", "The Confederate States of America — the government formed by the seceding states."],
+    ["Emancipation Proclamation", "Lincoln's 1863 order freeing enslaved people in areas rebelling against the Union, and making the war a fight against slavery."],
+    ["NYC Draft Riots", "Four days of deadly violence in July 1863 when mobs, angry over the draft, attacked Black New Yorkers and government buildings — the deadliest riot in U.S. history."],
+    ["Gettysburg Address", "Lincoln's short 1863 speech recommitting the nation to 'a new birth of freedom' and government 'of the people, by the people, for the people.'"],
+    ["13th Amendment", "The 1865 constitutional amendment abolishing slavery throughout the United States."],
+    ["total war", "A strategy of destroying the enemy's economy and will to fight, not just its armies — used in Sherman's March to the Sea."]
+  ],
+  keyPeople: [
+    ["Abraham Lincoln", "President who led the Union through the Civil War, issued the Emancipation Proclamation, and was assassinated days after victory."],
+    ["Frederick Douglass", "Abolitionist leader who escaped slavery, published the North Star in Rochester, NY, advised Lincoln, and recruited Black soldiers."],
+    ["Harriet Tubman", "Escaped slavery, then returned south repeatedly to guide others to freedom; later lived in Auburn, New York."],
+    ["Sojourner Truth", "Born enslaved in Ulster County, New York; became a powerful voice for abolition and women's rights."],
+    ["John Brown", "Radical abolitionist whose 1859 raid on Harpers Ferry aimed to spark an uprising against slavery; buried in North Elba, NY."],
+    ["Jefferson Davis", "President of the Confederacy."],
+    ["Ulysses S. Grant", "Union general whose victories won the war; accepted Lee's surrender at Appomattox."],
+    ["Robert E. Lee", "Leading Confederate general who surrendered in April 1865."],
+    ["Harriet Beecher Stowe", "Author of Uncle Tom's Cabin (1852), the antislavery novel that moved millions of northern readers."]
+  ],
+  timeline: [
+    ["1820", "Missouri Compromise draws a slave/free line across the West."],
+    ["1850", "Compromise of 1850 and the harsher Fugitive Slave Act."],
+    ["1852", "Uncle Tom's Cabin is published."],
+    ["1854", "Kansas-Nebraska Act leads to 'Bleeding Kansas.'"],
+    ["1857", "Dred Scott decision denies Black citizenship."],
+    ["1860", "Lincoln elected; South Carolina secedes."],
+    ["Apr 1861", "Confederates fire on Fort Sumter; the Civil War begins."],
+    ["Jan 1, 1863", "Emancipation Proclamation takes effect."],
+    ["Jul 1863", "Union victory at Gettysburg; NYC Draft Riots erupt days later."],
+    ["Nov 1863", "Lincoln delivers the Gettysburg Address."],
+    ["Apr 1865", "Lee surrenders at Appomattox; Lincoln assassinated."],
+    ["Dec 1865", "13th Amendment abolishes slavery."]
+  ],
+  matters: [
+    "NYS Connection: New York sent more soldiers to the Union army than any other state — over 400,000 — yet the city also saw the Draft Riots, showing how divided even the North was.",
+    "NYS Connection: New York was abolitionist ground: Frederick Douglass published in Rochester, Harriet Tubman settled in Auburn, Sojourner Truth was born in Ulster County, and Underground Railroad routes ran through the state to Canada.",
+    "Why It Matters: The war answered two founding-era questions — the Union is permanent, and slavery is dead — but the struggle over equal citizenship continued into Reconstruction and beyond."
+  ]
+}
+];
+
+/* ---------- NYS Social Studies Practices ---------- */
+const SKILLS = [
+{
+  name: "Gathering, Interpreting, and Using Evidence",
+  plain: "Historians act like detectives. They collect sources (documents, images, objects), figure out who made each one and why, and use them as evidence to support claims. Always ask: Who created this? When? Why? What might they leave out?",
+  task: "Find the Zenger trial in Unit 1. Write two sentences: one FACT the case gives us, and one QUESTION you would still want a primary source to answer."
+},
+{
+  name: "Chronological Reasoning and Causation",
+  plain: "Put events in order, then ask how they connect. Causation means one event helps produce another — the French and Indian War caused British debt, which caused new taxes, which caused colonial protest. Look for both short-term sparks and long-term causes.",
+  task: "Using the Timeline tab, pick any three events from different units and write one sentence for each link explaining HOW the earlier event helped cause the later one."
+},
+{
+  name: "Comparison and Contextualization",
+  plain: "Comparison means finding similarities and differences (New England vs. Southern colonies). Contextualization means understanding an event inside its own time — judging the 1787 Convention by what was possible and believed in 1787, while still evaluating it honestly.",
+  task: "Compare the Declaration of Independence (1776) and the Declaration of Sentiments (1848). List two things they share and one big difference in purpose."
+},
+{
+  name: "Geographic Reasoning",
+  plain: "Geography shapes history. Rivers, harbors, mountains, and climate influenced where people settled, what they grew, and who got rich. Ask: How did the land shape the choices people made here?",
+  task: "Explain in 3–4 sentences how New York's geography (a deep harbor plus the Hudson River plus the Erie Canal route) helped it become the Empire State."
+},
+{
+  name: "Economics and Economic Systems",
+  plain: "Follow the money. Economics asks how people produce, trade, and use resources. Mercantilism, cash crops, the triangular trade, canals, and factories all explain why groups acted the way they did — including why some defended slavery.",
+  task: "In one paragraph, explain how the cotton economy made the South more committed to slavery even as the North industrialized. Use at least two key terms from Units 4 and 5."
+},
+{
+  name: "Civic Participation",
+  plain: "Democracy is a verb. Citizens participate by voting, petitioning, protesting, publishing, and organizing. From the Sons of Liberty to Seneca Falls to abolitionist newspapers, ordinary people changed history by acting together.",
+  task: "Choose one reformer from Unit 4 or 5 and identify the METHOD they used (speech, newspaper, convention, direct action). Then name a modern method that does the same job today."
+}
+];
+
+const READING_LESSONS = [
+{
+  title: "How to Read a Primary Source",
+  body: "1) SOURCE IT: Who wrote it, when, and for what audience? 2) CONTEXTUALIZE: What was happening at that moment? 3) READ CLOSELY: What is the author's claim and tone? Circle words that show opinion. 4) CORROBORATE: Does another source agree? A single angry letter is a clue, not proof. Remember: every source has a point of view — that doesn't make it useless; it makes it evidence about its author too."
+},
+{
+  title: "How to Read a Map",
+  body: "Start with the title, date, and legend (key). Check the compass rose and scale. Then ask the historian's question: what does this map show about movement, borders, resources, or power at that time? A map of the Erie Canal isn't just geography — it's an argument about trade and growth."
+},
+{
+  title: "How to Read a Political Cartoon",
+  body: "Cartoons persuade using symbols (an eagle = America), exaggeration (huge or tiny figures = importance or weakness), labels, and irony. Steps: 1) Identify every symbol and label. 2) Ask what action is happening. 3) State the cartoonist's opinion in one sentence. 4) Ask who would agree — and who would be angry."
+},
+{
+  title: "How to Attack a DBQ",
+  body: "A Document-Based Question gives you documents plus an essay task. Plan of attack: 1) Read the TASK first, and underline exactly what it asks. 2) Read each document with the task in mind; jot a 5-word summary next to each. 3) Group documents by idea, not by number. 4) Write a thesis that answers the task directly. 5) In each body paragraph, use the document AND your outside knowledge — name it, explain it, connect it. 6) Cite documents like this: (Doc 2). Never just quote a document without explaining what it proves."
+}
+];
+
+/* ---------- Resources (each opens in a new tab) ---------- */
+const RESOURCES = [
+["NYCDOE / NYSED Social Studies", "https://www.nysed.gov/curriculum-instruction/social-studies", "The official New York State standards, frameworks, and the Grade 7 Scope & Sequence."],
+["New York State Museum", "https://www.nysm.nysed.gov/", "Exhibits and digital collections on New York's Indigenous nations, colonial era, and Civil War history."],
+["Library of Congress — Primary Sources", "https://www.loc.gov/classroom-materials/", "Real letters, maps, photographs, and newspapers from every era in this course."],
+["National Archives — DocsTeach", "https://www.docsteach.org/", "The nation's founding documents plus activities built around primary sources."],
+["Gilder Lehrman Institute of American History", "https://www.gilderlehrman.org/", "Essays, documents, and study aids written by historians — excellent for honors-level depth."],
+["Smithsonian — National Museum of American History", "https://americanhistory.si.edu/explore", "Artifacts and stories from the Revolution through the Civil War."],
+["Ben's Guide to the U.S. Government", "https://bensguide.gpo.gov/", "A kid-safe guide to how the Constitution and the three branches actually work."],
+["National Constitution Center — Interactive Constitution", "https://constitutioncenter.org/the-constitution", "Read the Constitution clause by clause with short explanations from scholars."],
+["New-York Historical Society", "https://www.nyhistory.org/", "New York's oldest museum, with strong collections on slavery in New York, the Revolution, and the Draft Riots."],
+["Erie Canal Museum", "https://eriecanalmuseum.org/", "The story of the canal that made New York the Empire State."]
+];
+
+/* =====================================================================
+   PRACTICE QUESTIONS — all original questions written for this app.
+   Each question: u = unit number, stim = optional stimulus object
+   {kind, text}, q = question, c = 4 choices, a = index of correct
+   choice (0-3), ex = one-sentence explanation.
+   ===================================================================== */
+
+const QUESTIONS = [
+/* ---------------- UNIT 1 (12 questions) ---------------- */
+{u:1, stim:{kind:"Quote", text:"\"We bind ourselves together by taking hold of each other's hands so firmly and forming a circle so strong that if a tree should fall upon it, it could not shake nor break it.\" — adapted from the Great Law of Peace of the Haudenosaunee"},
+ q:"This passage best supports which conclusion about the Haudenosaunee Confederacy?",
+ c:["It was ruled by a single all-powerful king","Its member nations valued unity and collective strength","It rejected all forms of government","It was created by European colonists"],
+ a:1, ex:"The image of joined hands forming an unbreakable circle expresses the Confederacy's core idea: separate nations gaining strength through union."},
+{u:1, q:"Which best describes the Columbian Exchange?",
+ c:["A bank founded by Columbus in Spain","A treaty between Spain and Portugal","The transfer of plants, animals, people, and diseases between hemispheres after 1492","A trade route used only by Indigenous nations"],
+ a:2, ex:"The Columbian Exchange names the massive two-way transfer between the Americas and Afro-Eurasia that began with Columbus's voyages."},
+{u:1, q:"What was the most devastating effect of European contact on Indigenous peoples of the Americas?",
+ c:["The introduction of horses","Epidemic diseases like smallpox, to which they had no immunity","The arrival of new crops such as wheat","Learning new languages"],
+ a:1, ex:"European diseases killed enormous numbers of Indigenous people — in many regions the majority of the population — because they had never been exposed to them."},
+{u:1, stim:{kind:"Map description", text:"A map of the Atlantic Ocean shows three arrows forming a triangle: one from Europe to West Africa labeled 'manufactured goods,' one from West Africa to the Americas labeled 'enslaved people,' and one from the Americas to Europe labeled 'sugar, tobacco, raw materials.'"},
+ q:"The map illustrates which economic system?",
+ c:["The patroon system","Mercantile fishing rights","The triangular trade","The Erie Canal trade network"],
+ a:2, ex:"The three-legged Atlantic route linking Europe, Africa, and the Americas — including the forced transport of enslaved Africans — is the triangular trade."},
+{u:1, q:"The Middle Passage refers to",
+ c:["the forced ocean voyage of enslaved Africans to the Americas","the wagon route through the Appalachian Mountains","the middle section of the Erie Canal","the journey of the Pilgrims to Plymouth"],
+ a:0, ex:"The Middle Passage was the brutal middle leg of the triangular trade, carrying enslaved Africans across the Atlantic."},
+{u:1, q:"Why did the English rename New Amsterdam as New York in 1664?",
+ c:["The Dutch sold it to pay debts","England seized the colony from the Dutch and renamed it for the Duke of York","A fire destroyed the original town","The colonists voted to change the name"],
+ a:1, ex:"An English fleet forced Governor Stuyvesant to surrender New Netherland, and the colony was renamed for the king's brother, the Duke of York."},
+{u:1, stim:{kind:"Quote", text:"\"The question before the court is not the cause of a poor printer... It is the cause of liberty.\" — adapted from Andrew Hamilton's defense at the trial of John Peter Zenger, New York, 1735"},
+ q:"The Zenger trial is remembered as an early step toward which freedom?",
+ c:["Freedom of religion","Freedom of the press","The right to bear arms","Freedom from taxation"],
+ a:1, ex:"Zenger's acquittal for printing criticism of New York's governor became a landmark for the idea that publishing the truth is not a crime."},
+{u:1, q:"Which colonial region relied most heavily on cash crops like tobacco and rice grown with enslaved labor?",
+ c:["The New England colonies","The Middle colonies","The Southern colonies","The Canadian colonies"],
+ a:2, ex:"Warm climate and long growing seasons made the Southern colonies plantation economies dependent on cash crops and enslaved labor."},
+{u:1, q:"Under mercantilism, the main job of a colony was to",
+ c:["elect representatives to Parliament","enrich the parent country with raw materials and buy its goods","develop its own independent factories","form alliances with other empires"],
+ a:1, ex:"Mercantilism treated colonies as sources of raw materials and captive markets that existed to make the parent country wealthy."},
+{u:1, q:"How was an indentured servant different from an enslaved person?",
+ c:["Indentured servants worked for a set number of years and then were free","Indentured servants could never be freed","Enslaved people signed contracts choosing their masters","There was no difference at all"],
+ a:0, ex:"Indenture was a temporary labor contract, while slavery was lifelong, hereditary, and based on treating human beings as property."},
+{u:1, stim:{kind:"Chart description", text:"A chart titled 'New York City Population, about 1740' shows roughly one out of every five residents listed as enslaved Africans."},
+ q:"This chart best supports which statement?",
+ c:["Slavery existed only in the Southern colonies","Slavery was a significant part of colonial New York's society and economy","New York banned slavery in the 1700s","Enslaved people were a majority of New York's population"],
+ a:1, ex:"With about one in five residents enslaved, colonial New York City had one of the largest enslaved populations in the North — slavery was not only a southern institution."},
+{u:1, q:"The Lenape were the Indigenous people living in which area at the time of European contact?",
+ c:["The Great Plains","Present-day New York City and the lower Hudson Valley","Florida","The Pacific Northwest"],
+ a:1, ex:"The Lenape lived in the region of present-day New York City, Long Island's western edge, and the lower Hudson Valley."},
+
+/* ---------------- UNIT 2 (12 questions) ---------------- */
+{u:2, q:"What was the most important result of the French and Indian War for the American colonies?",
+ c:["France gained control of the thirteen colonies","Britain's war debt led Parliament to tax the colonists","The colonies immediately declared independence","Spain conquered New York"],
+ a:1, ex:"Britain won the war but owed massive debts, and Parliament's decision to make colonists help pay set off the taxation crisis."},
+{u:2, stim:{kind:"Quote", text:"\"No taxes should be imposed on the people except by their own consent, given personally or through their representatives.\" — adapted from the resolutions of the Stamp Act Congress, New York City, 1765"},
+ q:"Which colonial slogan expresses the same idea as this resolution?",
+ c:["\"Manifest Destiny\"","\"No taxation without representation\"","\"Fifty-four forty or fight\"","\"Remember the Alamo\""],
+ a:1, ex:"The Stamp Act Congress argued that only the colonists' own elected assemblies could rightfully tax them — taxation without representation was tyranny."},
+{u:2, q:"The Proclamation of 1763 angered colonists because it",
+ c:["raised the tax on tea","closed western lands beyond the Appalachians to settlement","forced them to house British soldiers","banned town meetings"],
+ a:1, ex:"After fighting a war partly over western land, colonists were furious that Britain barred them from settling beyond the Appalachian Mountains."},
+{u:2, q:"Colonial boycotts of British goods were effective mainly because they",
+ c:["hurt British merchants financially, pressuring Parliament","destroyed British warships","won support from the French king","ended the fur trade"],
+ a:0, ex:"When colonists stopped buying British goods, British merchants lost money and lobbied Parliament to repeal the hated taxes."},
+{u:2, stim:{kind:"Quote", text:"\"We hold these truths to be self-evident, that all men are created equal, that they are endowed by their Creator with certain unalienable Rights, that among these are Life, Liberty and the pursuit of Happiness.\" — Declaration of Independence, 1776"},
+ q:"These ideas most directly reflect the influence of which Enlightenment thinker?",
+ c:["Karl Marx","John Locke","William Shakespeare","Isaac Newton"],
+ a:1, ex:"Jefferson drew on John Locke's theory that people are born with natural rights that government exists to protect."},
+{u:2, q:"According to the Declaration of Independence, where does a government get its power?",
+ c:["From God through the king","From the consent of the governed","From the army","From wealthy landowners"],
+ a:1, ex:"The Declaration states that governments derive 'their just powers from the consent of the governed' — the people themselves."},
+{u:2, q:"A colonist who remained loyal to Britain during the Revolution was called a",
+ c:["Patriot","Minuteman","Loyalist","Federalist"],
+ a:2, ex:"Loyalists supported the king; New York had one of the largest Loyalist populations of any colony."},
+{u:2, stim:{kind:"Political cartoon description", text:"A cartoon from 1777 shows a chain of thirteen links wrapped around a British lion, with a fleur-de-lis (the symbol of France) reaching down to grip the chain after a battle labeled 'Saratoga.'"},
+ q:"The cartoon suggests that the Battle of Saratoga was important because it",
+ c:["ended the war immediately","convinced France to join the American cause","allowed Britain to capture Philadelphia","had no effect on the war"],
+ a:1, ex:"Saratoga proved the Americans could defeat a British army, persuading France to enter the war as an American ally — the turning point."},
+{u:2, q:"Why is the Battle of Brooklyn (Long Island) in August 1776 significant in New York history?",
+ c:["It was the largest battle of the entire war, and Washington's army barely escaped","It was the final battle of the war","It convinced Spain to invade Britain","It took place before independence was declared"],
+ a:0, ex:"The war's biggest battle was fought in Brooklyn; Washington's nighttime escape across the East River saved the Continental Army."},
+{u:2, q:"The Treaty of Paris of 1783 accomplished which of the following?",
+ c:["It created the U.S. Constitution","Britain recognized American independence","France took control of Canada","It ended the French and Indian War"],
+ a:1, ex:"In the 1783 Treaty of Paris, Britain formally recognized the United States as an independent nation."},
+{u:2, q:"Hessian soldiers fighting for Britain during the Revolution are best described as",
+ c:["colonial volunteers","French allies","hired mercenaries from Germany","Indigenous warriors"],
+ a:2, ex:"Britain hired German soldiers called Hessians — mercenaries paid to fight in a foreign war."},
+{u:2, stim:{kind:"Chart description", text:"A chart titled 'Revolutionary War Battles by Colony' shows New York with the largest bar, representing nearly one-third of all battles fought."},
+ q:"Which conclusion is best supported by the chart?",
+ c:["New York was a minor theater of the war","New York's location made it central to the fighting","Most battles were fought at sea","Georgia saw the most fighting"],
+ a:1, ex:"Controlling New York's harbor and the Hudson River corridor would split New England from the other colonies, so armies clashed there constantly."},
+
+/* ---------------- UNIT 3 (12 questions) ---------------- */
+{u:3, q:"The biggest weakness of the Articles of Confederation was that the national government could not",
+ c:["declare war","collect taxes","make treaties","print money"],
+ a:1, ex:"Under the Articles, Congress could only ask states for money — it could not tax — leaving the nation broke and weak."},
+{u:3, stim:{kind:"Quote", text:"\"Our government is on the edge of collapse. Farmers with muskets have shut the courts, and Congress has no money and no army to respond.\" — adapted from a letter by a Massachusetts official, 1787"},
+ q:"The events described in this letter most directly led to",
+ c:["the Boston Tea Party","the calling of the Constitutional Convention","the Louisiana Purchase","the Emancipation Proclamation"],
+ a:1, ex:"Shays' Rebellion terrified national leaders and convinced them to meet in Philadelphia to replace the failing Articles."},
+{u:3, q:"The Great Compromise settled the fight between large and small states by",
+ c:["banning slavery in the North","creating a two-house Congress with one house based on population and one with equal state votes","letting the president choose Congress","counting only landowners in the census"],
+ a:1, ex:"The House of Representatives is based on population (pleasing big states) while every state gets two senators (pleasing small states)."},
+{u:3, q:"Under the Three-Fifths Compromise,",
+ c:["three-fifths of a state's enslaved population counted toward representation and taxation","enslaved people received three-fifths of a citizen's rights","three-fifths of states had to approve laws","the South received three-fifths of federal money"],
+ a:0, ex:"Counting three-fifths of the enslaved population inflated slave states' power in Congress while granting enslaved people no rights at all."},
+{u:3, q:"Federalism is best defined as",
+ c:["rule by a single strong executive","the division of power between the national and state governments","government controlled by judges","a system with no written constitution"],
+ a:1, ex:"Federalism splits authority: some powers belong to the national government, some to the states, and some are shared."},
+{u:3, stim:{kind:"Chart description", text:"A three-column chart lists: Column A — 'Makes laws, controls spending'; Column B — 'Enforces laws, commands the military'; Column C — 'Interprets laws, decides cases.'"},
+ q:"The chart describes which constitutional principle?",
+ c:["Manifest Destiny","separation of powers","popular sovereignty of territories","mercantilism"],
+ a:1, ex:"Dividing government into legislative, executive, and judicial branches with distinct jobs is the separation of powers."},
+{u:3, q:"Which is an example of checks and balances?",
+ c:["States printing their own money","The president vetoing a bill passed by Congress","Citizens paying taxes","A governor signing a state law"],
+ a:1, ex:"The veto lets one branch (executive) check another (legislative); Congress can check back by overriding the veto with a two-thirds vote."},
+{u:3, stim:{kind:"Quote", text:"\"A government without a bill of rights is a house without locks. We are asked to trust rulers with unlimited power and hope for the best.\" — adapted from an Antifederalist essay, New York, 1788"},
+ q:"The author of this passage would most likely support",
+ c:["immediate ratification with no changes","adding written protections for individual liberties to the Constitution","abolishing all state governments","returning to British rule"],
+ a:1, ex:"Antifederalists demanded a bill of rights to guarantee freedoms — pressure that produced the first ten amendments in 1791."},
+{u:3, q:"The Federalist Papers were written mainly to",
+ c:["persuade New Yorkers to ratify the Constitution","declare war on Britain","demand independence from Spain","support the Articles of Confederation"],
+ a:0, ex:"Hamilton, Madison, and Jay published the essays in New York newspapers to win over the state's skeptical ratifying convention."},
+{u:3, q:"Which freedoms are protected by the First Amendment?",
+ c:["The right to a speedy trial and a jury","Religion, speech, press, assembly, and petition","Freedom from housing soldiers","The right to vote at age eighteen"],
+ a:1, ex:"The First Amendment protects five freedoms: religion, speech, press, assembly, and petition."},
+{u:3, q:"Why is New York City's Federal Hall historically significant?",
+ c:["The Declaration of Independence was signed there","George Washington took the first presidential oath of office there in 1789","The Erie Canal began there","The Emancipation Proclamation was written there"],
+ a:1, ex:"New York City was the nation's first capital, and Washington was inaugurated at Federal Hall on Wall Street."},
+{u:3, q:"The phrase 'We the People' in the preamble signals that the Constitution's authority comes from",
+ c:["the state legislatures alone","the citizens of the United States","the British Parliament","the Continental Army"],
+ a:1, ex:"Unlike the Articles (a pact among states), the Constitution announces that its power flows directly from the people."},
+
+/* ---------------- UNIT 4 (12 questions) ---------------- */
+{u:4, q:"The Louisiana Purchase of 1803 was significant because it",
+ c:["gave Florida to Spain","doubled the size of the United States","ended the War of 1812","created the state of New York"],
+ a:1, ex:"For $15 million, Jefferson bought French territory stretching from the Mississippi to the Rockies, doubling the nation's size."},
+{u:4, stim:{kind:"Quote", text:"\"They call it Clinton's Ditch and laugh. But when this canal joins the waters of Lake Erie to the Hudson, the produce of the West will flow to New York, and our city will outgrow them all.\" — adapted from a New York newspaper editorial, 1820"},
+ q:"Which later development best proved this writer correct?",
+ c:["New York City became the nation's leading port after the canal opened in 1825","The canal was never completed","Boston replaced New York as the top port","Farmers refused to use the canal"],
+ a:0, ex:"The Erie Canal slashed shipping costs by about 90 percent, funneling western trade through New York City and making it America's busiest port."},
+{u:4, q:"The Erie Canal connected which two bodies of water?",
+ c:["The Atlantic Ocean and the Gulf of Mexico","Lake Erie and the Hudson River","The Mississippi River and Lake Michigan","The Delaware River and Chesapeake Bay"],
+ a:1, ex:"The 363-mile canal linked Lake Erie at Buffalo to the Hudson River near Albany, connecting the Midwest to New York Harbor."},
+{u:4, q:"Manifest Destiny was the belief that",
+ c:["the U.S. should return land to Indigenous nations","the U.S. was destined to expand across the continent to the Pacific","all states should abolish slavery","America should rejoin the British Empire"],
+ a:1, ex:"Manifest Destiny claimed continental expansion was America's obvious fate — a belief used to justify taking Indigenous and Mexican lands."},
+{u:4, stim:{kind:"Map description", text:"A map shows a route marked with arrows from Cherokee lands in Georgia and Tennessee westward to present-day Oklahoma, labeled '1838–1839.' A caption notes that roughly one in four people on the march died."},
+ q:"The map depicts which event?",
+ c:["The Oregon Trail","The Trail of Tears","Lewis and Clark's expedition","The Underground Railroad"],
+ a:1, ex:"Under the Indian Removal Act, the U.S. forced the Cherokee west on the Trail of Tears; thousands died on the march."},
+{u:4, q:"The Industrial Revolution changed how goods were made by shifting production",
+ c:["from factories to farms","from machines to hand tools","from homes and workshops to machine-powered factories","from cities to plantations"],
+ a:2, ex:"Machine-powered factories and mills replaced home production, changing where and how Americans worked."},
+{u:4, q:"The Second Great Awakening contributed to reform movements because it",
+ c:["taught that society's problems could and should be fixed","banned all public meetings","discouraged people from joining organizations","focused only on foreign trade"],
+ a:0, ex:"Revival preachers taught that individuals could improve themselves and society, inspiring crusades against slavery, alcohol abuse, and other ills."},
+{u:4, stim:{kind:"Quote", text:"\"We hold these truths to be self-evident: that all men and women are created equal.\" — Declaration of Sentiments, Seneca Falls, New York, 1848"},
+ q:"The authors modeled this document on the Declaration of Independence in order to",
+ c:["mock the Founders","show that women were claiming the nation's own founding promises","demand independence from the United States","support the Fugitive Slave Act"],
+ a:1, ex:"By adding two words — 'and women' — Stanton turned the nation's founding document into an argument for women's equality."},
+{u:4, q:"Which demand from the Seneca Falls Convention was considered the most radical in 1848?",
+ c:["Better roads","Women's right to vote (suffrage)","Lower postage rates","Free trade with Britain"],
+ a:1, ex:"Even some reformers hesitated at women's suffrage; Frederick Douglass's support helped the voting-rights resolution pass."},
+{u:4, q:"Frederick Douglass connected the abolition and women's rights movements by",
+ c:["opposing both movements","publishing his newspaper in Rochester and speaking in support of women's suffrage at Seneca Falls","serving as president of the Confederacy","leading the Trail of Tears"],
+ a:1, ex:"Douglass, who published the North Star in Rochester, NY, attended Seneca Falls and argued forcefully for women's right to vote."},
+{u:4, q:"Why was upstate New York nicknamed the 'Burned-Over District'?",
+ c:["It suffered constant forest fires","Religious revivals swept through it so frequently and intensely","British troops burned it during the Revolution","Its factories polluted the air"],
+ a:1, ex:"Waves of Second Great Awakening revivals 'burned' across upstate New York, which is why so many reform movements began there."},
+{u:4, q:"Horace Mann is best remembered for reforming",
+ c:["public education","prisons in France","the banking system","the postal service"],
+ a:0, ex:"Mann championed free, tax-supported public schools so every child — not just the wealthy — could get an education."},
+
+/* ---------------- UNIT 5 (12 questions) ---------------- */
+{u:5, q:"Sectionalism in the years before the Civil War means",
+ c:["loyalty to one's region over the nation as a whole","support for a national bank","dividing states into counties","loyalty to political parties"],
+ a:0, ex:"Northerners and Southerners increasingly put their region's interests — especially over slavery — ahead of national unity."},
+{u:5, q:"The Missouri Compromise of 1820 attempted to keep peace by",
+ c:["abolishing slavery everywhere","admitting Missouri as a slave state, Maine as a free state, and drawing a line for future territories","giving Missouri to France","banning new states entirely"],
+ a:1, ex:"The compromise preserved the Senate balance between slave and free states and drew the 36°30′ line across the Louisiana Territory."},
+{u:5, stim:{kind:"Quote", text:"\"This law makes every citizen a slave-catcher. A man who escapes to Syracuse or Rochester may be dragged back in chains, and any of us who helps him faces prison.\" — adapted from a New York abolitionist newspaper, 1850"},
+ q:"The writer is protesting which law?",
+ c:["The Stamp Act","The Fugitive Slave Act of 1850","The Indian Removal Act","The Kansas-Nebraska Act"],
+ a:1, ex:"The Fugitive Slave Act forced northerners to assist in capturing escaped enslaved people, outraging many who had considered slavery a distant problem."},
+{u:5, q:"'Bleeding Kansas' erupted because the Kansas-Nebraska Act",
+ c:["banned slavery in Kansas","let settlers vote on slavery, drawing armed supporters of both sides into the territory","gave Kansas to the Confederacy","closed Kansas to settlement"],
+ a:1, ex:"Popular sovereignty turned Kansas into a battleground as proslavery and antislavery settlers rushed in and violence followed."},
+{u:5, q:"In the Dred Scott decision (1857), the Supreme Court ruled that",
+ c:["slavery was unconstitutional","African Americans were not citizens and Congress could not ban slavery in the territories","enslaved people became free in free states","the Missouri Compromise must be enforced"],
+ a:1, ex:"The ruling denied Black citizenship and struck down limits on slavery's spread, pushing the nation closer to war."},
+{u:5, stim:{kind:"Political cartoon description", text:"An 1856 cartoon shows a giant book labeled 'Uncle Tom's Cabin' tipping a scale, outweighing a stack of proslavery pamphlets on the other side."},
+ q:"The cartoonist's main point is that Stowe's novel",
+ c:["had little influence on public opinion","powerfully turned northern opinion against slavery","was banned in the North","supported the Fugitive Slave Act"],
+ a:1, ex:"The heavy book outweighing proslavery writings shows the cartoonist's view that Uncle Tom's Cabin moved public opinion more than all its opponents combined."},
+{u:5, q:"The Underground Railroad was",
+ c:["the first subway in New York City","a secret network of routes and safe houses helping enslaved people escape to freedom","a railroad company owned by the Confederacy","a canal connecting the North and South"],
+ a:1, ex:"It was not a literal railroad but a network of helpers and hiding places; many routes ran through New York toward Canada."},
+{u:5, q:"Southern states seceded after the election of 1860 primarily because",
+ c:["Lincoln promised to invade the South immediately","they believed Lincoln and the Republicans would restrict slavery","the North refused to trade with them","Britain ordered them to leave the Union"],
+ a:1, ex:"Although Lincoln pledged not to touch slavery where it existed, the South saw his opposition to its expansion as a fatal threat and left the Union."},
+{u:5, stim:{kind:"Quote", text:"\"...all persons held as slaves within any State... in rebellion against the United States, shall be then, thenceforward, and forever free.\" — Emancipation Proclamation, January 1, 1863"},
+ q:"Which statement about the Emancipation Proclamation is most accurate?",
+ c:["It immediately freed all enslaved people in every state","It applied to areas in rebellion and transformed the war into a fight against slavery","It ended the Civil War","It was issued by Jefferson Davis"],
+ a:1, ex:"The Proclamation covered Confederate-held areas — not loyal border states — but it redefined the Union cause and opened the army to Black soldiers."},
+{u:5, q:"The New York City Draft Riots of July 1863 revealed that",
+ c:["all northerners supported the war equally","deep divisions over the war and race existed even in the North","the South controlled New York City","the draft was popular with workers"],
+ a:1, ex:"Anger over the draft (and its $300 buy-out for the rich) exploded into mob violence targeting Black New Yorkers — the deadliest riot in U.S. history."},
+{u:5, q:"In the Gettysburg Address, Lincoln described the war's purpose as ensuring",
+ c:["revenge against the South","'a new birth of freedom' and government of, by, and for the people","the expansion of slavery westward","an alliance with Britain"],
+ a:1, ex:"In under three minutes, Lincoln recast the war as a test of whether a nation dedicated to equality and self-government could survive."},
+{u:5, q:"Slavery was permanently abolished throughout the United States by",
+ c:["the Emancipation Proclamation","the 13th Amendment (1865)","the Missouri Compromise","the Treaty of Paris"],
+ a:1, ex:"The Emancipation Proclamation was a wartime order with limits; the 13th Amendment wrote abolition into the Constitution itself."}
+];
+
+/* =====================================================================
+   CONSTRUCTED-RESPONSE PROMPTS — short-answer practice with model
+   answers revealed on click. Two per unit.
+   ===================================================================== */
+
+const CRQS = [
+{u:1, prompt:"Identify two effects of the Columbian Exchange — one on the Americas and one on Europe.",
+ model:"On the Americas: European diseases such as smallpox devastated Indigenous populations, killing a majority of people in many regions; Europeans also introduced horses, cattle, and wheat. On Europe: American crops like potatoes and corn spread widely and helped Europe's population grow. (Strong answers name specific items moving in each direction and state a clear effect.)"},
+{u:1, prompt:"Explain how slavery became part of colonial New York's economy and society.",
+ model:"Slavery began under the Dutch in New Amsterdam, where enslaved Africans built roads, walls, and buildings, and it continued under English rule. By the 1700s roughly one in five New York City residents was enslaved, laboring in homes, on docks, and on farms. This shows slavery was woven into northern colonial life, not only the plantation South."},
+{u:2, prompt:"Explain the chain of causes connecting the French and Indian War to the American Revolution.",
+ model:"Britain won the French and Indian War but ended up deeply in debt. To pay it, Parliament taxed the colonists (Stamp Act, Townshend duties) without their consent, and the Proclamation of 1763 blocked western settlement. Colonists protested 'taxation without representation' with boycotts and congresses; Britain responded with punishment, and the escalating conflict led to war in 1775 and independence in 1776."},
+{u:2, prompt:"Why was the Battle of Saratoga called the turning point of the Revolutionary War?",
+ model:"At Saratoga in 1777, American forces surrounded and captured an entire British army in upstate New York. The victory proved the Americans could win, which convinced France to enter the war as an ally, supplying money, soldiers, and a navy. French help made the final victory at Yorktown possible."},
+{u:3, prompt:"Describe one weakness of the Articles of Confederation and explain how the Constitution fixed it.",
+ model:"Under the Articles, Congress could not tax; it could only ask states for money, so the government was constantly broke and could not pay its army or debts. The Constitution fixed this by giving Congress the power to levy taxes directly, funding a real national government. (Other acceptable pairs: no executive → the presidency; no national courts → the federal judiciary; unanimous amendment rule → easier amendment process.)"},
+{u:3, prompt:"Explain how the Constitution both limits government power and protects individual rights. Use two specific examples.",
+ model:"Power is limited through structure: separation of powers divides government into three branches, and checks and balances let each restrain the others — for example, the president can veto laws and courts can strike them down. Rights are protected in writing: the First Amendment guarantees freedoms of religion, speech, press, assembly, and petition, and other amendments guarantee fair trials. Structure controls the government; the Bill of Rights shields the people."},
+{u:4, prompt:"Explain two ways the Erie Canal changed New York State.",
+ model:"First, it slashed the cost and time of shipping goods between the Midwest and the Atlantic, making New York City the nation's busiest port and the center of American trade and banking. Second, it fueled the growth of upstate cities along its route — Buffalo, Rochester, and Syracuse — as farms and factories shipped goods on the canal. New York earned the nickname 'the Empire State.'"},
+{u:4, prompt:"How did the Seneca Falls Convention use America's founding ideas to argue for change?",
+ model:"The convention's Declaration of Sentiments deliberately copied the Declaration of Independence, rewriting its most famous line as 'all men and women are created equal' and listing women's grievances the way Jefferson listed the king's abuses. By using the nation's own founding promises, Stanton and Mott argued that denying women rights — especially the vote — betrayed American principles."},
+{u:5, prompt:"Why did the compromises of 1820–1854 ultimately fail to prevent the Civil War?",
+ model:"Each compromise treated the symptom — which territories would allow slavery — without resolving the underlying conflict over slavery itself. The Fugitive Slave Act dragged northerners into enforcing slavery, Kansas-Nebraska replaced the Missouri line with popular sovereignty and produced 'Bleeding Kansas,' and Dred Scott declared Congress couldn't restrict slavery at all. Each 'solution' deepened distrust, so when Lincoln won in 1860, the South no longer believed compromise could protect slavery and seceded."},
+{u:5, prompt:"Explain how New York State was both a leader of the Union cause and a place of deep division during the Civil War.",
+ model:"Leadership: New York supplied more soldiers than any other state — over 400,000 — plus money, ships, and supplies, and it was home to leading abolitionists like Frederick Douglass and Harriet Tubman. Division: in July 1863, anger over the draft and its $300 exemption exploded into the NYC Draft Riots, in which mobs attacked Black New Yorkers and burned buildings for four days. The same state that armed the Union also produced the war's worst home-front violence."}
+];
+
+/* =====================================================================
+   DBQ PRACTICE SETS — one per unit. Each includes an original or
+   public-domain-based document excerpt, scaffolded questions, and a
+   model response.
+   ===================================================================== */
+
+const DBQS = [
+{u:1, docTitle:"Document: A Dutch colonist describes New Amsterdam (adapted, 1650s)",
+ doc:"\"On this island of Manhattan live people of many nations. In the streets one hears Dutch, English, French, and African tongues, and ships arrive weekly with furs from the river Indians upriver. The Company has brought enslaved Africans to build the fort and the wall at the town's northern edge. Trade, not farming, is the life of this place.\"",
+ scaffold:[
+   "According to the document, what was the main economic activity of New Amsterdam?",
+   "What evidence in the document shows that New Amsterdam was diverse?",
+   "What does the document reveal about the role of enslaved labor in building the colony?"
+ ],
+ model:"The document shows that New Amsterdam was a trading town above all — the author says 'trade, not farming, is the life of this place,' and ships arrived weekly carrying furs. It was also unusually diverse, with Dutch, English, French, and African languages heard in the streets. Finally, it reveals that enslaved Africans were forced to do the colony's hardest construction, building the fort and the northern wall (the future Wall Street). Together these details explain New York City's roots as a diverse port city built partly by enslaved labor."},
+{u:2, docTitle:"Document: A New York merchant on the Stamp Act (adapted, 1765)",
+ doc:"\"We are not children to be taxed without our voice. No man from these colonies sits in Parliament, yet Parliament reaches into our pockets. Our answer shall be this: we will buy no British goods — no cloth, no tea, no paper — until this Act is dead. Let the merchants of London feel what we feel.\"",
+ scaffold:[
+   "What is the writer's main complaint about the Stamp Act?",
+   "What action does the writer propose, and how was it supposed to work?",
+   "How does this document help explain why Parliament repealed the Stamp Act in 1766?"
+ ],
+ model:"The merchant's core complaint is taxation without representation: 'no man from these colonies sits in Parliament, yet Parliament reaches into our pockets.' His proposed weapon is a boycott — refusing to buy British cloth, tea, and paper — aimed at making London's merchants 'feel what we feel.' The document helps explain the repeal because the strategy worked: British merchants, losing colonial customers, pressured Parliament until the Stamp Act was withdrawn. It shows colonists learning that organized economic protest could change imperial policy."},
+{u:3, docTitle:"Document: Two voices on ratification (adapted, New York, 1788)",
+ doc:"FEDERALIST: \"Thirteen quarreling states invite invasion and bankruptcy. Only a firm union under this Constitution can pay our debts, defend our coasts, and command respect abroad.\" — ANTIFEDERALIST: \"A distant government with the power to tax and keep armies will forget the people. Where in this plan are our liberties written down? Without a bill of rights, I cannot sign.\"",
+ scaffold:[
+   "What is the Federalist's strongest argument for the Constitution?",
+   "What is the Antifederalist's main fear, and what solution is implied?",
+   "How did the ratification debate end in a compromise that answered both voices?"
+ ],
+ model:"The Federalist argues that only a strong union can solve national problems — debts, defense, and respect abroad — that thirteen separate states cannot handle. The Antifederalist fears that a powerful distant government will trample liberty, and implies the solution: written guarantees, 'a bill of rights.' The debate ended in compromise: the Constitution was ratified (narrowly in New York), and the First Congress added the Bill of Rights in 1791. The Federalists got their strong government; the Antifederalists got their written liberties — and both remain part of American government today."},
+{u:4, docTitle:"Document: A farmer's letter on the Erie Canal (adapted, western New York, 1827)",
+ doc:"\"Before the canal, hauling my wheat overland to Albany cost near as much as the wheat would fetch. Now a canal boat carries it for a tenth of the price, and it reaches New York City in days. The village of Rochester, which I knew as a crossroads, now has mills, churches, and more new buildings than I can count.\"",
+ scaffold:[
+   "How did the canal change the cost of shipping the farmer's wheat?",
+   "What evidence shows the canal's effect on upstate towns?",
+   "Using the document and your knowledge, explain how the canal strengthened the bond between the Midwest and New York City."
+ ],
+ model:"The farmer says shipping that once cost nearly the value of his wheat now costs about a tenth as much — a huge drop that made selling crops in distant markets profitable. His description of Rochester exploding from a crossroads into a milling boomtown shows the canal driving upstate growth. Combined with outside knowledge, the document explains a larger shift: cheap water transport tied Midwestern farms to New York Harbor, so western grain flowed east and money and goods flowed west, making New York City the commercial capital of the nation and New York the 'Empire State.'"},
+{u:5, docTitle:"Document: A formerly enslaved speaker addresses a New York audience (adapted, 1852)",
+ doc:"\"You celebrate your Fourth of July and read your Declaration. What, to the man still in chains, is your Fourth of July? Your festival is a mockery while millions are held as property. I do not despair, for your own founding words condemn the practice — I ask only that America live up to what it has written.\"",
+ scaffold:[
+   "What contradiction between American ideals and American practice does the speaker identify?",
+   "Why might the speaker quote the nation's founding documents instead of rejecting them?",
+   "How does this argument connect to later events such as the Emancipation Proclamation and the 13th Amendment?"
+ ],
+ model:"The speaker exposes the contradiction between the Declaration's promise of equality and the reality of millions held in slavery — the Fourth of July is 'a mockery' to the enslaved. Rather than rejecting the founding documents, he uses them as a weapon: America's 'own founding words condemn the practice,' so the nation must be held to its stated ideals (the strategy of abolitionists like Frederick Douglass). This argument prevailed during the Civil War: the Emancipation Proclamation redefined the war as a fight for freedom, and the 13th Amendment finally wrote abolition into the Constitution, moving the nation closer to its founding promise."}
+];
+
+/* =====================================================================
+   APPLICATION LOGIC — no edits needed below this line.
+   ===================================================================== */
+
+const $ = (sel, root=document) => root.querySelector(sel);
+const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
+const esc = s => String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+
+/* ---------- Persistent progress (localStorage) ---------- */
+const STORE_KEY = "g7h-history-progress-v1";
+function loadProgress(){
+  try{ return JSON.parse(localStorage.getItem(STORE_KEY)) || {modes:{}, unitStats:{}}; }
+  catch(e){ return {modes:{}, unitStats:{}}; }
+}
+function saveProgress(p){
+  try{ localStorage.setItem(STORE_KEY, JSON.stringify(p)); }catch(e){}
+}
+let progress = loadProgress();
+
+/* ---------- Tab navigation ---------- */
+const tabButtons = $$("nav.tabs button");
+function showView(name){
+  $$("section.view").forEach(v => v.classList.toggle("active", v.id === "view-"+name));
+  tabButtons.forEach(b => {
+    const on = b.dataset.view === name;
+    b.classList.toggle("active", on);
+    b.setAttribute("aria-selected", on ? "true" : "false");
+    b.setAttribute("tabindex", on ? "0" : "-1");
+  });
+  if(name === "home") renderHome();
+  window.scrollTo({top:0, behavior:"auto"});
+}
+tabButtons.forEach((b,i) => {
+  b.addEventListener("click", () => showView(b.dataset.view));
+  b.addEventListener("keydown", e => {
+    if(e.key === "ArrowRight" || e.key === "ArrowLeft"){
+      e.preventDefault();
+      const dir = e.key === "ArrowRight" ? 1 : -1;
+      const next = tabButtons[(i + dir + tabButtons.length) % tabButtons.length];
+      next.focus(); showView(next.dataset.view);
+    }
+  });
+});
+
+/* ---------- HOME ---------- */
+function renderHome(){
+  const modes = progress.modes || {};
+  const rows = UNITS.map(u => {
+    const m = modes["unit"+u.id];
+    const pct = m ? Math.round(100*m.best.correct/m.best.total) : 0;
+    const label = m ? pct+"% best" : "Not started";
+    return `<div class="prog-row">
+      <span class="lbl">Unit ${u.id}</span>
+      <div class="prog-bar" role="img" aria-label="Unit ${u.id} best score ${label}"><div class="prog-fill" style="width:${pct}%"></div></div>
+      <span class="pct">${label}</span></div>`;
+  }).join("");
+  const fin = modes["final"];
+  const finPct = fin ? Math.round(100*fin.best.correct/fin.best.total) : 0;
+  $("#view-home").innerHTML = `
+    <div class="hero">
+      <div class="eyebrow" style="color:var(--gold)">Your Study Hub</div>
+      <h2>Everything you need, one page, no internet required.</h2>
+      <p>Five units of United States and New York State history — from the Haudenosaunee Confederacy to the end of the Civil War — with a full glossary, a master timeline, skill lessons, and a practice engine that remembers your scores.</p>
+      <div class="rule"></div>
+    </div>
+    <div class="card howto">
+      <div class="eyebrow">How to use this app</div>
+      <ol>
+        <li><b>Learn</b> in the <b>Units</b> tab — each unit has a Big Picture summary, key terms, people, dates, and New York connections.</li>
+        <li><b>Connect</b> events across units in the <b>Timeline</b> tab, and look up any word in the <b>Glossary</b>.</li>
+        <li><b>Build skills</b> in the <b>Skills</b> tab — including how to read primary sources and attack a DBQ.</li>
+        <li><b>Test yourself</b> in the <b>Practice</b> tab: quiz by unit, mix it up, or take the 25-question Practice Final. Your scores are saved on this device automatically.</li>
+      </ol>
+    </div>
+    <div class="card">
+      <div class="eyebrow">Progress overview — best quiz scores</div>
+      <div class="progress-grid">${rows}
+      <div class="prog-row"><span class="lbl">Practice Final</span>
+        <div class="prog-bar" role="img" aria-label="Practice Final best score ${fin ? finPct+"%" : "not started"}"><div class="prog-fill" style="width:${finPct}%"></div></div>
+        <span class="pct">${fin ? finPct+"% best" : "Not started"}</span></div>
+      </div>
+      <div style="margin-top:16px"><button class="btn gold" onclick="showView('quiz')">Go to Practice &amp; Tests</button></div>
+    </div>`;
+}
+
+/* ---------- UNITS ---------- */
+function renderUnits(){
+  const cards = UNITS.map(u => `
+    <article class="card unit-card" data-unit="${u.id}">
+      <button class="unit-head" aria-expanded="false" onclick="toggleUnit(this)">
+        <span class="unit-num" aria-hidden="true">${u.id}</span>
+        <span class="t"><h3>${esc(u.title)}</h3><span class="years">${esc(u.years)}</span></span>
+        <span class="chev" aria-hidden="true"></span>
+      </button>
+      <div class="unit-body">
+        <div class="eq"><b>Essential Question:</b> ${esc(u.essentialQuestion)}</div>
+        <div class="ub-sec"><h4>The Big Picture</h4><p class="searchable">${esc(u.bigPicture)}</p></div>
+        <div class="ub-sec"><h4>Key Terms</h4>
+          <ul class="term-list">${u.keyTerms.map(t=>`<li class="searchable"><b>${esc(t[0])}</b> — ${esc(t[1])}</li>`).join("")}</ul>
+        </div>
+        <div class="ub-sec"><h4>Key People</h4>
+          <ul class="people-grid">${u.keyPeople.map(p=>`<li class="searchable"><b>${esc(p[0])}</b>${esc(p[1])}</li>`).join("")}</ul>
+        </div>
+        <div class="ub-sec"><h4>Key Dates</h4>
+          <ul class="mini-tl">${u.timeline.map(d=>`<li class="searchable"><b>${esc(d[0])}</b> — ${esc(d[1])}</li>`).join("")}</ul>
+        </div>
+        <div class="ub-sec"><h4>Why It Matters / NYS Connection</h4>
+          ${u.matters.map(m=>`<div class="matters searchable">${esc(m)}</div>`).join("")}
+        </div>
+      </div>
+    </article>`).join("");
+  $("#view-units").innerHTML = `
+    <h2 class="page-title">The Five Units</h2>
+    <p class="page-intro">Tap a unit to open it. Use the search box to find any term, person, date, or idea across all five units at once.</p>
+    <div class="search-wrap">
+      <label for="unitSearch" class="hidden">Search all units</label>
+      <input class="search" id="unitSearch" type="search" placeholder="Search all units — try &quot;Saratoga&quot;, &quot;canal&quot;, or &quot;compromise&quot;" oninput="filterUnits(this.value)">
+      <div class="search-hint" id="unitSearchHint">Searching opens matching units automatically.</div>
+    </div>
+    ${cards}`;
+}
+function toggleUnit(btn){
+  const card = btn.closest(".unit-card");
+  const open = card.classList.toggle("open");
+  btn.setAttribute("aria-expanded", open ? "true" : "false");
+}
+function filterUnits(q){
+  q = q.trim().toLowerCase();
+  const cards = $$("#view-units .unit-card");
+  let hits = 0;
+  const re = q ? new RegExp("(?![^<]*>)("+q.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+")","gi") : null;
+  cards.forEach(card => {
+    const items = $$(".searchable", card);
+    let cardHit = false;
+    items.forEach(el => {
+      if(el.dataset.orig === undefined) el.dataset.orig = el.innerHTML; /* remember clean markup once */
+      if(!q){
+        el.classList.remove("hidden");
+        el.innerHTML = el.dataset.orig;
+        return;
+      }
+      const match = el.textContent.toLowerCase().includes(q);
+      el.classList.toggle("hidden", !match);
+      /* highlight matches without touching HTML tags */
+      el.innerHTML = match ? el.dataset.orig.replace(re, "<mark>$1</mark>") : el.dataset.orig;
+      if(match) cardHit = true;
+    });
+    card.classList.toggle("hidden", q ? !cardHit : false);
+    card.classList.toggle("open", q ? cardHit : false);
+    $(".unit-head",card).setAttribute("aria-expanded", (q && cardHit) ? "true" : "false");
+    if(cardHit) hits++;
+  });
+  $("#unitSearchHint").textContent = q ? (hits ? hits+" unit(s) contain matches." : "No matches — check your spelling or try a shorter word.") : "Searching opens matching units automatically.";
+}
+
+/* ---------- TIMELINE ---------- */
+function timelineSortKey(label){
+  const m = label.match(/\d{3,4}/g);
+  return m ? parseInt(m[0],10) : 0;
+}
+function renderTimeline(){
+  const events = [];
+  UNITS.forEach(u => u.timeline.forEach(d => events.push({year:d[0], text:d[1], unit:u.id, key:timelineSortKey(d[0])})));
+  events.sort((a,b) => a.key - b.key || a.unit - b.unit);
+  $("#view-timeline").innerHTML = `
+    <h2 class="page-title">Master Timeline</h2>
+    <p class="page-intro">One continuous story, from the founding of the Haudenosaunee Confederacy to the abolition of slavery. The tag shows which unit each event belongs to.</p>
+    <div class="card">
+      <ul class="timeline">
+        ${events.map(e=>`<li><span class="tl-year">${esc(e.year)}</span><span class="tl-unit-tag">UNIT ${e.unit}</span><div class="tl-body">${esc(e.text)}</div></li>`).join("")}
+      </ul>
+    </div>`;
+}
+
+/* ---------- GLOSSARY ---------- */
+function renderGlossary(filter=""){
+  const all = [];
+  UNITS.forEach(u => u.keyTerms.forEach(t => all.push({term:t[0], def:t[1], unit:u.id})));
+  all.sort((a,b)=>a.term.toLowerCase().localeCompare(b.term.toLowerCase()));
+  const q = filter.trim().toLowerCase();
+  const shown = q ? all.filter(t => (t.term+" "+t.def).toLowerCase().includes(q)) : all;
+  let html = "", letter = "";
+  shown.forEach(t => {
+    const L = t.term[0].toUpperCase();
+    if(L !== letter && !q){ letter = L; html += `<div class="gloss-letter">${L}</div>`; }
+    html += `<div class="gloss-item"><b>${esc(t.term)}</b> — ${esc(t.def)}<span class="src">Unit ${t.unit}</span></div>`;
+  });
+  $("#view-glossary").innerHTML = `
+    <h2 class="page-title">Key Terms Glossary</h2>
+    <p class="page-intro">Every vocabulary word from all five units, A to Z. ${all.length} terms and counting.</p>
+    <div class="search-wrap">
+      <label for="glossSearch" class="hidden">Search glossary</label>
+      <input class="search" id="glossSearch" type="search" placeholder="Search ${all.length} terms..." value="${esc(filter)}" oninput="renderGlossary(this.value)">
+    </div>
+    <div class="card">${html || "<p>No terms match that search.</p>"}</div>`;
+  if(filter){ const inp = $("#glossSearch"); inp.focus(); inp.setSelectionRange(inp.value.length, inp.value.length); }
+}
+
+/* ---------- SKILLS ---------- */
+function renderSkills(){
+  $("#view-skills").innerHTML = `
+    <h2 class="page-title">Skills — NYS Social Studies Practices</h2>
+    <p class="page-intro">These six practices are how historians think. Master them and every unit — and every future exam — gets easier.</p>
+    ${SKILLS.map((s,i)=>`<div class="card skill-card">
+      <div class="eyebrow">Practice ${["A","B","C","D","E","F"][i]}</div>
+      <h3>${esc(s.name)}</h3>
+      <p>${esc(s.plain)}</p>
+      <div class="try"><b>Try this (honors)</b><br>${esc(s.task)}</div>
+    </div>`).join("")}
+    <h2 class="page-title" style="margin-top:28px">Reading Like a Historian</h2>
+    <p class="page-intro">Short field guides for the document types you will face on assessments.</p>
+    ${READING_LESSONS.map(l=>`<div class="card skill-card"><h3>${esc(l.title)}</h3><p>${esc(l.body)}</p></div>`).join("")}`;
+}
+
+/* ---------- RESOURCES ---------- */
+function renderResources(){
+  $("#view-resources").innerHTML = `
+    <h2 class="page-title">Resources for Going Deeper</h2>
+    <p class="page-intro">Trusted places for primary sources and extra learning. Each link opens in a new tab (internet required for these only — everything else in this app works offline).</p>
+    ${RESOURCES.map(r=>`<a class="res-item" href="${esc(r[1])}" target="_blank" rel="noopener noreferrer"><b>${esc(r[0])}</b><span>${esc(r[2])}</span></a>`).join("")}`;
+}
+
+/* ---------- QUIZ ENGINE ---------- */
+let quiz = null; /* {mode, label, questions, index, correct, answered:[], perUnit:{}} */
+
+function shuffle(arr){
+  const a = arr.slice();
+  for(let i=a.length-1;i>0;i--){ const j = Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; }
+  return a;
+}
+function buildQuiz(mode){
+  let qs = [], label = "";
+  if(mode === "random"){
+    label = "Random Mix (20 questions)";
+    qs = shuffle(QUESTIONS).slice(0,20);
+  } else if(mode === "final"){
+    label = "Practice Final (25 questions)";
+    for(let u=1;u<=5;u++) qs = qs.concat(shuffle(QUESTIONS.filter(q=>q.u===u)).slice(0,5));
+    qs = shuffle(qs);
+  } else {
+    const u = parseInt(mode.replace("unit",""),10);
+    label = "Unit "+u+" Quiz ("+QUESTIONS.filter(q=>q.u===u).length+" questions)";
+    qs = shuffle(QUESTIONS.filter(q=>q.u===u));
+  }
+  quiz = {mode, label, questions:qs, index:0, correct:0, perUnit:{}, done:false};
+  renderQuizQuestion();
+}
+function renderQuizSetup(){
+  const unitModes = UNITS.map(u=>{
+    const m = progress.modes["unit"+u.id];
+    return `<button class="mode-btn" onclick="buildQuiz('unit${u.id}')">
+      <b>Unit ${u.id} Quiz</b><span>${esc(u.title)}${m ? " — best "+Math.round(100*m.best.correct/m.best.total)+"%" : ""}</span></button>`;
+  }).join("");
+  const fin = progress.modes["final"], rnd = progress.modes["random"];
+  const crqHtml = CRQS.map((c,i)=>`
+    <div class="card crq-q">
+      <div class="eyebrow">Constructed Response — Unit ${c.u}</div>
+      <div class="prompt">${esc(c.prompt)}</div>
+      <label class="hidden" for="crq${i}">Your answer</label>
+      <textarea class="answer-box" id="crq${i}" placeholder="Write your answer here (2-5 sentences), then compare with the model."></textarea>
+      <div class="quiz-nav">
+        <button class="btn ghost" onclick="document.getElementById('model${i}').classList.toggle('show')">Show / hide model answer</button>
+      </div>
+      <div class="model" id="model${i}"><b>Model answer:</b> ${esc(c.model)}</div>
+    </div>`).join("");
+  const dbqHtml = DBQS.map((d,i)=>`
+    <div class="card crq-q">
+      <div class="eyebrow">DBQ Practice — Unit ${d.u}</div>
+      <div class="stimulus"><span class="stype">${esc(d.docTitle)}</span>${esc(d.doc)}</div>
+      <ol style="margin:0 0 10px 20px">${d.scaffold.map(s=>`<li style="margin-bottom:6px">${esc(s)}</li>`).join("")}</ol>
+      <label class="hidden" for="dbq${i}">Your DBQ response</label>
+      <textarea class="answer-box" id="dbq${i}" placeholder="Answer the scaffolded questions, then write a short response using the document AND your outside knowledge."></textarea>
+      <div class="quiz-nav">
+        <button class="btn ghost" onclick="document.getElementById('dmodel${i}').classList.toggle('show')">Show / hide model response</button>
+      </div>
+      <div class="model" id="dmodel${i}"><b>Model response:</b> ${esc(d.model)}</div>
+    </div>`).join("");
+  $("#view-quiz").innerHTML = `
+    <h2 class="page-title">Practice &amp; Tests</h2>
+    <p class="page-intro">Instant feedback on every question, with an explanation whether you are right or wrong. Scores save automatically on this device.</p>
+    <div class="quiz-setup">
+      <div class="card">
+        <div class="eyebrow">Choose a quiz</div>
+        <div class="modes">
+          ${unitModes}
+          <button class="mode-btn" onclick="buildQuiz('random')"><b>Random Mix</b><span>20 questions from all units${rnd ? " — best "+Math.round(100*rnd.best.correct/rnd.best.total)+"%" : ""}</span></button>
+          <button class="mode-btn" onclick="buildQuiz('final')"><b>Practice Final</b><span>25 mixed questions, 5 from each unit${fin ? " — best "+Math.round(100*fin.best.correct/fin.best.total)+"%" : ""}</span></button>
+        </div>
+        <div class="quiz-nav"><button class="btn danger" onclick="resetProgress()">Reset all saved progress</button></div>
+      </div>
+      <h2 class="page-title" style="margin-top:24px">Short Answer Practice</h2>
+      <p class="page-intro">Write first, then reveal the model. Comparing your answer to a model is one of the fastest ways to improve.</p>
+      ${crqHtml}
+      <h2 class="page-title" style="margin-top:24px">DBQ Practice</h2>
+      <p class="page-intro">One document set per unit. Use the "How to Attack a DBQ" guide in the Skills tab first.</p>
+      ${dbqHtml}
+      <p class="disclaimer">Note: All questions in this app were written originally for study practice in the style of New York State Regents-format assessments. There is no separate statewide Grade 7 Regents exam; these questions mirror the stimulus-based multiple choice, constructed-response, and DBQ formats students will encounter on later NYS assessments.</p>
+    </div>`;
+}
+function renderQuizQuestion(){
+  const q = quiz.questions[quiz.index];
+  const stim = q.stim ? `<div class="stimulus"><span class="stype">${esc(q.stim.kind)}</span>${esc(q.stim.text)}</div>` : "";
+  $("#view-quiz").innerHTML = `
+    <div class="q-progress">
+      <span>${esc(quiz.label)}</span>
+      <span class="score-pill">Score: ${quiz.correct} / ${quiz.index}</span>
+    </div>
+    <div class="q-track"><div class="q-track-fill" style="width:${Math.round(100*quiz.index/quiz.questions.length)}%"></div></div>
+    <div class="card">
+      <div class="eyebrow">Question ${quiz.index+1} of ${quiz.questions.length} — Unit ${q.u}</div>
+      ${stim}
+      <div class="q-text">${esc(q.q)}</div>
+      <div class="choices">
+        ${q.c.map((c,i)=>`<button class="choice" data-i="${i}" onclick="answer(${i})"><span class="letter">${["A","B","C","D"][i]}</span><span>${esc(c)}</span></button>`).join("")}
+      </div>
+      <div class="feedback" id="fb" role="status"></div>
+      <div class="quiz-nav">
+        <button class="btn hidden" id="nextBtn" onclick="nextQ()">Next question</button>
+        <button class="btn ghost" onclick="quitQuiz()">Quit quiz</button>
+      </div>
+    </div>`;
+}
+function answer(i){
+  const q = quiz.questions[quiz.index];
+  const btns = $$("#view-quiz .choice");
+  if(btns[0].disabled) return;
+  btns.forEach(b=>b.disabled = true);
+  const right = i === q.a;
+  btns[q.a].classList.add("correct");
+  if(!right) btns[i].classList.add("wrong");
+  if(right) quiz.correct++;
+  quiz.perUnit[q.u] = quiz.perUnit[q.u] || {correct:0,total:0};
+  quiz.perUnit[q.u].total++; if(right) quiz.perUnit[q.u].correct++;
+  const fb = $("#fb");
+  fb.className = "feedback show " + (right ? "good" : "bad");
+  fb.innerHTML = `<b>${right ? "Correct." : "Not quite — the answer is "+["A","B","C","D"][q.a]+"."}</b>${esc(q.ex)}`;
+  $(".score-pill").textContent = "Score: "+quiz.correct+" / "+(quiz.index+1);
+  const nb = $("#nextBtn");
+  nb.classList.remove("hidden");
+  nb.textContent = quiz.index+1 < quiz.questions.length ? "Next question" : "See results";
+  nb.focus();
+}
+function nextQ(){
+  quiz.index++;
+  if(quiz.index < quiz.questions.length) renderQuizQuestion();
+  else finishQuiz();
+}
+function quitQuiz(){ quiz = null; renderQuizSetup(); }
+function finishQuiz(){
+  const total = quiz.questions.length, correct = quiz.correct;
+  const pct = Math.round(100*correct/total);
+  /* save */
+  const m = progress.modes[quiz.mode] || {attempts:0, best:{correct:0,total:total}};
+  m.attempts++;
+  if(correct/total >= (m.best.correct/m.best.total || 0)) m.best = {correct, total};
+  m.last = {correct, total};
+  progress.modes[quiz.mode] = m;
+  Object.keys(quiz.perUnit).forEach(u=>{
+    const s = progress.unitStats[u] || {correct:0,total:0};
+    s.correct += quiz.perUnit[u].correct; s.total += quiz.perUnit[u].total;
+    progress.unitStats[u] = s;
+  });
+  saveProgress(progress);
+  const review = UNITS.filter(u=>quiz.perUnit[u.id]).map(u=>{
+    const s = quiz.perUnit[u.id], p = Math.round(100*s.correct/s.total);
+    const ok = p >= 70;
+    return `<li><span>Unit ${u.id}: ${esc(u.title)}</span><span class="${ok?"tag-good":"tag-warn"}">${s.correct}/${s.total}${ok?"":" — review this unit"}</span></li>`;
+  }).join("");
+  const verdict = pct >= 90 ? "Outstanding — honors-level mastery." : pct >= 80 ? "Strong work. Polish the topics below and you are exam-ready." : pct >= 70 ? "Solid foundation. Focus your review on the flagged units." : "Good start — reread the flagged units' Big Picture and Key Terms, then try again.";
+  $("#view-quiz").innerHTML = `
+    <div class="card" style="text-align:center;padding:32px 20px">
+      <div class="eyebrow">${esc(quiz.label)} — Results</div>
+      <div class="results-big">${correct} / ${total}</div>
+      <p style="font-size:1.3rem;color:var(--gold);font-weight:700;font-family:Georgia,serif">${pct}%</p>
+      <p style="max-width:520px;margin:8px auto 0">${verdict}</p>
+    </div>
+    <div class="card">
+      <div class="eyebrow">Breakdown by unit</div>
+      <ul class="review-list">${review}</ul>
+      <div class="quiz-nav">
+        <button class="btn gold" onclick="buildQuiz('${quiz.mode}')">Try again</button>
+        <button class="btn" onclick="quitQuiz()">Back to Practice menu</button>
+        <button class="btn ghost" onclick="showView('units')">Review the Units</button>
+      </div>
+    </div>`;
+  quiz.done = true;
+}
+function resetProgress(){
+  if(confirm("Erase all saved scores and progress on this device?")){
+    progress = {modes:{}, unitStats:{}};
+    saveProgress(progress);
+    renderQuizSetup();
+  }
+}
+
+/* ---------- Boot ---------- */
+renderHome();
+renderUnits();
+renderTimeline();
+renderGlossary();
+renderSkills();
+renderQuizSetup();
+renderResources();
+</script>
+</body>
+</html>
