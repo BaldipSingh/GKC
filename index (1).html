@@ -1,0 +1,2014 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Honors History Hub — Grades 7 &amp; 8, U.S. and NYS History</title>
+<style>
+:root{
+  --ink:#252233;
+  --ink-soft:#5d5a6b;
+  --paper:#f9f5ec;
+  --card:#fffdf8;
+  --line:#e6ddc9;
+  --gold:#b98b2f;
+  --gold-bright:#d4a63c;
+  --gold-soft:#f3e9d0;
+  --plum:#422a5e;
+  --navy:#17203d;
+  --wine:#713055;
+  --grad-royal:linear-gradient(120deg,#17203d 0%,#2c2a55 45%,#422a5e 75%,#5d2c56 100%);
+  --green:#2e6b4f;
+  --green-soft:#e2efe8;
+  --red:#a13a34;
+  --red-soft:#f6e3e1;
+  --radius:16px;
+  --shadow:0 2px 8px rgba(34,28,58,.07),0 8px 24px rgba(34,28,58,.06);
+  --shadow-lg:0 6px 16px rgba(34,28,58,.12),0 18px 44px rgba(34,28,58,.14);
+  --acc:#3d5a8f; /* per-unit accent, overridden inline */
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:"Avenir Next","Segoe UI",system-ui,-apple-system,sans-serif;
+  background:var(--paper);
+  background-image:radial-gradient(rgba(60,45,90,.055) 1px, transparent 1.2px);
+  background-size:26px 26px;
+  color:var(--ink);
+  font-size:17px;line-height:1.65;
+  padding-bottom:80px;
+}
+h1,h2,h3,h4,.serif{font-family:Palatino,"Palatino Linotype","Book Antiqua",Georgia,serif;}
+button{font:inherit;cursor:pointer;border:none;background:none;min-height:44px;color:inherit;}
+a{color:var(--plum);}
+:focus-visible{outline:3px solid var(--gold-bright);outline-offset:2px;border-radius:4px;}
+
+/* ---------- Header ---------- */
+header.site{
+  position:sticky;top:0;z-index:60;
+  background:var(--grad-royal);
+  color:#fff;padding:12px 16px 12px;
+  box-shadow:0 3px 18px rgba(23,32,61,.4);
+  border-bottom:1px solid rgba(212,166,60,.55);
+}
+.head-inner{max-width:1080px;margin:0 auto;display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+.crest-mark{
+  width:44px;height:44px;flex:0 0 44px;border:2px solid var(--gold-bright);
+  border-radius:10px;display:flex;align-items:center;justify-content:center;
+  font-family:Palatino,Georgia,serif;font-weight:700;font-size:15px;color:var(--gold-bright);
+  background:rgba(255,255,255,.05);letter-spacing:.5px;box-shadow:inset 0 0 12px rgba(212,166,60,.15);
+}
+.head-titles{flex:1;min-width:200px;}
+header.site h1{font-size:1.02rem;line-height:1.3;font-weight:700;letter-spacing:.01em;}
+header.site .sub{font-size:.75rem;color:#c9c4dd;letter-spacing:.06em;}
+/* Grade switcher */
+.grade-switch{
+  display:flex;background:rgba(255,255,255,.1);border:1px solid rgba(212,166,60,.5);
+  border-radius:12px;padding:3px;gap:3px;
+}
+.grade-switch button{
+  color:#d8d3e8;font-weight:700;font-size:.85rem;letter-spacing:.03em;
+  padding:7px 16px;border-radius:9px;min-height:38px;transition:background .15s,color .15s;
+}
+.grade-switch button.on{
+  background:linear-gradient(135deg,var(--gold-bright),var(--gold));
+  color:var(--navy);box-shadow:0 2px 8px rgba(0,0,0,.3);
+}
+.grade-switch button:not(.on):hover{color:#fff;}
+
+/* ---------- Tab bars ---------- */
+nav.tabs{
+  position:fixed;bottom:0;left:0;right:0;z-index:70;
+  background:linear-gradient(180deg,#1c2547,#151d38);
+  display:flex;justify-content:space-around;
+  border-top:1px solid rgba(212,166,60,.4);
+  padding:5px 3px calc(5px + env(safe-area-inset-bottom));
+}
+nav.tabs button{
+  flex:1;color:#9aa2bd;font-size:.66rem;font-weight:700;letter-spacing:.02em;
+  padding:6px 2px;display:flex;flex-direction:column;align-items:center;gap:3px;
+  border-radius:10px;min-width:44px;transition:color .15s;
+}
+nav.tabs button .glyph{width:20px;height:20px;border:2px solid currentColor;border-radius:5px;display:block;position:relative;}
+nav.tabs button.g-home .glyph{border-radius:5px 5px 3px 3px;}
+nav.tabs button.g-units .glyph{border-radius:2px;}
+nav.tabs button.g-units .glyph::after{content:"";position:absolute;left:3px;right:3px;top:4px;height:2px;background:currentColor;box-shadow:0 5px 0 currentColor;}
+nav.tabs button.g-time .glyph{border-radius:50%;}
+nav.tabs button.g-time .glyph::after{content:"";position:absolute;left:50%;top:3px;width:2px;height:7px;background:currentColor;transform:translateX(-50%);}
+nav.tabs button.g-gloss .glyph::after{content:"A";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;}
+nav.tabs button.g-skills .glyph{transform:rotate(45deg) scale(.85);}
+nav.tabs button.g-quiz .glyph::after{content:"?";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;}
+nav.tabs button.g-res .glyph{border-radius:50% 50% 4px 4px;}
+nav.tabs button.active{color:var(--gold-bright);background:rgba(212,166,60,.14);}
+nav.tabs button:hover{color:#fff;}
+
+/* ---------- Layout ---------- */
+main{max-width:1080px;margin:0 auto;padding:24px 16px 44px;}
+section.view{display:none;}
+section.view.active{display:block;animation:fadeUp .3s ease;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation:none !important;transition:none !important;}
+  html{scroll-behavior:auto;}
+}
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  box-shadow:var(--shadow);padding:22px;margin-bottom:18px;
+}
+.eyebrow{font-size:.7rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;font-family:inherit;}
+.view h2.page-title{font-size:1.7rem;color:var(--navy);margin-bottom:4px;letter-spacing:.01em;}
+.page-intro{color:var(--ink-soft);margin-bottom:20px;max-width:660px;}
+
+/* ---------- Hero / Home ---------- */
+.hero{
+  position:relative;overflow:hidden;
+  background:var(--grad-royal);
+  color:#fff;border-radius:20px;padding:34px 26px 30px;margin-bottom:20px;
+  box-shadow:var(--shadow-lg);border:1px solid rgba(212,166,60,.35);
+}
+.hero::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(600px 220px at 85% -20%, rgba(212,166,60,.28), transparent 65%);
+}
+.hero .big-num{
+  position:absolute;right:14px;bottom:-38px;font-family:Palatino,Georgia,serif;
+  font-size:11rem;font-weight:700;color:rgba(212,166,60,.13);line-height:1;user-select:none;
+}
+.hero h2{font-size:1.65rem;margin-bottom:10px;line-height:1.25;position:relative;}
+.hero p{color:#d9d5e8;max-width:620px;position:relative;}
+.hero .rule{width:64px;height:3px;background:linear-gradient(90deg,var(--gold-bright),transparent);border-radius:2px;margin:16px 0 0;}
+.howto ol{margin:8px 0 0 22px;}
+.howto li{margin-bottom:9px;}
+.progress-grid{display:grid;gap:13px;grid-template-columns:1fr;}
+.prog-row{display:flex;align-items:center;gap:12px;}
+.prog-row .lbl{flex:0 0 122px;font-weight:700;font-size:.88rem;color:var(--navy);}
+.prog-bar{flex:1;height:13px;background:var(--gold-soft);border-radius:7px;overflow:hidden;border:1px solid var(--line);}
+.prog-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-bright));border-radius:7px;width:0;transition:width .5s ease;}
+.prog-row .pct{flex:0 0 88px;text-align:right;font-size:.83rem;color:var(--ink-soft);font-weight:600;}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,#28325c,#1a2344);color:#fff;border-radius:12px;padding:11px 22px;
+  font-weight:700;font-size:.95rem;transition:transform .12s, box-shadow .12s;min-height:46px;
+  box-shadow:0 3px 10px rgba(23,32,61,.25);
+}
+.btn:hover{transform:translateY(-1px);box-shadow:0 6px 16px rgba(23,32,61,.3);}
+.btn.gold{background:linear-gradient(135deg,var(--gold-bright),var(--gold));color:var(--navy);}
+.btn.ghost{background:transparent;color:var(--navy);border:2px solid var(--navy);box-shadow:none;}
+.btn.ghost:hover{background:var(--navy);color:#fff;}
+.btn.danger{background:transparent;color:var(--red);border:2px solid var(--red);box-shadow:none;}
+.btn.danger:hover{background:var(--red);color:#fff;}
+
+/* ---------- Search ---------- */
+.search-wrap{position:relative;margin-bottom:20px;}
+input.search{
+  width:100%;padding:14px 18px;font:inherit;border:2px solid var(--line);
+  border-radius:14px;background:var(--card);color:var(--ink);box-shadow:var(--shadow);
+}
+input.search:focus{border-color:var(--gold-bright);outline:none;}
+.search-hint{font-size:.8rem;color:var(--ink-soft);margin-top:7px;}
+
+/* ---------- Units (accent spine cards) ---------- */
+.unit-card{overflow:hidden;padding:0;position:relative;border-left:6px solid var(--acc);}
+.unit-head{width:100%;display:flex;align-items:center;gap:14px;text-align:left;padding:19px 20px;}
+.unit-num{
+  flex:0 0 50px;height:50px;border-radius:12px;
+  background:linear-gradient(135deg,var(--acc),color-mix(in srgb,var(--acc) 70%,#000 30%));
+  color:#fff;display:flex;align-items:center;justify-content:center;
+  font-family:Palatino,Georgia,serif;font-size:1.35rem;font-weight:700;
+  box-shadow:0 3px 8px color-mix(in srgb,var(--acc) 45%, transparent);
+}
+.unit-head .t{flex:1;}
+.unit-head h3{font-size:1.12rem;color:var(--navy);line-height:1.35;}
+.unit-head .years{font-size:.78rem;color:var(--acc);letter-spacing:.05em;font-weight:700;}
+.chev{flex:0 0 14px;width:14px;height:14px;border-right:3px solid var(--acc);border-bottom:3px solid var(--acc);transform:rotate(45deg);transition:transform .2s;margin-top:-4px;}
+.unit-card.open .chev{transform:rotate(-135deg);margin-top:6px;}
+.unit-body{display:none;padding:0 20px 24px;border-top:1px solid var(--line);}
+.unit-card.open .unit-body{display:block;}
+.eq{
+  background:color-mix(in srgb,var(--acc) 9%, #fff);border-left:4px solid var(--acc);
+  border-radius:0 12px 12px 0;padding:13px 16px;margin:18px 0;
+  font-family:Palatino,Georgia,serif;font-size:1.03rem;color:var(--navy);
+}
+.ub-sec{margin-top:20px;}
+.ub-sec h4{font-size:.78rem;text-transform:uppercase;letter-spacing:.14em;color:var(--acc);font-family:inherit;font-weight:800;margin-bottom:8px;}
+.term-list{list-style:none;}
+.term-list li{padding:8px 0;border-bottom:1px dashed var(--line);}
+.term-list li:last-child{border-bottom:none;}
+.term-list b{color:var(--navy);}
+.people-grid{display:grid;grid-template-columns:1fr;gap:9px;list-style:none;}
+.people-grid li{background:color-mix(in srgb,var(--acc) 5%, var(--paper));border:1px solid var(--line);border-radius:11px;padding:10px 13px;font-size:.94rem;}
+.people-grid b{color:var(--navy);display:block;}
+.mini-tl{list-style:none;border-left:3px solid var(--acc);margin-left:6px;padding-left:17px;}
+.mini-tl li{position:relative;padding:5px 0;}
+.mini-tl li::before{content:"";position:absolute;left:-23px;top:14px;width:9px;height:9px;background:var(--acc);border-radius:50%;}
+.mini-tl b{color:var(--navy);}
+.matters{background:var(--green-soft);border-left:4px solid var(--green);border-radius:0 12px 12px 0;padding:12px 16px;margin-bottom:9px;font-size:.95rem;}
+.hidden{display:none !important;}
+mark{background:var(--gold-soft);color:inherit;border-radius:3px;padding:0 2px;box-shadow:inset 0 -2px 0 var(--gold-bright);}
+
+/* ---------- Timeline ---------- */
+.timeline{list-style:none;position:relative;margin-left:8px;border-left:3px solid #cfc6ae;padding-left:24px;}
+.timeline li{position:relative;margin-bottom:19px;}
+.timeline li::before{content:"";position:absolute;left:-32px;top:7px;width:13px;height:13px;border-radius:50%;background:var(--card);border:3px solid var(--acc);}
+.tl-year{font-family:Palatino,Georgia,serif;font-weight:700;color:var(--navy);font-size:1.06rem;}
+.tl-unit-tag{display:inline-block;font-size:.66rem;font-weight:800;letter-spacing:.08em;color:#fff;background:var(--acc);border-radius:6px;padding:2px 8px;margin-left:8px;vertical-align:middle;}
+.tl-body{color:var(--ink);font-size:.95rem;}
+
+/* ---------- Glossary + Flashcards ---------- */
+.gloss-letter{font-family:Palatino,Georgia,serif;color:var(--gold);font-size:1.35rem;margin:20px 0 6px;border-bottom:2px solid var(--gold-soft);padding-bottom:2px;}
+.gloss-item{padding:10px 0;border-bottom:1px dashed var(--line);}
+.gloss-item b{color:var(--navy);}
+.gloss-item .src{font-size:.74rem;color:var(--ink-soft);display:block;margin-top:2px;letter-spacing:.04em;}
+.gloss-modes{display:flex;gap:10px;margin-bottom:18px;flex-wrap:wrap;}
+.flash-stage{perspective:1200px;margin:6px auto 16px;max-width:560px;}
+.flash-card{
+  position:relative;width:100%;min-height:230px;cursor:pointer;
+  transform-style:preserve-3d;transition:transform .45s;border:none;display:block;text-align:center;
+}
+.flash-card.flipped{transform:rotateY(180deg);}
+.flash-face{
+  position:absolute;inset:0;backface-visibility:hidden;border-radius:18px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:26px;box-shadow:var(--shadow-lg);
+}
+.flash-front{background:var(--grad-royal);color:#fff;border:1px solid rgba(212,166,60,.4);}
+.flash-front .term{font-family:Palatino,Georgia,serif;font-size:1.6rem;line-height:1.25;}
+.flash-front .tap{margin-top:14px;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-bright);font-weight:700;}
+.flash-back{background:var(--card);border:2px solid var(--gold-bright);transform:rotateY(180deg);color:var(--ink);font-size:1.02rem;}
+.flash-back .u{margin-top:12px;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);font-weight:800;}
+.flash-nav{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+.flash-count{text-align:center;font-size:.85rem;color:var(--ink-soft);font-weight:700;margin-bottom:10px;}
+
+/* ---------- Skills ---------- */
+.skill-card h3{color:var(--navy);font-size:1.12rem;margin-bottom:6px;}
+.try{background:var(--paper);border:1px dashed var(--gold);border-radius:12px;padding:13px 15px;margin-top:12px;font-size:.95rem;}
+.try b{color:var(--gold);text-transform:uppercase;font-size:.72rem;letter-spacing:.1em;font-family:inherit;}
+
+/* ---------- Quiz ---------- */
+.quiz-setup .modes{display:grid;gap:11px;grid-template-columns:1fr;}
+.mode-btn{
+  text-align:left;background:var(--card);border:2px solid var(--line);border-radius:14px;
+  padding:15px 17px;transition:border-color .15s,transform .12s,box-shadow .12s;width:100%;
+}
+.mode-btn:hover{border-color:var(--gold-bright);transform:translateY(-2px);box-shadow:var(--shadow);}
+.mode-btn b{display:block;color:var(--navy);font-size:1.02rem;}
+.mode-btn span{font-size:.85rem;color:var(--ink-soft);}
+.q-progress{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:.85rem;color:var(--ink-soft);font-weight:700;}
+.q-track{height:9px;background:var(--gold-soft);border-radius:5px;overflow:hidden;margin-bottom:18px;border:1px solid var(--line);}
+.q-track-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-bright));width:0;transition:width .3s;}
+.stimulus{
+  background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--plum);
+  border-radius:0 12px 12px 0;padding:15px 17px;margin-bottom:15px;
+  font-family:Palatino,Georgia,serif;font-size:.99rem;
+}
+.stimulus .stype{font-family:"Avenir Next","Segoe UI",system-ui,sans-serif;font-size:.68rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--plum);display:block;margin-bottom:6px;}
+.q-text{font-size:1.1rem;font-weight:700;color:var(--navy);margin-bottom:15px;}
+.choices{display:grid;gap:11px;}
+.choice{
+  text-align:left;background:var(--card);border:2px solid var(--line);border-radius:12px;
+  padding:12px 14px;width:100%;display:flex;gap:11px;align-items:flex-start;transition:border-color .12s;
+}
+.choice:hover{border-color:var(--plum);}
+.choice .letter{flex:0 0 29px;height:29px;border-radius:50%;border:2px solid var(--plum);color:var(--plum);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem;margin-top:1px;}
+.choice.correct{border-color:var(--green);background:var(--green-soft);}
+.choice.correct .letter{background:var(--green);border-color:var(--green);color:#fff;}
+.choice.wrong{border-color:var(--red);background:var(--red-soft);}
+.choice.wrong .letter{background:var(--red);border-color:var(--red);color:#fff;}
+.choice:disabled{cursor:default;}
+.feedback{border-radius:12px;padding:12px 15px;margin-top:15px;font-size:.95rem;display:none;}
+.feedback.show{display:block;}
+.feedback.good{background:var(--green-soft);border-left:4px solid var(--green);}
+.feedback.bad{background:var(--red-soft);border-left:4px solid var(--red);}
+.feedback b{display:block;margin-bottom:2px;}
+.quiz-nav{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap;}
+.score-pill{background:var(--grad-royal);color:var(--gold-bright);border-radius:20px;padding:5px 15px;font-weight:800;font-size:.84rem;border:1px solid rgba(212,166,60,.5);}
+.results-big{font-family:Palatino,Georgia,serif;font-size:2.6rem;color:var(--navy);}
+.review-list{list-style:none;margin-top:10px;}
+.review-list li{padding:9px 0;border-bottom:1px dashed var(--line);display:flex;justify-content:space-between;gap:10px;font-size:.95rem;}
+.tag-good{color:var(--green);font-weight:800;}
+.tag-warn{color:var(--red);font-weight:800;}
+.crq-q .prompt{font-weight:700;color:var(--navy);margin-bottom:8px;}
+.model{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:12px 15px;margin-top:10px;font-size:.95rem;display:none;}
+.model.show{display:block;}
+.model b{color:var(--green);}
+textarea.answer-box{width:100%;min-height:96px;font:inherit;font-size:.95rem;padding:11px 13px;border:2px solid var(--line);border-radius:12px;background:var(--card);resize:vertical;}
+textarea.answer-box:focus{border-color:var(--gold-bright);outline:none;}
+.disclaimer{font-size:.8rem;color:var(--ink-soft);border-top:1px solid var(--line);margin-top:18px;padding-top:12px;}
+
+/* ---------- Resources ---------- */
+.res-item{display:block;background:var(--card);border:1px solid var(--line);border-left:5px solid var(--gold-bright);border-radius:13px;padding:14px 17px;margin-bottom:11px;text-decoration:none;box-shadow:var(--shadow);transition:transform .12s,box-shadow .12s;}
+.res-item:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg);}
+.res-item b{color:var(--navy);display:block;}
+.res-item span{color:var(--ink-soft);font-size:.88rem;}
+
+/* ---------- Desktop ---------- */
+@media (min-width: 780px){
+  body{padding-bottom:0;}
+  nav.tabs{
+    position:sticky;top:68px;bottom:auto;z-index:55;
+    max-width:1080px;margin:0 auto;border-radius:0 0 16px 16px;
+    border-top:none;box-shadow:var(--shadow);padding:6px;
+  }
+  nav.tabs button{flex-direction:row;font-size:.86rem;gap:8px;padding:10px 6px;border-radius:10px;}
+  nav.tabs button .glyph{width:15px;height:15px;}
+  nav.tabs button.g-gloss .glyph::after,nav.tabs button.g-quiz .glyph::after{font-size:9px;}
+  header.site h1{font-size:1.22rem;}
+  .hero h2{font-size:2rem;}
+  main{padding-top:30px;}
+  .quiz-setup .modes{grid-template-columns:1fr 1fr;}
+  .people-grid{grid-template-columns:1fr 1fr;}
+  .unit-head h3{font-size:1.2rem;}
+}
+@media (min-width: 1010px){ .quiz-setup .modes{grid-template-columns:1fr 1fr 1fr;} }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="head-inner">
+    <div class="crest-mark" aria-hidden="true" id="crest">7H</div>
+    <div class="head-titles">
+      <h1 id="siteTitle">Grade 7 Honors — United States and New York State History</h1>
+      <div class="sub">NYCDOE Social Studies Scope &amp; Sequence</div>
+    </div>
+    <div class="grade-switch" role="tablist" aria-label="Choose grade">
+      <button id="gbtn7" class="on" role="tab" aria-selected="true" onclick="setGrade('g7')">Grade 7</button>
+      <button id="gbtn8" role="tab" aria-selected="false" onclick="setGrade('g8')">Grade 8</button>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs" role="tablist" aria-label="Main sections">
+  <button class="g-home active" role="tab" aria-selected="true" data-view="home"><span class="glyph" aria-hidden="true"></span>Home</button>
+  <button class="g-units" role="tab" aria-selected="false" data-view="units"><span class="glyph" aria-hidden="true"></span>Units</button>
+  <button class="g-time" role="tab" aria-selected="false" data-view="timeline"><span class="glyph" aria-hidden="true"></span>Timeline</button>
+  <button class="g-gloss" role="tab" aria-selected="false" data-view="glossary"><span class="glyph" aria-hidden="true"></span>Glossary</button>
+  <button class="g-skills" role="tab" aria-selected="false" data-view="skills"><span class="glyph" aria-hidden="true"></span>Skills</button>
+  <button class="g-quiz" role="tab" aria-selected="false" data-view="quiz"><span class="glyph" aria-hidden="true"></span>Practice</button>
+  <button class="g-res" role="tab" aria-selected="false" data-view="resources"><span class="glyph" aria-hidden="true"></span>Resources</button>
+</nav>
+
+<main>
+  <section id="view-home" class="view active" role="tabpanel" aria-label="Home"></section>
+  <section id="view-units" class="view" role="tabpanel" aria-label="Units"></section>
+  <section id="view-timeline" class="view" role="tabpanel" aria-label="Timeline"></section>
+  <section id="view-glossary" class="view" role="tabpanel" aria-label="Glossary"></section>
+  <section id="view-skills" class="view" role="tabpanel" aria-label="Skills"></section>
+  <section id="view-quiz" class="view" role="tabpanel" aria-label="Practice and Tests"></section>
+  <section id="view-resources" class="view" role="tabpanel" aria-label="Resources"></section>
+</main>
+
+<script>
+/* =====================================================================
+   EDITABLE CONTENT DATA — Grade 7 and Grade 8
+   Teachers and students: everything the app displays lives in the
+   objects below. Edit or add entries, keep the structure, refresh.
+   Each unit has an "acc" field: its accent color (any CSS color).
+   ===================================================================== */
+
+/* ============ GRADE 7 DATA ============ */
+const UNITS7 = [
+{
+  id: 1,
+  acc: "#2f6b52",
+  title: "Native Americans, Early Encounters, and Colonial Development",
+  years: "Before 1607 – 1750s",
+  essentialQuestion: "How did the meeting of Indigenous, European, and African peoples shape colonial America — and colonial New York?",
+  bigPicture: "Long before Europeans arrived, Indigenous nations like the Haudenosaunee (Iroquois Confederacy) and the Lenape built complex societies across what is now New York. When Europeans crossed the Atlantic, the Columbian Exchange moved plants, animals, people, and diseases between hemispheres — changing life on both sides forever. The Dutch founded New Netherland (later seized by the English and renamed New York), and thirteen English colonies grew along the coast, each shaped by its geography and economy. From the earliest years, enslaved Africans were forced to labor in the colonies, including in New Amsterdam, planting the roots of American slavery.",
+  keyTerms: [
+    ["Haudenosaunee (Iroquois Confederacy)", "An alliance of five (later six) Indigenous nations in New York — Mohawk, Oneida, Onondaga, Cayuga, Seneca, and later Tuscarora — who governed together under the Great Law of Peace."],
+    ["Lenape", "The Indigenous people who lived in the area of present-day New York City and the lower Hudson Valley when Europeans arrived."],
+    ["wampum", "Beads made from shells that Indigenous nations of the Northeast used to record agreements, tell history, and mark important events."],
+    ["Columbian Exchange", "The massive transfer of plants, animals, people, ideas, and diseases between the Americas, Europe, and Africa after 1492."],
+    ["colony", "A settlement ruled by a distant 'parent' country. The parent country usually took the colony's resources and controlled its trade."],
+    ["New Netherland", "The Dutch colony centered on the Hudson River; its main town, New Amsterdam, became New York City when the English took over in 1664."],
+    ["patroon system", "A Dutch plan that gave huge pieces of Hudson Valley land to wealthy men (patroons) who promised to bring settlers over."],
+    ["mercantilism", "The idea that colonies exist to make the parent country rich — sell it raw materials, buy its finished goods."],
+    ["indentured servant", "A person who agreed to work for a set number of years (often 4–7) in exchange for passage to the colonies."],
+    ["Middle Passage", "The horrific forced voyage of enslaved Africans across the Atlantic Ocean to the Americas."],
+    ["triangular trade", "The three-legged Atlantic trade route linking Europe, Africa, and the Americas — including the trade in enslaved people."],
+    ["cash crop", "A crop grown mainly to sell for profit, like tobacco or rice, rather than to eat at home."]
+  ],
+  keyPeople: [
+    ["Hiawatha & the Great Peacemaker", "Traditional founders of the Haudenosaunee Confederacy, who united warring nations under the Great Law of Peace."],
+    ["Christopher Columbus", "Italian sailor for Spain whose 1492 voyage began lasting contact between Europe and the Americas — and its devastating effects on Indigenous peoples."],
+    ["Henry Hudson", "English explorer sailing for the Dutch in 1609; the river he explored now carries his name and drew Dutch settlement to New York."],
+    ["Peter Stuyvesant", "Last Dutch governor of New Netherland; surrendered the colony to the English in 1664."],
+    ["John Peter Zenger", "New York printer whose 1735 trial for criticizing the governor became an early landmark for freedom of the press."]
+  ],
+  timeline: [
+    ["c. 1100s–1400s", "Haudenosaunee Confederacy forms under the Great Law of Peace."],
+    ["1492", "Columbus reaches the Caribbean; the Columbian Exchange begins."],
+    ["1607", "Jamestown, Virginia — first permanent English colony — is founded."],
+    ["1609", "Henry Hudson sails up the Hudson River for the Dutch."],
+    ["1619", "First recorded Africans brought to English Virginia; slavery takes root in the colonies."],
+    ["1624–1626", "Dutch establish New Netherland and New Amsterdam on Manhattan."],
+    ["1664", "England seizes New Netherland and renames it New York."],
+    ["1735", "Zenger trial in New York strikes an early blow for press freedom."]
+  ],
+  matters: [
+    "NYS Connection: The Haudenosaunee Great Law of Peace is one of the world's oldest participatory democracies, and some historians argue it influenced later American ideas about uniting separate governments.",
+    "NYS Connection: New York City began as Dutch New Amsterdam — that heritage survives in place names like Brooklyn (Breukelen), Harlem (Haarlem), and the Bronx (Bronck's land).",
+    "Why It Matters: Slavery existed in New York from the Dutch era; by the 1700s New York City had one of the largest enslaved populations of any northern city. Understanding this challenges the myth that slavery was only a southern story."
+  ]
+},
+{
+  id: 2,
+  acc: "#a8442f",
+  title: "The Road to Independence",
+  years: "1754 – 1783",
+  essentialQuestion: "Why did loyal British colonists decide to break away and build a new nation — and how did New York help win the Revolution?",
+  bigPicture: "The French and Indian War (1754–1763) left Britain victorious but deep in debt, so Parliament taxed the colonies — without asking them. Colonists protested 'taxation without representation' through boycotts, petitions, and sometimes violence. Enlightenment thinkers like John Locke taught that government's job is to protect people's natural rights, and that people may replace a government that fails. Those ideas fill the Declaration of Independence (1776). The Revolutionary War was fought heavily on New York soil: nearly one-third of its battles happened here, and the American victory at Saratoga in 1777 convinced France to join the fight — the war's great turning point.",
+  keyTerms: [
+    ["French and Indian War", "War (1754–1763) between Britain and France, each with Indigenous allies, for control of North America. Britain won — and got a mountain of debt."],
+    ["Proclamation of 1763", "British rule closing land west of the Appalachian Mountains to colonial settlement, angering colonists who wanted to move west."],
+    ["Stamp Act", "A 1765 tax requiring colonists to buy special stamped paper for documents and newspapers — the first direct tax on colonists, and they exploded in protest."],
+    ["boycott", "Refusing to buy certain goods as a protest. Colonists boycotted British goods to pressure Parliament."],
+    ["natural rights", "Rights every person is born with — life, liberty, and property — that government cannot rightly take away (an idea from John Locke)."],
+    ["Enlightenment", "A 1600s–1700s movement in Europe using reason to rethink government, rights, and society."],
+    ["Declaration of Independence", "The 1776 document, mainly written by Thomas Jefferson, announcing that the colonies were free states and explaining why."],
+    ["Patriot", "A colonist who supported independence from Britain."],
+    ["Loyalist", "A colonist who stayed loyal to Britain — very common in New York."],
+    ["Battle of Saratoga", "The 1777 American victory in upstate New York that convinced France to become an American ally — the turning point of the war."],
+    ["Treaty of Paris (1783)", "The agreement ending the Revolutionary War; Britain recognized American independence."],
+    ["mercenary", "A soldier hired to fight for a foreign country, like the German Hessians hired by Britain."]
+  ],
+  keyPeople: [
+    ["John Locke", "English Enlightenment philosopher whose ideas about natural rights and the social contract shaped the Declaration."],
+    ["Thomas Jefferson", "Main author of the Declaration of Independence."],
+    ["George Washington", "Commander of the Continental Army; held the army together through brutal defeats (many in New York) until final victory."],
+    ["Samuel Adams", "Boston protest organizer and leader of the Sons of Liberty."],
+    ["Benedict Arnold", "Hero of Saratoga who later betrayed the American cause by plotting to hand over West Point, New York."],
+    ["Alexander Hamilton", "Young New York immigrant who became Washington's trusted aide during the war."],
+    ["Mercy Otis Warren", "Patriot writer whose plays and essays attacked British policies and rallied support for independence."]
+  ],
+  timeline: [
+    ["1754–1763", "French and Indian War; Britain wins but owes huge debts."],
+    ["1765", "Stamp Act sparks colonial protests; Stamp Act Congress meets in New York City."],
+    ["1770", "Boston Massacre: British soldiers kill five colonists."],
+    ["1773", "Boston Tea Party protests the Tea Act."],
+    ["1775", "Fighting begins at Lexington and Concord."],
+    ["July 4, 1776", "Declaration of Independence is adopted."],
+    ["Aug 1776", "Battle of Brooklyn (Long Island) — largest battle of the war; Washington escapes across the East River."],
+    ["Oct 1777", "American victory at Saratoga brings France into the war."],
+    ["1781", "British surrender at Yorktown, Virginia."],
+    ["1783", "Treaty of Paris ends the war; British evacuate New York City (Evacuation Day, Nov 25)."]
+  ],
+  matters: [
+    "NYS Connection: About one-third of all Revolutionary War battles were fought in New York, including Brooklyn, White Plains, and Saratoga. The British held New York City for most of the war.",
+    "NYS Connection: The Stamp Act Congress (1765) met in New York City — one of the first times colonies acted together against Britain.",
+    "Why It Matters: The Declaration's promise that 'all men are created equal' set a standard the nation kept failing to meet — and later reformers, abolitionists, and civil rights leaders used its own words to demand change."
+  ]
+},
+{
+  id: 3,
+  acc: "#3d5a8f",
+  title: "A New Nation: The United States Constitution",
+  years: "1781 – 1791",
+  essentialQuestion: "How does the Constitution balance power — between states and the nation, among three branches, and between government and the people?",
+  bigPicture: "America's first plan of government, the Articles of Confederation, made the national government so weak it could not tax, raise an army easily, or settle disputes — problems exposed by Shays' Rebellion. In 1787, delegates met in Philadelphia and wrote a new Constitution built on compromise: the Great Compromise created a two-house Congress, and the Three-Fifths Compromise counted enslaved people as three-fifths of a person for representation — embedding slavery into the new government. The Constitution divides power through federalism, separation of powers, and checks and balances. Federalists and Antifederalists battled over ratification — especially in New York, where the Federalist Papers were written — and the Bill of Rights was added in 1791 to protect individual freedoms.",
+  keyTerms: [
+    ["Articles of Confederation", "America's first constitution (1781–1789). It created a weak national government with no power to tax — and it nearly fell apart."],
+    ["Shays' Rebellion", "A 1786–87 uprising of Massachusetts farmers that scared leaders into strengthening the national government."],
+    ["Constitutional Convention", "The 1787 meeting in Philadelphia where delegates wrote the U.S. Constitution."],
+    ["Great Compromise", "The deal creating a two-house Congress: the Senate (equal votes per state) and the House of Representatives (votes based on population)."],
+    ["Three-Fifths Compromise", "The agreement to count three-fifths of a state's enslaved population for representation and taxes — giving slave states extra power in Congress."],
+    ["federalism", "Dividing power between the national government and the state governments."],
+    ["separation of powers", "Splitting government into three branches — legislative (makes laws), executive (carries out laws), judicial (interprets laws)."],
+    ["checks and balances", "Each branch can limit the others — for example, the president can veto a law, and Congress can override the veto."],
+    ["ratification", "Official approval. Nine of thirteen states had to ratify the Constitution for it to take effect."],
+    ["Federalists", "Supporters of the Constitution and a strong national government."],
+    ["Antifederalists", "Opponents who feared the Constitution gave the national government too much power and lacked a bill of rights."],
+    ["Bill of Rights", "The first ten amendments (1791), protecting freedoms like speech, religion, press, and fair trials."],
+    ["amendment", "An official change or addition to the Constitution."],
+    ["preamble", "The Constitution's opening statement of purpose, beginning 'We the People.'"]
+  ],
+  keyPeople: [
+    ["James Madison", "'Father of the Constitution' — his Virginia Plan shaped the document, and he later drafted the Bill of Rights."],
+    ["Alexander Hamilton", "New York delegate who co-wrote the Federalist Papers to win ratification in his skeptical home state."],
+    ["George Washington", "President of the Constitutional Convention; his support gave the document credibility. First U.S. president, inaugurated in New York City."],
+    ["Benjamin Franklin", "Elder statesman of the Convention who urged delegates to compromise."],
+    ["George Clinton", "New York's governor and a leading Antifederalist voice."],
+    ["John Jay", "New Yorker who co-wrote the Federalist Papers and became the first Chief Justice of the United States."]
+  ],
+  timeline: [
+    ["1781", "Articles of Confederation take effect."],
+    ["1786–87", "Shays' Rebellion exposes the weakness of the Articles."],
+    ["Summer 1787", "Constitutional Convention meets in Philadelphia."],
+    ["1787–88", "Federalist Papers published in New York newspapers."],
+    ["1788", "Constitution ratified; New York approves narrowly at the Poughkeepsie convention (30–27)."],
+    ["Apr 30, 1789", "Washington inaugurated as first president at Federal Hall in New York City — the nation's first capital."],
+    ["1791", "Bill of Rights ratified."]
+  ],
+  matters: [
+    "NYS Connection: New York City was the first capital of the United States. Washington took the oath of office at Federal Hall on Wall Street in 1789.",
+    "NYS Connection: The Federalist Papers — 85 essays by Hamilton, Madison, and Jay — were published in New York newspapers to persuade New Yorkers to ratify. They are still used today to interpret the Constitution.",
+    "Why It Matters: The same compromises that created the Union also protected slavery. The Three-Fifths Compromise gave slave states extra seats in Congress for decades — a tension that leads directly to Unit 5."
+  ]
+},
+{
+  id: 4,
+  acc: "#b07c2c",
+  title: "A Nation Grows: Expansion and Reform",
+  years: "1800 – 1860",
+  essentialQuestion: "As the United States grew bigger, faster, and richer, who was included in its promises — and who fought to widen them?",
+  bigPicture: "The Louisiana Purchase (1803) doubled the nation's size, and the War of 1812 confirmed its independence. New York's Erie Canal (1825) linked the Great Lakes to the Hudson River and the Atlantic, slashing shipping costs and turning New York City into America's busiest port. Many Americans embraced Manifest Destiny — the belief the nation was meant to stretch to the Pacific — with devastating consequences for Indigenous peoples, including forced removal on the Trail of Tears. The Industrial Revolution moved work from farms and homes into factories and mills. At the same time, the Second Great Awakening lit a fire of reform: abolitionists demanded an end to slavery, and at Seneca Falls, New York, in 1848, reformers demanded rights for women.",
+  keyTerms: [
+    ["Louisiana Purchase", "The 1803 deal in which the U.S. bought a huge territory from France for $15 million, doubling the nation's size."],
+    ["War of 1812", "War between the U.S. and Britain (1812–1815) over trade interference and the seizing of American sailors; it boosted American confidence and manufacturing."],
+    ["Erie Canal", "A 363-mile human-made waterway across New York (opened 1825) connecting Lake Erie to the Hudson River — and the Midwest to New York City."],
+    ["Manifest Destiny", "The belief that the United States was destined to expand across the continent to the Pacific Ocean."],
+    ["Indian Removal Act", "An 1830 law forcing Indigenous nations in the Southeast off their lands; the Cherokee's forced march west is called the Trail of Tears."],
+    ["Industrial Revolution", "The shift from making goods by hand at home to making them by machine in factories."],
+    ["textile mill", "A factory that spins and weaves cloth; early American mills often employed young women ('mill girls')."],
+    ["Second Great Awakening", "A wave of religious revivals in the early 1800s that inspired many people to fix society's problems."],
+    ["reform movement", "An organized effort to change society for the better — like abolition, temperance, education reform, and women's rights."],
+    ["abolitionist", "A person who worked to end (abolish) slavery."],
+    ["Seneca Falls Convention", "The first women's rights convention in the U.S., held in Seneca Falls, New York, in 1848."],
+    ["Declaration of Sentiments", "The Seneca Falls document, modeled on the Declaration of Independence, stating 'all men and women are created equal.'"],
+    ["temperance", "The movement urging people to stop drinking alcohol."],
+    ["suffrage", "The right to vote."]
+  ],
+  keyPeople: [
+    ["Thomas Jefferson", "President who made the Louisiana Purchase and sent Lewis and Clark to explore it."],
+    ["DeWitt Clinton", "New York governor who championed the Erie Canal — mockers called it 'Clinton's Ditch' until it succeeded spectacularly."],
+    ["Andrew Jackson", "President who signed the Indian Removal Act and championed the 'common man' — for white men."],
+    ["Elizabeth Cady Stanton", "Organizer of the Seneca Falls Convention and main author of the Declaration of Sentiments."],
+    ["Lucretia Mott", "Quaker minister and co-organizer of Seneca Falls."],
+    ["Frederick Douglass", "Formerly enslaved abolitionist, brilliant speaker, and Rochester, NY newspaper publisher who attended Seneca Falls and backed women's suffrage."],
+    ["Horace Mann", "Reformer who fought for free public schools for all children."],
+    ["Dorothea Dix", "Reformer who exposed the cruel treatment of people with mental illness and demanded humane care."]
+  ],
+  timeline: [
+    ["1803", "Louisiana Purchase doubles the size of the United States."],
+    ["1812–1815", "War of 1812 against Britain."],
+    ["1825", "Erie Canal opens; New York becomes the 'Empire State.'"],
+    ["1830", "Indian Removal Act signed."],
+    ["1838–39", "Trail of Tears: thousands of Cherokee die on the forced march west."],
+    ["1845", "Term 'Manifest Destiny' is coined."],
+    ["1846–48", "Mexican-American War adds vast western lands."],
+    ["1848", "Seneca Falls Convention launches the women's rights movement."]
+  ],
+  matters: [
+    "NYS Connection: The Erie Canal made New York City the nation's number-one port and earned New York the nickname 'the Empire State.' Cities like Buffalo, Rochester, and Syracuse boomed along its route.",
+    "NYS Connection: Upstate New York was called the 'Burned-Over District' because revival fires of the Second Great Awakening swept through it so often — which is why so many reform movements (abolition, women's rights) were born there.",
+    "Why It Matters: Seneca Falls borrowed the Declaration of Independence's own words to demand equality for women — proof that founding documents can become tools for people left out of them."
+  ]
+},
+{
+  id: 5,
+  acc: "#5d5470",
+  title: "A Nation Divided",
+  years: "1820 – 1865",
+  essentialQuestion: "Why did compromise fail — and how did the Civil War transform the United States?",
+  bigPicture: "As the nation expanded, every new territory raised the same explosive question: slave or free? Compromises — Missouri (1820), 1850, Kansas-Nebraska (1854) — bought time but satisfied no one, while the Fugitive Slave Act and the Dred Scott decision convinced many northerners that slavery threatened everyone's liberty. Abolitionists like Frederick Douglass and Harriet Tubman resisted; the Underground Railroad ran straight through New York. When Abraham Lincoln won the 1860 election, southern states seceded and formed the Confederacy. The Civil War (1861–1865) killed roughly 750,000 Americans. The Emancipation Proclamation (1863) turned it into a war against slavery, and Black soldiers helped win it. New York sent more soldiers than any other state — yet also erupted in the deadly Draft Riots of 1863. The Union victory ended slavery through the 13th Amendment and settled that states cannot leave the Union.",
+  keyTerms: [
+    ["sectionalism", "Loyalty to your region (North or South) over the country as a whole."],
+    ["Missouri Compromise", "The 1820 deal admitting Missouri as a slave state and Maine as a free state, and drawing a line across the Louisiana Territory to divide future slave and free areas."],
+    ["Compromise of 1850", "A package deal admitting California as a free state but including a much harsher Fugitive Slave Act."],
+    ["Fugitive Slave Act", "An 1850 law forcing all Americans — even in free states — to help capture people escaping slavery."],
+    ["Kansas-Nebraska Act", "An 1854 law letting settlers in those territories vote on slavery ('popular sovereignty'), which erupted into violence called 'Bleeding Kansas.'"],
+    ["Dred Scott decision", "The 1857 Supreme Court ruling that African Americans were not citizens and Congress could not ban slavery in the territories."],
+    ["Underground Railroad", "A secret network of people, routes, and safe houses that helped enslaved people escape to freedom — many routes ran through New York toward Canada."],
+    ["secession", "Formally leaving the Union, as eleven southern states did in 1860–61."],
+    ["Confederacy", "The Confederate States of America — the government formed by the seceding states."],
+    ["Emancipation Proclamation", "Lincoln's 1863 order freeing enslaved people in areas rebelling against the Union, and making the war a fight against slavery."],
+    ["NYC Draft Riots", "Four days of deadly violence in July 1863 when mobs, angry over the draft, attacked Black New Yorkers and government buildings — the deadliest riot in U.S. history."],
+    ["Gettysburg Address", "Lincoln's short 1863 speech recommitting the nation to 'a new birth of freedom' and government 'of the people, by the people, for the people.'"],
+    ["13th Amendment", "The 1865 constitutional amendment abolishing slavery throughout the United States."],
+    ["total war", "A strategy of destroying the enemy's economy and will to fight, not just its armies — used in Sherman's March to the Sea."]
+  ],
+  keyPeople: [
+    ["Abraham Lincoln", "President who led the Union through the Civil War, issued the Emancipation Proclamation, and was assassinated days after victory."],
+    ["Frederick Douglass", "Abolitionist leader who escaped slavery, published the North Star in Rochester, NY, advised Lincoln, and recruited Black soldiers."],
+    ["Harriet Tubman", "Escaped slavery, then returned south repeatedly to guide others to freedom; later lived in Auburn, New York."],
+    ["Sojourner Truth", "Born enslaved in Ulster County, New York; became a powerful voice for abolition and women's rights."],
+    ["John Brown", "Radical abolitionist whose 1859 raid on Harpers Ferry aimed to spark an uprising against slavery; buried in North Elba, NY."],
+    ["Jefferson Davis", "President of the Confederacy."],
+    ["Ulysses S. Grant", "Union general whose victories won the war; accepted Lee's surrender at Appomattox."],
+    ["Robert E. Lee", "Leading Confederate general who surrendered in April 1865."],
+    ["Harriet Beecher Stowe", "Author of Uncle Tom's Cabin (1852), the antislavery novel that moved millions of northern readers."]
+  ],
+  timeline: [
+    ["1820", "Missouri Compromise draws a slave/free line across the West."],
+    ["1850", "Compromise of 1850 and the harsher Fugitive Slave Act."],
+    ["1852", "Uncle Tom's Cabin is published."],
+    ["1854", "Kansas-Nebraska Act leads to 'Bleeding Kansas.'"],
+    ["1857", "Dred Scott decision denies Black citizenship."],
+    ["1860", "Lincoln elected; South Carolina secedes."],
+    ["Apr 1861", "Confederates fire on Fort Sumter; the Civil War begins."],
+    ["Jan 1, 1863", "Emancipation Proclamation takes effect."],
+    ["Jul 1863", "Union victory at Gettysburg; NYC Draft Riots erupt days later."],
+    ["Nov 1863", "Lincoln delivers the Gettysburg Address."],
+    ["Apr 1865", "Lee surrenders at Appomattox; Lincoln assassinated."],
+    ["Dec 1865", "13th Amendment abolishes slavery."]
+  ],
+  matters: [
+    "NYS Connection: New York sent more soldiers to the Union army than any other state — over 400,000 — yet the city also saw the Draft Riots, showing how divided even the North was.",
+    "NYS Connection: New York was abolitionist ground: Frederick Douglass published in Rochester, Harriet Tubman settled in Auburn, Sojourner Truth was born in Ulster County, and Underground Railroad routes ran through the state to Canada.",
+    "Why It Matters: The war answered two founding-era questions — the Union is permanent, and slavery is dead — but the struggle over equal citizenship continued into Reconstruction and beyond."
+  ]
+}
+];
+
+const QUESTIONS7 = [
+/* ---------------- UNIT 1 (12 questions) ---------------- */
+{u:1, stim:{kind:"Quote", text:"\"We bind ourselves together by taking hold of each other's hands so firmly and forming a circle so strong that if a tree should fall upon it, it could not shake nor break it.\" — adapted from the Great Law of Peace of the Haudenosaunee"},
+ q:"This passage best supports which conclusion about the Haudenosaunee Confederacy?",
+ c:["It was ruled by a single all-powerful king","Its member nations valued unity and collective strength","It rejected all forms of government","It was created by European colonists"],
+ a:1, ex:"The image of joined hands forming an unbreakable circle expresses the Confederacy's core idea: separate nations gaining strength through union."},
+{u:1, q:"Which best describes the Columbian Exchange?",
+ c:["A bank founded by Columbus in Spain","A treaty between Spain and Portugal","The transfer of plants, animals, people, and diseases between hemispheres after 1492","A trade route used only by Indigenous nations"],
+ a:2, ex:"The Columbian Exchange names the massive two-way transfer between the Americas and Afro-Eurasia that began with Columbus's voyages."},
+{u:1, q:"What was the most devastating effect of European contact on Indigenous peoples of the Americas?",
+ c:["The introduction of horses","Epidemic diseases like smallpox, to which they had no immunity","The arrival of new crops such as wheat","Learning new languages"],
+ a:1, ex:"European diseases killed enormous numbers of Indigenous people — in many regions the majority of the population — because they had never been exposed to them."},
+{u:1, stim:{kind:"Map description", text:"A map of the Atlantic Ocean shows three arrows forming a triangle: one from Europe to West Africa labeled 'manufactured goods,' one from West Africa to the Americas labeled 'enslaved people,' and one from the Americas to Europe labeled 'sugar, tobacco, raw materials.'"},
+ q:"The map illustrates which economic system?",
+ c:["The patroon system","Mercantile fishing rights","The triangular trade","The Erie Canal trade network"],
+ a:2, ex:"The three-legged Atlantic route linking Europe, Africa, and the Americas — including the forced transport of enslaved Africans — is the triangular trade."},
+{u:1, q:"The Middle Passage refers to",
+ c:["the forced ocean voyage of enslaved Africans to the Americas","the wagon route through the Appalachian Mountains","the middle section of the Erie Canal","the journey of the Pilgrims to Plymouth"],
+ a:0, ex:"The Middle Passage was the brutal middle leg of the triangular trade, carrying enslaved Africans across the Atlantic."},
+{u:1, q:"Why did the English rename New Amsterdam as New York in 1664?",
+ c:["The Dutch sold it to pay debts","England seized the colony from the Dutch and renamed it for the Duke of York","A fire destroyed the original town","The colonists voted to change the name"],
+ a:1, ex:"An English fleet forced Governor Stuyvesant to surrender New Netherland, and the colony was renamed for the king's brother, the Duke of York."},
+{u:1, stim:{kind:"Quote", text:"\"The question before the court is not the cause of a poor printer... It is the cause of liberty.\" — adapted from Andrew Hamilton's defense at the trial of John Peter Zenger, New York, 1735"},
+ q:"The Zenger trial is remembered as an early step toward which freedom?",
+ c:["Freedom of religion","Freedom of the press","The right to bear arms","Freedom from taxation"],
+ a:1, ex:"Zenger's acquittal for printing criticism of New York's governor became a landmark for the idea that publishing the truth is not a crime."},
+{u:1, q:"Which colonial region relied most heavily on cash crops like tobacco and rice grown with enslaved labor?",
+ c:["The New England colonies","The Middle colonies","The Southern colonies","The Canadian colonies"],
+ a:2, ex:"Warm climate and long growing seasons made the Southern colonies plantation economies dependent on cash crops and enslaved labor."},
+{u:1, q:"Under mercantilism, the main job of a colony was to",
+ c:["elect representatives to Parliament","enrich the parent country with raw materials and buy its goods","develop its own independent factories","form alliances with other empires"],
+ a:1, ex:"Mercantilism treated colonies as sources of raw materials and captive markets that existed to make the parent country wealthy."},
+{u:1, q:"How was an indentured servant different from an enslaved person?",
+ c:["Indentured servants worked for a set number of years and then were free","Indentured servants could never be freed","Enslaved people signed contracts choosing their masters","There was no difference at all"],
+ a:0, ex:"Indenture was a temporary labor contract, while slavery was lifelong, hereditary, and based on treating human beings as property."},
+{u:1, stim:{kind:"Chart description", text:"A chart titled 'New York City Population, about 1740' shows roughly one out of every five residents listed as enslaved Africans."},
+ q:"This chart best supports which statement?",
+ c:["Slavery existed only in the Southern colonies","Slavery was a significant part of colonial New York's society and economy","New York banned slavery in the 1700s","Enslaved people were a majority of New York's population"],
+ a:1, ex:"With about one in five residents enslaved, colonial New York City had one of the largest enslaved populations in the North — slavery was not only a southern institution."},
+{u:1, q:"The Lenape were the Indigenous people living in which area at the time of European contact?",
+ c:["The Great Plains","Present-day New York City and the lower Hudson Valley","Florida","The Pacific Northwest"],
+ a:1, ex:"The Lenape lived in the region of present-day New York City, Long Island's western edge, and the lower Hudson Valley."},
+
+/* ---------------- UNIT 2 (12 questions) ---------------- */
+{u:2, q:"What was the most important result of the French and Indian War for the American colonies?",
+ c:["France gained control of the thirteen colonies","Britain's war debt led Parliament to tax the colonists","The colonies immediately declared independence","Spain conquered New York"],
+ a:1, ex:"Britain won the war but owed massive debts, and Parliament's decision to make colonists help pay set off the taxation crisis."},
+{u:2, stim:{kind:"Quote", text:"\"No taxes should be imposed on the people except by their own consent, given personally or through their representatives.\" — adapted from the resolutions of the Stamp Act Congress, New York City, 1765"},
+ q:"Which colonial slogan expresses the same idea as this resolution?",
+ c:["\"Manifest Destiny\"","\"No taxation without representation\"","\"Fifty-four forty or fight\"","\"Remember the Alamo\""],
+ a:1, ex:"The Stamp Act Congress argued that only the colonists' own elected assemblies could rightfully tax them — taxation without representation was tyranny."},
+{u:2, q:"The Proclamation of 1763 angered colonists because it",
+ c:["raised the tax on tea","closed western lands beyond the Appalachians to settlement","forced them to house British soldiers","banned town meetings"],
+ a:1, ex:"After fighting a war partly over western land, colonists were furious that Britain barred them from settling beyond the Appalachian Mountains."},
+{u:2, q:"Colonial boycotts of British goods were effective mainly because they",
+ c:["hurt British merchants financially, pressuring Parliament","destroyed British warships","won support from the French king","ended the fur trade"],
+ a:0, ex:"When colonists stopped buying British goods, British merchants lost money and lobbied Parliament to repeal the hated taxes."},
+{u:2, stim:{kind:"Quote", text:"\"We hold these truths to be self-evident, that all men are created equal, that they are endowed by their Creator with certain unalienable Rights, that among these are Life, Liberty and the pursuit of Happiness.\" — Declaration of Independence, 1776"},
+ q:"These ideas most directly reflect the influence of which Enlightenment thinker?",
+ c:["Karl Marx","John Locke","William Shakespeare","Isaac Newton"],
+ a:1, ex:"Jefferson drew on John Locke's theory that people are born with natural rights that government exists to protect."},
+{u:2, q:"According to the Declaration of Independence, where does a government get its power?",
+ c:["From God through the king","From the consent of the governed","From the army","From wealthy landowners"],
+ a:1, ex:"The Declaration states that governments derive 'their just powers from the consent of the governed' — the people themselves."},
+{u:2, q:"A colonist who remained loyal to Britain during the Revolution was called a",
+ c:["Patriot","Minuteman","Loyalist","Federalist"],
+ a:2, ex:"Loyalists supported the king; New York had one of the largest Loyalist populations of any colony."},
+{u:2, stim:{kind:"Political cartoon description", text:"A cartoon from 1777 shows a chain of thirteen links wrapped around a British lion, with a fleur-de-lis (the symbol of France) reaching down to grip the chain after a battle labeled 'Saratoga.'"},
+ q:"The cartoon suggests that the Battle of Saratoga was important because it",
+ c:["ended the war immediately","convinced France to join the American cause","allowed Britain to capture Philadelphia","had no effect on the war"],
+ a:1, ex:"Saratoga proved the Americans could defeat a British army, persuading France to enter the war as an American ally — the turning point."},
+{u:2, q:"Why is the Battle of Brooklyn (Long Island) in August 1776 significant in New York history?",
+ c:["It was the largest battle of the entire war, and Washington's army barely escaped","It was the final battle of the war","It convinced Spain to invade Britain","It took place before independence was declared"],
+ a:0, ex:"The war's biggest battle was fought in Brooklyn; Washington's nighttime escape across the East River saved the Continental Army."},
+{u:2, q:"The Treaty of Paris of 1783 accomplished which of the following?",
+ c:["It created the U.S. Constitution","Britain recognized American independence","France took control of Canada","It ended the French and Indian War"],
+ a:1, ex:"In the 1783 Treaty of Paris, Britain formally recognized the United States as an independent nation."},
+{u:2, q:"Hessian soldiers fighting for Britain during the Revolution are best described as",
+ c:["colonial volunteers","French allies","hired mercenaries from Germany","Indigenous warriors"],
+ a:2, ex:"Britain hired German soldiers called Hessians — mercenaries paid to fight in a foreign war."},
+{u:2, stim:{kind:"Chart description", text:"A chart titled 'Revolutionary War Battles by Colony' shows New York with the largest bar, representing nearly one-third of all battles fought."},
+ q:"Which conclusion is best supported by the chart?",
+ c:["New York was a minor theater of the war","New York's location made it central to the fighting","Most battles were fought at sea","Georgia saw the most fighting"],
+ a:1, ex:"Controlling New York's harbor and the Hudson River corridor would split New England from the other colonies, so armies clashed there constantly."},
+
+/* ---------------- UNIT 3 (12 questions) ---------------- */
+{u:3, q:"The biggest weakness of the Articles of Confederation was that the national government could not",
+ c:["declare war","collect taxes","make treaties","print money"],
+ a:1, ex:"Under the Articles, Congress could only ask states for money — it could not tax — leaving the nation broke and weak."},
+{u:3, stim:{kind:"Quote", text:"\"Our government is on the edge of collapse. Farmers with muskets have shut the courts, and Congress has no money and no army to respond.\" — adapted from a letter by a Massachusetts official, 1787"},
+ q:"The events described in this letter most directly led to",
+ c:["the Boston Tea Party","the calling of the Constitutional Convention","the Louisiana Purchase","the Emancipation Proclamation"],
+ a:1, ex:"Shays' Rebellion terrified national leaders and convinced them to meet in Philadelphia to replace the failing Articles."},
+{u:3, q:"The Great Compromise settled the fight between large and small states by",
+ c:["banning slavery in the North","creating a two-house Congress with one house based on population and one with equal state votes","letting the president choose Congress","counting only landowners in the census"],
+ a:1, ex:"The House of Representatives is based on population (pleasing big states) while every state gets two senators (pleasing small states)."},
+{u:3, q:"Under the Three-Fifths Compromise,",
+ c:["three-fifths of a state's enslaved population counted toward representation and taxation","enslaved people received three-fifths of a citizen's rights","three-fifths of states had to approve laws","the South received three-fifths of federal money"],
+ a:0, ex:"Counting three-fifths of the enslaved population inflated slave states' power in Congress while granting enslaved people no rights at all."},
+{u:3, q:"Federalism is best defined as",
+ c:["rule by a single strong executive","the division of power between the national and state governments","government controlled by judges","a system with no written constitution"],
+ a:1, ex:"Federalism splits authority: some powers belong to the national government, some to the states, and some are shared."},
+{u:3, stim:{kind:"Chart description", text:"A three-column chart lists: Column A — 'Makes laws, controls spending'; Column B — 'Enforces laws, commands the military'; Column C — 'Interprets laws, decides cases.'"},
+ q:"The chart describes which constitutional principle?",
+ c:["Manifest Destiny","separation of powers","popular sovereignty of territories","mercantilism"],
+ a:1, ex:"Dividing government into legislative, executive, and judicial branches with distinct jobs is the separation of powers."},
+{u:3, q:"Which is an example of checks and balances?",
+ c:["States printing their own money","The president vetoing a bill passed by Congress","Citizens paying taxes","A governor signing a state law"],
+ a:1, ex:"The veto lets one branch (executive) check another (legislative); Congress can check back by overriding the veto with a two-thirds vote."},
+{u:3, stim:{kind:"Quote", text:"\"A government without a bill of rights is a house without locks. We are asked to trust rulers with unlimited power and hope for the best.\" — adapted from an Antifederalist essay, New York, 1788"},
+ q:"The author of this passage would most likely support",
+ c:["immediate ratification with no changes","adding written protections for individual liberties to the Constitution","abolishing all state governments","returning to British rule"],
+ a:1, ex:"Antifederalists demanded a bill of rights to guarantee freedoms — pressure that produced the first ten amendments in 1791."},
+{u:3, q:"The Federalist Papers were written mainly to",
+ c:["persuade New Yorkers to ratify the Constitution","declare war on Britain","demand independence from Spain","support the Articles of Confederation"],
+ a:0, ex:"Hamilton, Madison, and Jay published the essays in New York newspapers to win over the state's skeptical ratifying convention."},
+{u:3, q:"Which freedoms are protected by the First Amendment?",
+ c:["The right to a speedy trial and a jury","Religion, speech, press, assembly, and petition","Freedom from housing soldiers","The right to vote at age eighteen"],
+ a:1, ex:"The First Amendment protects five freedoms: religion, speech, press, assembly, and petition."},
+{u:3, q:"Why is New York City's Federal Hall historically significant?",
+ c:["The Declaration of Independence was signed there","George Washington took the first presidential oath of office there in 1789","The Erie Canal began there","The Emancipation Proclamation was written there"],
+ a:1, ex:"New York City was the nation's first capital, and Washington was inaugurated at Federal Hall on Wall Street."},
+{u:3, q:"The phrase 'We the People' in the preamble signals that the Constitution's authority comes from",
+ c:["the state legislatures alone","the citizens of the United States","the British Parliament","the Continental Army"],
+ a:1, ex:"Unlike the Articles (a pact among states), the Constitution announces that its power flows directly from the people."},
+
+/* ---------------- UNIT 4 (12 questions) ---------------- */
+{u:4, q:"The Louisiana Purchase of 1803 was significant because it",
+ c:["gave Florida to Spain","doubled the size of the United States","ended the War of 1812","created the state of New York"],
+ a:1, ex:"For $15 million, Jefferson bought French territory stretching from the Mississippi to the Rockies, doubling the nation's size."},
+{u:4, stim:{kind:"Quote", text:"\"They call it Clinton's Ditch and laugh. But when this canal joins the waters of Lake Erie to the Hudson, the produce of the West will flow to New York, and our city will outgrow them all.\" — adapted from a New York newspaper editorial, 1820"},
+ q:"Which later development best proved this writer correct?",
+ c:["New York City became the nation's leading port after the canal opened in 1825","The canal was never completed","Boston replaced New York as the top port","Farmers refused to use the canal"],
+ a:0, ex:"The Erie Canal slashed shipping costs by about 90 percent, funneling western trade through New York City and making it America's busiest port."},
+{u:4, q:"The Erie Canal connected which two bodies of water?",
+ c:["The Atlantic Ocean and the Gulf of Mexico","Lake Erie and the Hudson River","The Mississippi River and Lake Michigan","The Delaware River and Chesapeake Bay"],
+ a:1, ex:"The 363-mile canal linked Lake Erie at Buffalo to the Hudson River near Albany, connecting the Midwest to New York Harbor."},
+{u:4, q:"Manifest Destiny was the belief that",
+ c:["the U.S. should return land to Indigenous nations","the U.S. was destined to expand across the continent to the Pacific","all states should abolish slavery","America should rejoin the British Empire"],
+ a:1, ex:"Manifest Destiny claimed continental expansion was America's obvious fate — a belief used to justify taking Indigenous and Mexican lands."},
+{u:4, stim:{kind:"Map description", text:"A map shows a route marked with arrows from Cherokee lands in Georgia and Tennessee westward to present-day Oklahoma, labeled '1838–1839.' A caption notes that roughly one in four people on the march died."},
+ q:"The map depicts which event?",
+ c:["The Oregon Trail","The Trail of Tears","Lewis and Clark's expedition","The Underground Railroad"],
+ a:1, ex:"Under the Indian Removal Act, the U.S. forced the Cherokee west on the Trail of Tears; thousands died on the march."},
+{u:4, q:"The Industrial Revolution changed how goods were made by shifting production",
+ c:["from factories to farms","from machines to hand tools","from homes and workshops to machine-powered factories","from cities to plantations"],
+ a:2, ex:"Machine-powered factories and mills replaced home production, changing where and how Americans worked."},
+{u:4, q:"The Second Great Awakening contributed to reform movements because it",
+ c:["taught that society's problems could and should be fixed","banned all public meetings","discouraged people from joining organizations","focused only on foreign trade"],
+ a:0, ex:"Revival preachers taught that individuals could improve themselves and society, inspiring crusades against slavery, alcohol abuse, and other ills."},
+{u:4, stim:{kind:"Quote", text:"\"We hold these truths to be self-evident: that all men and women are created equal.\" — Declaration of Sentiments, Seneca Falls, New York, 1848"},
+ q:"The authors modeled this document on the Declaration of Independence in order to",
+ c:["mock the Founders","show that women were claiming the nation's own founding promises","demand independence from the United States","support the Fugitive Slave Act"],
+ a:1, ex:"By adding two words — 'and women' — Stanton turned the nation's founding document into an argument for women's equality."},
+{u:4, q:"Which demand from the Seneca Falls Convention was considered the most radical in 1848?",
+ c:["Better roads","Women's right to vote (suffrage)","Lower postage rates","Free trade with Britain"],
+ a:1, ex:"Even some reformers hesitated at women's suffrage; Frederick Douglass's support helped the voting-rights resolution pass."},
+{u:4, q:"Frederick Douglass connected the abolition and women's rights movements by",
+ c:["opposing both movements","publishing his newspaper in Rochester and speaking in support of women's suffrage at Seneca Falls","serving as president of the Confederacy","leading the Trail of Tears"],
+ a:1, ex:"Douglass, who published the North Star in Rochester, NY, attended Seneca Falls and argued forcefully for women's right to vote."},
+{u:4, q:"Why was upstate New York nicknamed the 'Burned-Over District'?",
+ c:["It suffered constant forest fires","Religious revivals swept through it so frequently and intensely","British troops burned it during the Revolution","Its factories polluted the air"],
+ a:1, ex:"Waves of Second Great Awakening revivals 'burned' across upstate New York, which is why so many reform movements began there."},
+{u:4, q:"Horace Mann is best remembered for reforming",
+ c:["public education","prisons in France","the banking system","the postal service"],
+ a:0, ex:"Mann championed free, tax-supported public schools so every child — not just the wealthy — could get an education."},
+
+/* ---------------- UNIT 5 (12 questions) ---------------- */
+{u:5, q:"Sectionalism in the years before the Civil War means",
+ c:["loyalty to one's region over the nation as a whole","support for a national bank","dividing states into counties","loyalty to political parties"],
+ a:0, ex:"Northerners and Southerners increasingly put their region's interests — especially over slavery — ahead of national unity."},
+{u:5, q:"The Missouri Compromise of 1820 attempted to keep peace by",
+ c:["abolishing slavery everywhere","admitting Missouri as a slave state, Maine as a free state, and drawing a line for future territories","giving Missouri to France","banning new states entirely"],
+ a:1, ex:"The compromise preserved the Senate balance between slave and free states and drew the 36°30′ line across the Louisiana Territory."},
+{u:5, stim:{kind:"Quote", text:"\"This law makes every citizen a slave-catcher. A man who escapes to Syracuse or Rochester may be dragged back in chains, and any of us who helps him faces prison.\" — adapted from a New York abolitionist newspaper, 1850"},
+ q:"The writer is protesting which law?",
+ c:["The Stamp Act","The Fugitive Slave Act of 1850","The Indian Removal Act","The Kansas-Nebraska Act"],
+ a:1, ex:"The Fugitive Slave Act forced northerners to assist in capturing escaped enslaved people, outraging many who had considered slavery a distant problem."},
+{u:5, q:"'Bleeding Kansas' erupted because the Kansas-Nebraska Act",
+ c:["banned slavery in Kansas","let settlers vote on slavery, drawing armed supporters of both sides into the territory","gave Kansas to the Confederacy","closed Kansas to settlement"],
+ a:1, ex:"Popular sovereignty turned Kansas into a battleground as proslavery and antislavery settlers rushed in and violence followed."},
+{u:5, q:"In the Dred Scott decision (1857), the Supreme Court ruled that",
+ c:["slavery was unconstitutional","African Americans were not citizens and Congress could not ban slavery in the territories","enslaved people became free in free states","the Missouri Compromise must be enforced"],
+ a:1, ex:"The ruling denied Black citizenship and struck down limits on slavery's spread, pushing the nation closer to war."},
+{u:5, stim:{kind:"Political cartoon description", text:"An 1856 cartoon shows a giant book labeled 'Uncle Tom's Cabin' tipping a scale, outweighing a stack of proslavery pamphlets on the other side."},
+ q:"The cartoonist's main point is that Stowe's novel",
+ c:["had little influence on public opinion","powerfully turned northern opinion against slavery","was banned in the North","supported the Fugitive Slave Act"],
+ a:1, ex:"The heavy book outweighing proslavery writings shows the cartoonist's view that Uncle Tom's Cabin moved public opinion more than all its opponents combined."},
+{u:5, q:"The Underground Railroad was",
+ c:["the first subway in New York City","a secret network of routes and safe houses helping enslaved people escape to freedom","a railroad company owned by the Confederacy","a canal connecting the North and South"],
+ a:1, ex:"It was not a literal railroad but a network of helpers and hiding places; many routes ran through New York toward Canada."},
+{u:5, q:"Southern states seceded after the election of 1860 primarily because",
+ c:["Lincoln promised to invade the South immediately","they believed Lincoln and the Republicans would restrict slavery","the North refused to trade with them","Britain ordered them to leave the Union"],
+ a:1, ex:"Although Lincoln pledged not to touch slavery where it existed, the South saw his opposition to its expansion as a fatal threat and left the Union."},
+{u:5, stim:{kind:"Quote", text:"\"...all persons held as slaves within any State... in rebellion against the United States, shall be then, thenceforward, and forever free.\" — Emancipation Proclamation, January 1, 1863"},
+ q:"Which statement about the Emancipation Proclamation is most accurate?",
+ c:["It immediately freed all enslaved people in every state","It applied to areas in rebellion and transformed the war into a fight against slavery","It ended the Civil War","It was issued by Jefferson Davis"],
+ a:1, ex:"The Proclamation covered Confederate-held areas — not loyal border states — but it redefined the Union cause and opened the army to Black soldiers."},
+{u:5, q:"The New York City Draft Riots of July 1863 revealed that",
+ c:["all northerners supported the war equally","deep divisions over the war and race existed even in the North","the South controlled New York City","the draft was popular with workers"],
+ a:1, ex:"Anger over the draft (and its $300 buy-out for the rich) exploded into mob violence targeting Black New Yorkers — the deadliest riot in U.S. history."},
+{u:5, q:"In the Gettysburg Address, Lincoln described the war's purpose as ensuring",
+ c:["revenge against the South","'a new birth of freedom' and government of, by, and for the people","the expansion of slavery westward","an alliance with Britain"],
+ a:1, ex:"In under three minutes, Lincoln recast the war as a test of whether a nation dedicated to equality and self-government could survive."},
+{u:5, q:"Slavery was permanently abolished throughout the United States by",
+ c:["the Emancipation Proclamation","the 13th Amendment (1865)","the Missouri Compromise","the Treaty of Paris"],
+ a:1, ex:"The Emancipation Proclamation was a wartime order with limits; the 13th Amendment wrote abolition into the Constitution itself."}
+];
+
+const CRQS7 = [
+{u:1, prompt:"Identify two effects of the Columbian Exchange — one on the Americas and one on Europe.",
+ model:"On the Americas: European diseases such as smallpox devastated Indigenous populations, killing a majority of people in many regions; Europeans also introduced horses, cattle, and wheat. On Europe: American crops like potatoes and corn spread widely and helped Europe's population grow. (Strong answers name specific items moving in each direction and state a clear effect.)"},
+{u:1, prompt:"Explain how slavery became part of colonial New York's economy and society.",
+ model:"Slavery began under the Dutch in New Amsterdam, where enslaved Africans built roads, walls, and buildings, and it continued under English rule. By the 1700s roughly one in five New York City residents was enslaved, laboring in homes, on docks, and on farms. This shows slavery was woven into northern colonial life, not only the plantation South."},
+{u:2, prompt:"Explain the chain of causes connecting the French and Indian War to the American Revolution.",
+ model:"Britain won the French and Indian War but ended up deeply in debt. To pay it, Parliament taxed the colonists (Stamp Act, Townshend duties) without their consent, and the Proclamation of 1763 blocked western settlement. Colonists protested 'taxation without representation' with boycotts and congresses; Britain responded with punishment, and the escalating conflict led to war in 1775 and independence in 1776."},
+{u:2, prompt:"Why was the Battle of Saratoga called the turning point of the Revolutionary War?",
+ model:"At Saratoga in 1777, American forces surrounded and captured an entire British army in upstate New York. The victory proved the Americans could win, which convinced France to enter the war as an ally, supplying money, soldiers, and a navy. French help made the final victory at Yorktown possible."},
+{u:3, prompt:"Describe one weakness of the Articles of Confederation and explain how the Constitution fixed it.",
+ model:"Under the Articles, Congress could not tax; it could only ask states for money, so the government was constantly broke and could not pay its army or debts. The Constitution fixed this by giving Congress the power to levy taxes directly, funding a real national government. (Other acceptable pairs: no executive → the presidency; no national courts → the federal judiciary; unanimous amendment rule → easier amendment process.)"},
+{u:3, prompt:"Explain how the Constitution both limits government power and protects individual rights. Use two specific examples.",
+ model:"Power is limited through structure: separation of powers divides government into three branches, and checks and balances let each restrain the others — for example, the president can veto laws and courts can strike them down. Rights are protected in writing: the First Amendment guarantees freedoms of religion, speech, press, assembly, and petition, and other amendments guarantee fair trials. Structure controls the government; the Bill of Rights shields the people."},
+{u:4, prompt:"Explain two ways the Erie Canal changed New York State.",
+ model:"First, it slashed the cost and time of shipping goods between the Midwest and the Atlantic, making New York City the nation's busiest port and the center of American trade and banking. Second, it fueled the growth of upstate cities along its route — Buffalo, Rochester, and Syracuse — as farms and factories shipped goods on the canal. New York earned the nickname 'the Empire State.'"},
+{u:4, prompt:"How did the Seneca Falls Convention use America's founding ideas to argue for change?",
+ model:"The convention's Declaration of Sentiments deliberately copied the Declaration of Independence, rewriting its most famous line as 'all men and women are created equal' and listing women's grievances the way Jefferson listed the king's abuses. By using the nation's own founding promises, Stanton and Mott argued that denying women rights — especially the vote — betrayed American principles."},
+{u:5, prompt:"Why did the compromises of 1820–1854 ultimately fail to prevent the Civil War?",
+ model:"Each compromise treated the symptom — which territories would allow slavery — without resolving the underlying conflict over slavery itself. The Fugitive Slave Act dragged northerners into enforcing slavery, Kansas-Nebraska replaced the Missouri line with popular sovereignty and produced 'Bleeding Kansas,' and Dred Scott declared Congress couldn't restrict slavery at all. Each 'solution' deepened distrust, so when Lincoln won in 1860, the South no longer believed compromise could protect slavery and seceded."},
+{u:5, prompt:"Explain how New York State was both a leader of the Union cause and a place of deep division during the Civil War.",
+ model:"Leadership: New York supplied more soldiers than any other state — over 400,000 — plus money, ships, and supplies, and it was home to leading abolitionists like Frederick Douglass and Harriet Tubman. Division: in July 1863, anger over the draft and its $300 exemption exploded into the NYC Draft Riots, in which mobs attacked Black New Yorkers and burned buildings for four days. The same state that armed the Union also produced the war's worst home-front violence."}
+];
+
+const DBQS7 = [
+{u:1, docTitle:"Document: A Dutch colonist describes New Amsterdam (adapted, 1650s)",
+ doc:"\"On this island of Manhattan live people of many nations. In the streets one hears Dutch, English, French, and African tongues, and ships arrive weekly with furs from the river Indians upriver. The Company has brought enslaved Africans to build the fort and the wall at the town's northern edge. Trade, not farming, is the life of this place.\"",
+ scaffold:[
+   "According to the document, what was the main economic activity of New Amsterdam?",
+   "What evidence in the document shows that New Amsterdam was diverse?",
+   "What does the document reveal about the role of enslaved labor in building the colony?"
+ ],
+ model:"The document shows that New Amsterdam was a trading town above all — the author says 'trade, not farming, is the life of this place,' and ships arrived weekly carrying furs. It was also unusually diverse, with Dutch, English, French, and African languages heard in the streets. Finally, it reveals that enslaved Africans were forced to do the colony's hardest construction, building the fort and the northern wall (the future Wall Street). Together these details explain New York City's roots as a diverse port city built partly by enslaved labor."},
+{u:2, docTitle:"Document: A New York merchant on the Stamp Act (adapted, 1765)",
+ doc:"\"We are not children to be taxed without our voice. No man from these colonies sits in Parliament, yet Parliament reaches into our pockets. Our answer shall be this: we will buy no British goods — no cloth, no tea, no paper — until this Act is dead. Let the merchants of London feel what we feel.\"",
+ scaffold:[
+   "What is the writer's main complaint about the Stamp Act?",
+   "What action does the writer propose, and how was it supposed to work?",
+   "How does this document help explain why Parliament repealed the Stamp Act in 1766?"
+ ],
+ model:"The merchant's core complaint is taxation without representation: 'no man from these colonies sits in Parliament, yet Parliament reaches into our pockets.' His proposed weapon is a boycott — refusing to buy British cloth, tea, and paper — aimed at making London's merchants 'feel what we feel.' The document helps explain the repeal because the strategy worked: British merchants, losing colonial customers, pressured Parliament until the Stamp Act was withdrawn. It shows colonists learning that organized economic protest could change imperial policy."},
+{u:3, docTitle:"Document: Two voices on ratification (adapted, New York, 1788)",
+ doc:"FEDERALIST: \"Thirteen quarreling states invite invasion and bankruptcy. Only a firm union under this Constitution can pay our debts, defend our coasts, and command respect abroad.\" — ANTIFEDERALIST: \"A distant government with the power to tax and keep armies will forget the people. Where in this plan are our liberties written down? Without a bill of rights, I cannot sign.\"",
+ scaffold:[
+   "What is the Federalist's strongest argument for the Constitution?",
+   "What is the Antifederalist's main fear, and what solution is implied?",
+   "How did the ratification debate end in a compromise that answered both voices?"
+ ],
+ model:"The Federalist argues that only a strong union can solve national problems — debts, defense, and respect abroad — that thirteen separate states cannot handle. The Antifederalist fears that a powerful distant government will trample liberty, and implies the solution: written guarantees, 'a bill of rights.' The debate ended in compromise: the Constitution was ratified (narrowly in New York), and the First Congress added the Bill of Rights in 1791. The Federalists got their strong government; the Antifederalists got their written liberties — and both remain part of American government today."},
+{u:4, docTitle:"Document: A farmer's letter on the Erie Canal (adapted, western New York, 1827)",
+ doc:"\"Before the canal, hauling my wheat overland to Albany cost near as much as the wheat would fetch. Now a canal boat carries it for a tenth of the price, and it reaches New York City in days. The village of Rochester, which I knew as a crossroads, now has mills, churches, and more new buildings than I can count.\"",
+ scaffold:[
+   "How did the canal change the cost of shipping the farmer's wheat?",
+   "What evidence shows the canal's effect on upstate towns?",
+   "Using the document and your knowledge, explain how the canal strengthened the bond between the Midwest and New York City."
+ ],
+ model:"The farmer says shipping that once cost nearly the value of his wheat now costs about a tenth as much — a huge drop that made selling crops in distant markets profitable. His description of Rochester exploding from a crossroads into a milling boomtown shows the canal driving upstate growth. Combined with outside knowledge, the document explains a larger shift: cheap water transport tied Midwestern farms to New York Harbor, so western grain flowed east and money and goods flowed west, making New York City the commercial capital of the nation and New York the 'Empire State.'"},
+{u:5, docTitle:"Document: A formerly enslaved speaker addresses a New York audience (adapted, 1852)",
+ doc:"\"You celebrate your Fourth of July and read your Declaration. What, to the man still in chains, is your Fourth of July? Your festival is a mockery while millions are held as property. I do not despair, for your own founding words condemn the practice — I ask only that America live up to what it has written.\"",
+ scaffold:[
+   "What contradiction between American ideals and American practice does the speaker identify?",
+   "Why might the speaker quote the nation's founding documents instead of rejecting them?",
+   "How does this argument connect to later events such as the Emancipation Proclamation and the 13th Amendment?"
+ ],
+ model:"The speaker exposes the contradiction between the Declaration's promise of equality and the reality of millions held in slavery — the Fourth of July is 'a mockery' to the enslaved. Rather than rejecting the founding documents, he uses them as a weapon: America's 'own founding words condemn the practice,' so the nation must be held to its stated ideals (the strategy of abolitionists like Frederick Douglass). This argument prevailed during the Civil War: the Emancipation Proclamation redefined the war as a fight for freedom, and the 13th Amendment finally wrote abolition into the Constitution, moving the nation closer to its founding promise."}
+];
+
+/* ============ GRADE 8 DATA ============ */
+const UNITS8 = [
+{
+  id: 1,
+  acc: "#6d5199",
+  title: "Reconstruction: Rebuilding a Broken Nation",
+  years: "1865 – 1877",
+  essentialQuestion: "Did Reconstruction rebuild the United States on a foundation of real freedom — and why did it end?",
+  bigPicture: "The Civil War ended slavery, but it left four million newly freed people without land, schools, or legal protection — and a defeated South determined to resist change. Three Reconstruction Amendments rewrote the Constitution: the 13th ended slavery, the 14th made everyone born in the U.S. a citizen with equal protection, and the 15th said the vote could not be denied because of race. The Freedmen's Bureau built schools, and Black men were elected to Congress for the first time. But white Southerners fought back with Black Codes, sharecropping, and Klan terror. When the Compromise of 1877 pulled federal troops out of the South, Reconstruction collapsed, and Jim Crow segregation — blessed by the Supreme Court in Plessy v. Ferguson — took its place for generations.",
+  keyTerms: [
+    ["Reconstruction", "The period (1865–1877) of rebuilding the South and bringing formerly Confederate states — and four million freed people — into the life of the nation."],
+    ["13th Amendment", "Abolished slavery everywhere in the United States (1865)."],
+    ["14th Amendment", "Made everyone born in the U.S. a citizen and guaranteed all citizens 'equal protection of the laws' (1868)."],
+    ["15th Amendment", "Declared that the right to vote cannot be denied because of race or previous enslavement (1870)."],
+    ["Freedmen's Bureau", "A federal agency that helped formerly enslaved people with food, medical care, legal help, and especially schools."],
+    ["Black Codes", "Southern state laws passed right after the war to control freed people and force them back into plantation-style labor."],
+    ["sharecropping", "A farming system in which families worked a landlord's land for a share of the crop — and usually ended each year deeper in debt."],
+    ["Radical Republicans", "Members of Congress who demanded full rights for freed people and strict terms for the South's return."],
+    ["impeachment", "The House of Representatives formally charging an official with wrongdoing; President Andrew Johnson was impeached in 1868 and survived removal by one Senate vote."],
+    ["Ku Klux Klan", "A terrorist organization that used violence to stop Black southerners from voting, owning land, and going to school."],
+    ["Compromise of 1877", "The deal that settled the disputed 1876 election: Hayes became president, federal troops left the South, and Reconstruction ended."],
+    ["Jim Crow laws", "Southern laws requiring racial segregation in schools, trains, parks, and nearly all public life."],
+    ["Plessy v. Ferguson", "The 1896 Supreme Court decision declaring that 'separate but equal' facilities were constitutional — a green light for segregation."],
+    ["disenfranchisement", "Stripping people of the right to vote, through tools like poll taxes, literacy tests, and grandfather clauses."]
+  ],
+  keyPeople: [
+    ["Abraham Lincoln", "Favored a forgiving 'malice toward none' Reconstruction, but was assassinated in April 1865 before it began."],
+    ["Andrew Johnson", "Lincoln's successor, who fought Congress over Reconstruction, vetoed civil rights bills, and was impeached in 1868."],
+    ["Thaddeus Stevens", "Radical Republican leader who pushed for full citizenship and land for freed people."],
+    ["Hiram Revels", "First African American U.S. senator (Mississippi, 1870) — one of hundreds of Black officials elected during Reconstruction."],
+    ["Frederick Douglass", "Continued fighting for Black voting rights and equal citizenship after the war."],
+    ["Ulysses S. Grant", "As president (1869–1877), used federal power to crush the Klan — for a time."],
+    ["Ida B. Wells", "Journalist who risked her life to expose lynching and the collapse of Black rights after Reconstruction."]
+  ],
+  timeline: [
+    ["Apr 1865", "Civil War ends; Lincoln assassinated; Andrew Johnson becomes president."],
+    ["1865", "13th Amendment abolishes slavery; Freedmen's Bureau begins work; Black Codes appear."],
+    ["1867", "Reconstruction Acts put the South under military supervision until states guarantee Black male suffrage."],
+    ["1868", "Johnson impeached; 14th Amendment guarantees citizenship and equal protection."],
+    ["1870", "15th Amendment protects Black men's right to vote; Hiram Revels enters the Senate."],
+    ["1877", "Compromise of 1877 withdraws federal troops; Reconstruction ends."],
+    ["1890s", "Southern states disenfranchise Black voters with poll taxes and literacy tests."],
+    ["1896", "Plessy v. Ferguson approves 'separate but equal' segregation."]
+  ],
+  matters: [
+    "Why It Matters: The 14th Amendment's promise of 'equal protection' became the legal foundation for nearly every later civil rights victory — including Brown v. Board of Education in 1954.",
+    "NYS Connection: New York's debate over the 15th Amendment was fierce — the state briefly voted to withdraw its ratification — showing that resistance to Black voting rights was national, not just southern.",
+    "Why It Matters: Historians call Reconstruction 'the unfinished revolution.' Understanding how rights were won and then taken away explains why the Civil Rights Movement of the 1950s–60s is often called the Second Reconstruction."
+  ]
+},
+{
+  id: 2,
+  acc: "#b5541f",
+  title: "The Machine Age: Industry, Immigration, and Progressive Reform",
+  years: "1870 – 1920",
+  essentialQuestion: "Industrialization made America rich and cities enormous — who paid the price, and how did reformers fight back?",
+  bigPicture: "After the Civil War, railroads, steel, oil, and electricity transformed the United States into the world's industrial giant. Titans like Carnegie and Rockefeller built monopolies and staggering fortunes while workers — many of them children — labored twelve-hour days in dangerous factories for pennies. Millions of immigrants poured through Ellis Island into New York's crowded tenements, chasing opportunity and often meeting nativist hostility. Workers organized unions and strikes; muckraking journalists exposed corruption and filth; and Progressive reformers won laws on food safety, factory conditions, and voting. The 1911 Triangle Shirtwaist Factory fire in Manhattan — 146 workers dead, most of them young immigrant women — shocked New York into passing the era's strongest labor laws. In 1920, the 19th Amendment finally won women the vote.",
+  keyTerms: [
+    ["industrialization", "The rapid growth of machine-powered manufacturing, railroads, and big business after the Civil War."],
+    ["monopoly (trust)", "A company that controls an entire industry, eliminating competition — like Rockefeller's Standard Oil."],
+    ["robber baron / captain of industry", "Two nicknames for the same tycoons: 'robber baron' if you focused on their ruthless methods, 'captain of industry' if you focused on what they built and gave away."],
+    ["labor union", "An organization of workers who bargain together for better pay, hours, and safety."],
+    ["strike", "Workers refusing to work until demands are met — labor's most powerful and riskiest weapon."],
+    ["tenement", "A crowded, poorly built apartment building; thousands packed New York's Lower East Side."],
+    ["Ellis Island", "The New York Harbor station where more than 12 million immigrants entered the United States (1892–1954)."],
+    ["nativism", "Hostility toward immigrants and the belief that native-born Americans deserve favored treatment."],
+    ["assimilation", "The process of adapting to a new country's language and customs — often pressured, sometimes chosen."],
+    ["muckraker", "A journalist who dug up ('raked') the muck of corruption and abuse — like Jacob Riis and Upton Sinclair."],
+    ["Progressive movement", "A broad reform movement (1890s–1920) using government power to fix the problems of industrial society."],
+    ["Triangle Shirtwaist fire", "The 1911 Manhattan factory fire that killed 146 workers trapped behind locked doors, sparking landmark New York labor laws."],
+    ["settlement house", "A community center in a poor neighborhood offering classes, child care, and health services — like Jane Addams's Hull House."],
+    ["19th Amendment", "Won women the right to vote nationwide in 1920 after a seventy-year campaign."]
+  ],
+  keyPeople: [
+    ["Andrew Carnegie", "Steel king who preached the 'Gospel of Wealth' and gave away his fortune — after crushing his workers' union at Homestead."],
+    ["John D. Rockefeller", "Built the Standard Oil monopoly that controlled about 90 percent of American oil refining."],
+    ["Thomas Edison", "Inventor whose electric light and power systems (first switched on in Manhattan, 1882) lit the modern city."],
+    ["Samuel Gompers", "Cigar maker from New York's Lower East Side who founded the American Federation of Labor."],
+    ["Jacob Riis", "Immigrant photographer whose book How the Other Half Lives exposed tenement misery in New York."],
+    ["Upton Sinclair", "His novel The Jungle revealed horrifying conditions in meatpacking plants and led to federal food safety laws."],
+    ["Ida Tarbell", "Muckraker whose investigation of Standard Oil helped break up the monopoly."],
+    ["Jane Addams", "Founded Hull House and led the settlement house movement."],
+    ["Theodore Roosevelt", "New York-born president who busted trusts, protected consumers, and conserved public lands."],
+    ["Frances Perkins", "Witnessed the Triangle fire, drove New York's factory reforms — and later became the first woman in a president's cabinet."],
+    ["Susan B. Anthony", "Rochester, NY suffragist arrested for voting in 1872; the 19th Amendment carried her name informally."]
+  ],
+  timeline: [
+    ["1869", "Transcontinental Railroad completed."],
+    ["1882", "Edison's Pearl Street station brings electric light to Manhattan; Chinese Exclusion Act bars Chinese immigration."],
+    ["1886", "Statue of Liberty dedicated in New York Harbor; American Federation of Labor founded."],
+    ["1890", "Jacob Riis publishes How the Other Half Lives."],
+    ["1892", "Ellis Island opens; Homestead steel strike turns violent."],
+    ["1904", "New York City subway opens."],
+    ["1906", "The Jungle prompts the Meat Inspection and Pure Food and Drug Acts."],
+    ["1911", "Triangle Shirtwaist fire kills 146; New York passes sweeping labor laws."],
+    ["1920", "19th Amendment: women win the vote."]
+  ],
+  matters: [
+    "NYS Connection: New York was the front door and the factory floor of this era — Ellis Island, the Statue of Liberty, the tenements Riis photographed, and the Triangle fire were all New York stories that changed national policy.",
+    "NYS Connection: The Triangle fire investigation, led by New Yorkers Frances Perkins, Al Smith, and Robert Wagner, produced the strongest workplace safety laws in the country — the blueprint for the later New Deal.",
+    "Why It Matters: The era's core question — how much should government regulate big business to protect workers and consumers? — is still debated in every election today."
+  ]
+},
+{
+  id: 3,
+  acc: "#2e6b7a",
+  title: "A World Power: Imperialism and World War I",
+  years: "1890 – 1920",
+  essentialQuestion: "Should a nation founded on liberty rule an empire — and what did joining the Great War cost and change?",
+  bigPicture: "By the 1890s the United States looked beyond its borders. Sensational 'yellow journalism' in New York's newspapers helped push the country into the Spanish-American War of 1898, which left America ruling territories from Puerto Rico to the Philippines — an empire that many Americans, including anti-imperialists, believed betrayed the nation's ideals. Theodore Roosevelt built the Panama Canal to link the oceans. When World War I engulfed Europe in 1914, America stayed neutral until German submarine attacks and the Zimmermann Telegram pulled it in (1917). American forces — including the celebrated Harlem Hellfighters — helped win the war, while the Great Migration brought hundreds of thousands of Black southerners to northern cities like New York. Wilson's dream of a peaceful League of Nations died in the U.S. Senate, and America turned inward.",
+  keyTerms: [
+    ["imperialism", "A powerful country extending control over weaker territories or nations for resources, markets, and military bases."],
+    ["yellow journalism", "Sensational, exaggerated news designed to sell papers — Pulitzer's and Hearst's New York papers used it to whip up war fever in 1898."],
+    ["Spanish-American War", "The brief 1898 war in which the U.S. defeated Spain and took control of Puerto Rico, Guam, and the Philippines, and made Cuba a protectorate."],
+    ["anti-imperialist", "Someone who opposed America ruling colonies, arguing an empire contradicted government by consent."],
+    ["Panama Canal", "The U.S.-built waterway (opened 1914) across Central America linking the Atlantic and Pacific."],
+    ["militarism", "Glorifying military power and keeping huge armed forces ready for war — one of WWI's underlying causes."],
+    ["alliance system", "The web of defense treaties that dragged all of Europe's great powers into war after one assassination in 1914."],
+    ["neutrality", "The official U.S. policy of not taking sides in WWI from 1914 to 1917."],
+    ["Lusitania", "British passenger ship sunk by a German submarine in 1915, killing 128 Americans and turning U.S. opinion against Germany."],
+    ["Zimmermann Telegram", "Germany's secret 1917 offer to help Mexico regain Texas and the Southwest if it attacked the U.S. — the final straw before war."],
+    ["trench warfare", "WWI's brutal stalemate of opposing ditches, barbed wire, machine guns, and poison gas."],
+    ["armistice", "An agreement to stop fighting; WWI's took effect on the 11th hour of the 11th day of the 11th month, 1918."],
+    ["Fourteen Points", "Wilson's plan for a just peace, including self-determination and a League of Nations."],
+    ["League of Nations", "The international peace organization Wilson championed — which the U.S. Senate refused to join."],
+    ["Great Migration", "The movement of hundreds of thousands of African Americans from the rural South to northern cities for jobs and to escape Jim Crow."]
+  ],
+  keyPeople: [
+    ["William McKinley", "President during the Spanish-American War and the taking of the Philippines."],
+    ["Theodore Roosevelt", "Rough Rider, then president; built the canal and made America a world police power."],
+    ["Joseph Pulitzer & William Randolph Hearst", "Rival New York publishers whose circulation war fueled yellow journalism."],
+    ["Woodrow Wilson", "Led the U.S. through WWI and fought — unsuccessfully at home — for the League of Nations."],
+    ["Henry Johnson", "Harlem Hellfighter from Albany, NY, who fought off a German raid nearly single-handedly; France decorated him long before his own country did."],
+    ["Jeannette Rankin", "First woman in Congress; voted against entering WWI."]
+  ],
+  timeline: [
+    ["1898", "USS Maine explodes in Havana; Spanish-American War; U.S. annexes Hawaii and takes Spain's colonies."],
+    ["1903–1914", "United States builds the Panama Canal."],
+    ["1914", "Assassination of Archduke Franz Ferdinand ignites World War I in Europe."],
+    ["1915", "Germany sinks the Lusitania."],
+    ["1917", "Zimmermann Telegram revealed; U.S. declares war on Germany."],
+    ["1918", "Harlem Hellfighters serve 191 days at the front; armistice ends the war Nov 11."],
+    ["1919", "Treaty of Versailles signed; U.S. Senate rejects it and the League of Nations."],
+    ["1910s–1920s", "Great Migration transforms northern cities, including Harlem."]
+  ],
+  matters: [
+    "NYS Connection: New York's 369th Infantry — the Harlem Hellfighters — spent more time in front-line combat than almost any other American regiment, fighting under the French flag because the U.S. Army was segregated.",
+    "NYS Connection: The yellow-journalism circulation war between Pulitzer's World and Hearst's Journal was fought from newspaper row in Manhattan — an early lesson in how media can shape a nation's decisions about war.",
+    "Why It Matters: The debate over the League of Nations — should America lead the world or stay out of its quarrels? — returned after WWII (the UN, headquartered in NYC) and is still with us."
+  ]
+},
+{
+  id: 4,
+  acc: "#8a2f4f",
+  title: "Boom, Bust, and World War: The Twenties through 1945",
+  years: "1920 – 1945",
+  essentialQuestion: "How did America swing from dazzling prosperity to desperate depression to total war — and how did each crisis redefine government's job?",
+  bigPicture: "The Roaring Twenties brought radios, automobiles, jazz, and — in Harlem — a dazzling explosion of Black literature, music, and art called the Harlem Renaissance. But the good times were unevenly shared and built on shaky credit. The 1929 stock market crash triggered the Great Depression: banks failed, a quarter of workers lost their jobs, and Dust Bowl storms buried Plains farms. Franklin D. Roosevelt — New York's governor — promised a New Deal, using government programs to provide relief, recovery, and reform, including Social Security. Meanwhile dictators rose overseas. After Japan attacked Pearl Harbor in December 1941, America fought a global war on two fronts, powered by a home front of war factories, rationing, women workers, and — shamefully — the internment of Japanese Americans. Victory in 1945 came with the atomic bomb, the horror of the Holocaust revealed, and the United States standing as a superpower.",
+  keyTerms: [
+    ["Roaring Twenties", "The 1920s decade of economic boom, new technology, jazz, and clashing values."],
+    ["Harlem Renaissance", "The flowering of African American literature, music, and art centered in Harlem, New York, in the 1920s."],
+    ["Prohibition", "The 18th Amendment's nationwide ban on alcohol (1920–1933), which fueled speakeasies and organized crime."],
+    ["stock market crash", "The October 1929 collapse of stock prices that wiped out fortunes and helped trigger the Depression."],
+    ["Great Depression", "The worst economic crisis in U.S. history (1929–1941): failed banks, mass unemployment, and widespread poverty."],
+    ["Dust Bowl", "The 1930s environmental disaster of drought and dust storms that devastated Great Plains farms."],
+    ["New Deal", "FDR's programs of Relief, Recovery, and Reform — jobs programs, bank insurance, and new rules for the economy."],
+    ["Social Security", "The 1935 New Deal program providing income for retirees, the disabled, and the unemployed — still central to American life."],
+    ["fascism", "A political system glorifying nation and leader above all, crushing opposition — the ideology of Mussolini's Italy and Hitler's Germany."],
+    ["Pearl Harbor", "Japan's surprise attack on the U.S. naval base in Hawaii, December 7, 1941, which brought America into WWII."],
+    ["Holocaust", "Nazi Germany's systematic murder of six million Jews and millions of other victims."],
+    ["internment", "The forced removal and imprisonment of about 120,000 Japanese Americans — most of them U.S. citizens — under Executive Order 9066."],
+    ["home front", "Civilian life during wartime: war production, rationing, victory gardens, and women filling factory jobs ('Rosie the Riveter')."],
+    ["D-Day", "The Allied invasion of Nazi-occupied France at Normandy, June 6, 1944 — the largest seaborne invasion in history."],
+    ["atomic bomb", "The nuclear weapon the U.S. dropped on Hiroshima and Nagasaki in August 1945, forcing Japan's surrender and opening the nuclear age."]
+  ],
+  keyPeople: [
+    ["Langston Hughes", "Poet whose work gave the Harlem Renaissance its voice."],
+    ["Duke Ellington", "Composer and bandleader whose Cotton Club broadcasts carried Harlem's jazz to the nation."],
+    ["Zora Neale Hurston", "Harlem Renaissance writer and folklorist, author of Their Eyes Were Watching God."],
+    ["Franklin D. Roosevelt", "New York governor, then four-term president who led the nation through Depression and war."],
+    ["Eleanor Roosevelt", "First lady from New York who traveled as FDR's eyes and ears and championed civil and human rights."],
+    ["Frances Perkins", "FDR's Secretary of Labor — first woman cabinet member — and chief architect of Social Security."],
+    ["Adolf Hitler", "Nazi dictator whose invasions began WWII in Europe and who directed the Holocaust."],
+    ["Winston Churchill", "British prime minister who rallied resistance to Hitler and partnered with FDR."],
+    ["A. Philip Randolph", "Labor leader whose threatened march on Washington pushed FDR to ban discrimination in war industries."],
+    ["Harry S. Truman", "Became president at FDR's death; ordered the atomic bombings and led the war's end."]
+  ],
+  timeline: [
+    ["1920s", "Harlem Renaissance flourishes; radios and automobiles spread; Prohibition in force."],
+    ["Oct 1929", "Stock market crashes."],
+    ["1932", "About one in four American workers is unemployed; FDR elected."],
+    ["1933", "New Deal's 'Hundred Days' begins; Hitler takes power in Germany."],
+    ["1935", "Social Security Act signed."],
+    ["Sep 1939", "Germany invades Poland; WWII begins in Europe."],
+    ["Dec 7, 1941", "Japan attacks Pearl Harbor; U.S. enters the war."],
+    ["1942", "Executive Order 9066 authorizes Japanese American internment."],
+    ["Jun 6, 1944", "D-Day landings at Normandy."],
+    ["1945", "Germany surrenders (May); atomic bombs dropped; Japan surrenders (Aug); WWII ends."]
+  ],
+  matters: [
+    "NYS Connection: The Harlem Renaissance made one New York neighborhood the capital of Black culture in America — its writers and musicians laid groundwork for the Civil Rights Movement's confidence and pride.",
+    "NYS Connection: FDR went from the New York governor's mansion to the White House and brought New York's Triangle-fire generation of reformers (like Frances Perkins) with him — the New Deal was in many ways New York's factory laws gone national.",
+    "Why It Matters: The New Deal permanently changed what Americans expect from government in a crisis — a debate renewed in every recession since."
+  ]
+},
+{
+  id: 5,
+  acc: "#35648f",
+  title: "Superpower: The Cold War, Civil Rights, and Modern America",
+  years: "1945 – Present",
+  essentialQuestion: "How did America wage a global struggle for democracy abroad while Americans fought to achieve it fully at home?",
+  bigPicture: "After 1945, two superpowers — the democratic United States and the communist Soviet Union — faced off in a 'Cold War' fought with nuclear arsenals, alliances, propaganda, and proxy wars from Korea to Vietnam, coming closest to catastrophe in the 1962 Cuban Missile Crisis. At home, McCarthyism fueled a fearful hunt for communists. Meanwhile the Civil Rights Movement attacked segregation with courage and nonviolent protest: Brown v. Board of Education struck down 'separate but equal,' the Montgomery Bus Boycott and the March on Washington moved the nation, and the Civil Rights Act (1964) and Voting Rights Act (1965) wrote equality into law. New Yorkers made history too — Jackie Robinson in Brooklyn, Shirley Chisholm in Congress, the Stonewall uprising in Greenwich Village. The Cold War ended with the Berlin Wall's fall (1989) and the Soviet collapse (1991). The September 11, 2001 attacks on New York's World Trade Center opened a new era, and the nation's long argument over freedom and fairness continues.",
+  keyTerms: [
+    ["Cold War", "The decades-long rivalry (1945–1991) between the U.S. and the Soviet Union, fought with everything except direct all-out war."],
+    ["containment", "The U.S. strategy of stopping communism from spreading beyond where it already existed."],
+    ["superpower", "A nation with worldwide military, economic, and political reach — after 1945, the U.S. and USSR."],
+    ["arms race", "The competition to build more and deadlier nuclear weapons."],
+    ["NATO", "The North Atlantic Treaty Organization (1949) — a defense alliance of the U.S., Canada, and Western Europe."],
+    ["Cuban Missile Crisis", "The thirteen days in October 1962 when Soviet missiles in Cuba brought the world to the edge of nuclear war."],
+    ["McCarthyism", "The early-1950s wave of reckless accusations of communism, named for Senator Joseph McCarthy, that ruined careers without evidence."],
+    ["segregation", "The legal and social separation of people by race — the system the Civil Rights Movement dismantled."],
+    ["Brown v. Board of Education", "The 1954 Supreme Court ruling that segregated public schools are unconstitutional, overturning Plessy."],
+    ["Montgomery Bus Boycott", "The 381-day boycott (1955–56), sparked by Rosa Parks's arrest, that desegregated Montgomery's buses and made Dr. King a national leader."],
+    ["Civil Rights Act of 1964", "Outlawed segregation in public places and discrimination in employment."],
+    ["Voting Rights Act of 1965", "Banned the tricks — literacy tests and more — used to keep Black citizens from voting."],
+    ["Vietnam War", "The long, divisive war (major U.S. involvement 1965–1973) to stop communism in Southeast Asia, which the U.S. ultimately failed to do."],
+    ["Stonewall uprising", "The 1969 resistance to a police raid at Greenwich Village's Stonewall Inn, a turning point launching the modern LGBTQ rights movement."],
+    ["9/11", "The September 11, 2001 terrorist attacks that destroyed the World Trade Center in New York and killed nearly 3,000 people."],
+    ["globalization", "The tightening web of trade, technology, migration, and culture connecting the world's nations."]
+  ],
+  keyPeople: [
+    ["Harry S. Truman", "Launched containment, the Marshall Plan, and desegregated the armed forces (1948)."],
+    ["John F. Kennedy", "Steered the nation through the Cuban Missile Crisis and launched the race to the moon."],
+    ["Martin Luther King Jr.", "Led the movement's nonviolent campaigns and delivered the 'I Have a Dream' speech at the 1963 March on Washington."],
+    ["Rosa Parks", "Her refusal to give up her bus seat in 1955 ignited the Montgomery Bus Boycott."],
+    ["Thurgood Marshall", "NAACP lawyer who won Brown v. Board — later the first Black Supreme Court justice."],
+    ["Malcolm X", "Harlem-based leader who preached Black pride, self-defense, and self-determination."],
+    ["Lyndon B. Johnson", "Pushed the Civil Rights Act and Voting Rights Act through Congress."],
+    ["Jackie Robinson", "Broke baseball's color line with the Brooklyn Dodgers in 1947 — civil rights history on a ballfield."],
+    ["Shirley Chisholm", "Brooklyn educator who became the first Black woman in Congress (1968) and ran for president in 1972 — 'unbought and unbossed.'"],
+    ["Ronald Reagan & Mikhail Gorbachev", "The U.S. and Soviet leaders whose negotiations helped wind down the Cold War."]
+  ],
+  timeline: [
+    ["1945", "WWII ends; United Nations founded — headquarters built in New York City."],
+    ["1947", "Jackie Robinson debuts for the Brooklyn Dodgers; containment policy announced."],
+    ["1950–1953", "Korean War."],
+    ["1954", "Brown v. Board of Education outlaws school segregation."],
+    ["1955–56", "Montgomery Bus Boycott."],
+    ["1962", "Cuban Missile Crisis."],
+    ["1963", "March on Washington; 'I Have a Dream.'"],
+    ["1964–65", "Civil Rights Act and Voting Rights Act become law."],
+    ["1969", "Stonewall uprising in NYC; Apollo 11 lands on the moon."],
+    ["1989–1991", "Berlin Wall falls; Soviet Union dissolves; Cold War ends."],
+    ["Sep 11, 2001", "Terrorists destroy the World Trade Center; nearly 3,000 killed."]
+  ],
+  matters: [
+    "NYS Connection: The United Nations chose New York City for its permanent headquarters in 1945 — making the city the diplomatic capital of the world.",
+    "NYS Connection: Brooklyn's Jackie Robinson, Harlem's Malcolm X, Brooklyn's Shirley Chisholm, and Greenwich Village's Stonewall uprising show New York at the center of America's struggles over equality.",
+    "Why It Matters: The Civil Rights Movement completed much of Reconstruction's unfinished work — the 1964 and 1965 laws finally enforced the 14th and 15th Amendments, nearly a century after they were written."
+  ]
+}
+];
+
+/* Grade 8 practice questions — all original */
+const QUESTIONS8 = [
+/* ---- G8 UNIT 1: Reconstruction (12) ---- */
+{u:1, q:"Which correctly matches the Reconstruction Amendments to their purposes?",
+ c:["13th: voting rights; 14th: ended slavery; 15th: citizenship","13th: ended slavery; 14th: citizenship and equal protection; 15th: voting rights regardless of race","13th: citizenship; 14th: voting; 15th: ended slavery","All three dealt only with taxes"],
+ a:1, ex:"Remember the order: free (13th), citizen (14th), vote (15th)."},
+{u:1, stim:{kind:"Quote", text:"\"Every freedman shall be required to have written proof of employment. Any freedman found without such proof may be arrested and hired out to any white person who will pay his fine.\" — adapted from a southern state law, 1865"},
+ q:"This law is an example of",
+ c:["the Freedmen's Bureau's programs","the Black Codes designed to control freed people's labor","the 14th Amendment","the Compromise of 1877"],
+ a:1, ex:"Black Codes used vagrancy rules and labor contracts to push freed people back into plantation-style work — slavery by another name."},
+{u:1, q:"The main purpose of the Freedmen's Bureau was to",
+ c:["help formerly enslaved people with education, food, medical care, and legal protection","distribute land to Confederate veterans","run southern railroads","organize the Ku Klux Klan"],
+ a:0, ex:"The Bureau's most lasting achievement was education — it helped build thousands of schools for Black southerners."},
+{u:1, q:"Under sharecropping, farming families usually",
+ c:["became wealthy landowners within a few years","ended each season owing more debt to the landlord than they earned","received free land from the government","were paid daily cash wages"],
+ a:1, ex:"Landlords advanced supplies against the harvest at high prices and interest, trapping sharecroppers in a cycle of debt."},
+{u:1, stim:{kind:"Political cartoon description", text:"An 1868 cartoon shows a freedman placing a ballot in a box while three hooded figures with weapons lurk behind him; a caption reads 'The invisible empire watches.'"},
+ q:"The cartoon depicts which threat to Reconstruction?",
+ c:["Foreign invasion of the South","Klan terror aimed at stopping Black citizens from voting","Bank failures in the North","Disputes over railroad routes"],
+ a:1, ex:"The Ku Klux Klan used violence and intimidation to keep Black southerners from exercising their new voting rights."},
+{u:1, q:"President Andrew Johnson was impeached in 1868 mainly because of his",
+ c:["support for Radical Republicans","constant conflict with Congress over Reconstruction policy","refusal to end the Civil War","secret support for the Klan"],
+ a:1, ex:"Johnson vetoed civil rights measures and fired officials in defiance of Congress; the House impeached him, and the Senate fell one vote short of removal."},
+{u:1, q:"Hiram Revels is historically significant as",
+ c:["the general who won the Civil War","the first African American U.S. senator","the author of the 14th Amendment","the founder of the Freedmen's Bureau"],
+ a:1, ex:"Revels of Mississippi entered the Senate in 1870 — one of about 2,000 Black officeholders elected during Reconstruction."},
+{u:1, q:"The Compromise of 1877 ended Reconstruction by",
+ c:["adding a new amendment to the Constitution","withdrawing federal troops from the South in exchange for Hayes winning the presidency","granting land to all freed people","banning the Democratic Party"],
+ a:1, ex:"Once the troops left, southern governments were free to strip away Black rights without federal interference."},
+{u:1, stim:{kind:"Chart description", text:"A chart of a southern state shows Black voter registration falling from about 130,000 in 1876 to under 5,000 by 1900. Rows below list: 'poll tax adopted 1889,' 'literacy test adopted 1890,' 'grandfather clause adopted 1898.'"},
+ q:"The chart best illustrates",
+ c:["the success of the 15th Amendment","disenfranchisement — using legal tricks to destroy Black voting power","increasing Black political participation","the effects of the New Deal"],
+ a:1, ex:"Poll taxes, literacy tests, and grandfather clauses were designed to evade the 15th Amendment and erase Black political power."},
+{u:1, q:"In Plessy v. Ferguson (1896), the Supreme Court ruled that",
+ c:["segregation was unconstitutional","'separate but equal' facilities did not violate the Constitution","the 14th Amendment was invalid","schools must be integrated"],
+ a:1, ex:"Plessy blessed Jim Crow segregation for nearly six decades, until Brown v. Board overturned it in 1954."},
+{u:1, q:"Why do historians often call Reconstruction 'the unfinished revolution'?",
+ c:["It never officially began","Its promises of equal citizenship were won on paper but abandoned in practice for nearly a century","It lasted longer than any other era","It only affected the North"],
+ a:1, ex:"The 14th and 15th Amendments stayed in the Constitution, but their enforcement collapsed after 1877 — finishing that work fell to the Civil Rights Movement."},
+{u:1, q:"Ida B. Wells is best known for",
+ c:["serving as first lady","her fearless journalism exposing lynching","founding the Freedmen's Bureau","writing the Compromise of 1877"],
+ a:1, ex:"Wells documented lynchings with hard evidence and demanded federal action, at great personal risk."},
+
+/* ---- G8 UNIT 2: Industry, Immigration, Progressives (12) ---- */
+{u:2, q:"A monopoly, or trust, is dangerous to consumers mainly because it",
+ c:["produces too many products","can raise prices and crush competition since customers have no alternatives","employs too many workers","pays too much in taxes"],
+ a:1, ex:"Without competition, a monopoly like Standard Oil could set prices and terms at will — which is why Progressives demanded trust-busting."},
+{u:2, stim:{kind:"Quote", text:"\"In the block I photographed last week, three hundred souls share one rear yard and a single water pump. Children sleep four to a bed in rooms that never see the sun.\" — adapted from a New York reformer's account, about 1890"},
+ q:"This account describes conditions in",
+ c:["Hudson Valley farm estates","New York City tenements","New England textile mills","western mining camps"],
+ a:1, ex:"Jacob Riis's photographs and writing exposed exactly these tenement conditions in How the Other Half Lives, spurring housing reform."},
+{u:2, q:"Most immigrants arriving in New York between 1892 and 1924 were processed at",
+ c:["Angel Island","Ellis Island","Plymouth Rock","Grand Central Terminal"],
+ a:1, ex:"More than 12 million immigrants entered through Ellis Island in New York Harbor, within sight of the Statue of Liberty."},
+{u:2, q:"Nativism in this era is best defined as",
+ c:["pride in Indigenous heritage","hostility toward immigrants and preference for the native-born","support for open immigration","a farming technique"],
+ a:1, ex:"Nativists blamed immigrants for low wages, crime, and cultural change, and pushed restrictions like the Chinese Exclusion Act."},
+{u:2, q:"Muckrakers contributed to reform by",
+ c:["investigating and publicizing corruption and abuse so the public demanded change","running factories more efficiently","leading armies","buying up newspapers to hide scandals"],
+ a:0, ex:"Journalists like Riis, Tarbell, and Sinclair turned hidden problems into national outrage — the fuel of Progressive lawmaking."},
+{u:2, stim:{kind:"Quote", text:"\"The meat would be shoveled from the floor, where the workers had walked and spat, into the carts that carried it to the grinders. A man who fell into the vats might be overlooked for days.\" — adapted from a 1906 novel about the meatpacking industry"},
+ q:"Public reaction to the book excerpted above led most directly to",
+ c:["the Pure Food and Drug Act and the Meat Inspection Act","the 19th Amendment","the end of Reconstruction","the construction of the subway"],
+ a:0, ex:"Upton Sinclair's The Jungle disgusted the nation; within months Congress passed federal food-safety laws."},
+{u:2, q:"Labor unions in this era primarily sought",
+ c:["ownership of all factories","higher wages, shorter hours, and safer conditions through collective bargaining","an end to immigration","government jobs for all workers"],
+ a:1, ex:"Unions like the AFL bargained — and struck — for bread-and-butter gains: pay, the eight-hour day, and safety."},
+{u:2, stim:{kind:"Chart description", text:"A chart titled 'Deaths in the Triangle Shirtwaist Factory Fire, 1911' shows 146 victims, with notes: 'exit doors locked,' 'one flimsy fire escape collapsed,' 'most victims young immigrant women.'"},
+ q:"Which was the most important result of this disaster?",
+ c:["New York passed the nation's strongest factory safety and labor laws","Factories were banned from cities","Nothing changed","The factory owners were sentenced to life in prison"],
+ a:0, ex:"The fire's horror drove a New York investigating commission — with Frances Perkins — to write dozens of landmark safety and labor laws."},
+{u:2, q:"Settlement houses like Hull House served their neighborhoods by",
+ c:["collecting rents for landlords","offering classes, child care, health services, and help to immigrants and the poor","selling insurance","operating factories"],
+ a:1, ex:"Settlement workers such as Jane Addams lived in poor neighborhoods and provided education and services while pushing for reform."},
+{u:2, q:"Theodore Roosevelt earned the nickname 'trust-buster' because he",
+ c:["broke up monopolies he judged harmful to the public","refused to regulate any business","founded Standard Oil","closed the stock market"],
+ a:0, ex:"TR used the Sherman Antitrust Act against powerful combinations, arguing government must referee the economy."},
+{u:2, q:"The 19th Amendment (1920) achieved which long-sought goal?",
+ c:["Ending child labor","Women's right to vote nationwide","Banning alcohol","An eight-hour workday"],
+ a:1, ex:"After a seventy-year campaign stretching back to Seneca Falls, women won the constitutional right to vote."},
+{u:2, q:"Which sequence best shows a Progressive reform pattern?",
+ c:["Problem exposed by muckrakers, public outrage, new law passed","New law passed, then problem discovered","Strike, war, amendment","Election, depression, recovery"],
+ a:0, ex:"Progressives followed a recognizable playbook: investigate and expose, mobilize public opinion, then legislate — The Jungle to food laws, the Triangle fire to labor laws."},
+
+/* ---- G8 UNIT 3: Imperialism and WWI (12) ---- */
+{u:3, q:"Imperialism is best defined as",
+ c:["a policy of avoiding all foreign contact","a stronger nation taking control of weaker territories for resources, markets, or bases","a system of free trade among equals","a military alliance"],
+ a:1, ex:"Imperial powers ruled colonies and territories for economic and strategic advantage — the U.S. joined the club in 1898."},
+{u:3, stim:{kind:"Quote", text:"\"The warship was destroyed by an enemy's secret infernal machine! $50,000 reward for the conviction of the criminals!\" — adapted from a New York newspaper front page, February 1898"},
+ q:"This headline about the USS Maine is an example of",
+ c:["careful investigative reporting","yellow journalism inflaming public opinion toward war","government censorship","an official navy report"],
+ a:1, ex:"Before any real investigation, sensational papers blamed Spain for the Maine explosion, whipping up fever for the Spanish-American War."},
+{u:3, q:"As a result of the Spanish-American War, the United States",
+ c:["gained control of Puerto Rico, Guam, and the Philippines","lost Florida","joined the British Empire","withdrew from world affairs"],
+ a:0, ex:"Victory over Spain in 1898 turned the U.S. into an imperial power with territories in the Caribbean and the Pacific."},
+{u:3, q:"Anti-imperialists opposed American colonies mainly because they believed",
+ c:["colonies were too profitable","ruling people without their consent betrayed America's founding principles","the navy was too strong","Spain deserved the territory"],
+ a:1, ex:"Critics argued a nation born in revolt against empire could not justly govern Filipinos or Puerto Ricans without their consent."},
+{u:3, q:"The main purpose of the Panama Canal was to",
+ c:["irrigate Central American farms","let ships pass between the Atlantic and Pacific without sailing around South America","connect New York to Florida","provide hydroelectric power"],
+ a:1, ex:"The canal cut the sea voyage between the coasts by thousands of miles, boosting trade and letting the navy shift oceans quickly."},
+{u:3, stim:{kind:"Chart description", text:"A four-column chart lists the underlying causes of World War I: 'Militarism — arms buildup,' 'Alliances — entangling treaties,' 'Imperialism — competition for colonies,' 'Nationalism — intense rivalries.'"},
+ q:"According to the chart, the assassination of Archduke Franz Ferdinand in 1914 is best understood as",
+ c:["the only cause of the war","the spark that ignited deeper long-term causes","an event unrelated to the war","a result of the Treaty of Versailles"],
+ a:1, ex:"The assassination was the trigger; militarism, alliances, imperialism, and nationalism (MAIN) were the fuel already stacked."},
+{u:3, q:"From 1914 to early 1917, official U.S. policy toward the war in Europe was",
+ c:["immediate entry on Germany's side","neutrality","annexation of Canada","blockading Britain"],
+ a:1, ex:"Wilson kept the U.S. neutral for nearly three years, even winning re-election in 1916 partly on the slogan 'He kept us out of war.'"},
+{u:3, q:"Which TWO events most directly pushed the United States into World War I?",
+ c:["The sinking of the Lusitania-style submarine attacks and the Zimmermann Telegram","The Boston Tea Party and the Stamp Act","Pearl Harbor and D-Day","The Maine explosion and the Panama Canal"],
+ a:0, ex:"Unrestricted German submarine warfare plus Germany's secret offer to Mexico (the Zimmermann Telegram) ended American neutrality in 1917."},
+{u:3, stim:{kind:"Quote", text:"\"Our regiment spent 191 days under fire and never lost a trench or a man as prisoner. France pinned its highest honors on our men. At home, we could not eat in most restaurants.\" — adapted from a veteran of New York's 369th Infantry"},
+ q:"The passage highlights which contradiction of the WWI era?",
+ c:["Soldiers were poorly trained","African American soldiers fought heroically for democracy abroad while facing segregation at home","The regiment never saw combat","France refused to honor American troops"],
+ a:1, ex:"The Harlem Hellfighters earned France's Croix de Guerre yet returned to a segregated America — a contradiction that energized later civil rights struggles."},
+{u:3, q:"The Great Migration refers to",
+ c:["European immigration through Ellis Island","the movement of African Americans from the rural South to northern cities","westward wagon trains","soldiers shipping to France"],
+ a:1, ex:"Wartime factory jobs and escape from Jim Crow drew hundreds of thousands of Black southerners to cities like New York and Chicago — transforming Harlem."},
+{u:3, q:"Wilson's Fourteen Points called for, among other things,",
+ c:["a harsh punishment of all nations","a League of Nations to settle disputes peacefully","American colonies in Africa","an alliance with Germany"],
+ a:1, ex:"Wilson's plan aimed at a just, lasting peace, capped by an international League — his most cherished and most contested idea."},
+{u:3, q:"Why did the United States never join the League of Nations?",
+ c:["The League rejected the U.S. application","The U.S. Senate refused to ratify the Treaty of Versailles","Wilson opposed the League","The League dissolved in 1919"],
+ a:1, ex:"Senators feared the League would drag America into foreign wars without Congress's consent; the treaty failed, and the U.S. stayed out."},
+
+/* ---- G8 UNIT 4: Boom, Bust, and WWII (12) ---- */
+{u:4, stim:{kind:"Quote", text:"\"I, too, sing America. I am the darker brother. They send me to eat in the kitchen when company comes... Tomorrow, I'll be at the table.\" — Langston Hughes, 'I, Too' (1926)"},
+ q:"This poem reflects which central theme of the Harlem Renaissance?",
+ c:["Escape from city life","Confident assertion of Black identity, pride, and a claim to full American belonging","Support for Prohibition","Fear of new technology"],
+ a:1, ex:"Hughes and his Harlem contemporaries proclaimed Black artistry and dignity — and demanded the seat 'at the table' America had denied."},
+{u:4, q:"Which factor helped cause the Great Depression?",
+ c:["Too much bank regulation","Risky stock speculation on borrowed money and shaky banks","A shortage of consumer goods","Excessively high wages for workers"],
+ a:1, ex:"Buying stocks 'on margin' with borrowed money inflated a bubble; when it burst in October 1929, banks and savings collapsed with it."},
+{u:4, q:"During the worst of the Depression, roughly what share of American workers were unemployed?",
+ c:["About one in one hundred","About one in four","Nearly all","About one in fifty"],
+ a:1, ex:"By 1933 unemployment reached about 25 percent — one in four workers — with no unemployment insurance to catch them."},
+{u:4, q:"The 'three Rs' of the New Deal stood for",
+ c:["Reading, Writing, Arithmetic","Relief, Recovery, Reform","Railroads, Roads, Rivers","Rest, Rations, Rebuilding"],
+ a:1, ex:"Relief for the suffering, Recovery for the economy, Reform so it wouldn't happen again — the New Deal's three goals."},
+{u:4, stim:{kind:"Political cartoon description", text:"A 1935 cartoon shows Uncle Sam as a doctor at a patient's bedside labeled 'U.S. Economy,' holding bottles labeled 'CCC,' 'WPA,' and 'Social Security,' saying 'We may need to try several remedies.'"},
+ q:"The cartoonist portrays the New Deal as",
+ c:["a single guaranteed cure","an experimental set of programs attacking the Depression from many angles","a plot to harm the patient","unnecessary medicine"],
+ a:1, ex:"FDR himself embraced 'bold, persistent experimentation' — trying many programs at once, keeping what worked."},
+{u:4, q:"The Social Security Act of 1935 was historic because it",
+ c:["ended the Depression instantly","created a permanent federal system of support for retirees and the unemployed","abolished all taxes","applied only to New York"],
+ a:1, ex:"Social Security made economic security a lasting federal responsibility — the New Deal's most enduring legacy."},
+{u:4, q:"The event that brought the United States into World War II was",
+ c:["the sinking of the Lusitania","Japan's attack on Pearl Harbor, December 7, 1941","the invasion of Poland","the fall of the Berlin Wall"],
+ a:1, ex:"The surprise attack on the Pacific fleet ended American debate over the war; Congress declared war the next day."},
+{u:4, q:"Under Executive Order 9066, about 120,000 Japanese Americans were",
+ c:["drafted into the navy","forced from their homes into internment camps, though most were U.S. citizens","given free land","evacuated to Japan"],
+ a:1, ex:"Wartime fear and prejudice — not evidence — drove internment; decades later the U.S. formally apologized and paid reparations."},
+{u:4, stim:{kind:"Poster description", text:"A wartime poster shows a woman factory worker in denim flexing her arm above the words 'We Can Do It!'"},
+ q:"The poster reflects which home-front change during WWII?",
+ c:["Women left the workforce","Millions of women took industrial jobs vital to war production","Factories closed during the war","Only men could buy war bonds"],
+ a:1, ex:"'Rosie the Riveter' symbolized the women who built bombers and ships — changing ideas about women's work permanently."},
+{u:4, q:"D-Day (June 6, 1944) refers to",
+ c:["the attack on Pearl Harbor","the Allied invasion of Nazi-occupied France at Normandy","Germany's surrender","the first atomic test"],
+ a:1, ex:"The largest seaborne invasion in history opened the Western Front that helped liberate Europe from Nazi control."},
+{u:4, q:"The Holocaust was",
+ c:["a battle in the Pacific","Nazi Germany's systematic murder of six million Jews and millions of others","an economic program","a peace treaty"],
+ a:1, ex:"The Nazi genocide, revealed fully as Allied troops liberated the camps in 1945, remains history's starkest warning about hatred given power."},
+{u:4, q:"President Truman's decision to drop atomic bombs on Hiroshima and Nagasaki",
+ c:["ended the war in Europe","forced Japan's surrender and opened the nuclear age","was never carried out","occurred before Pearl Harbor"],
+ a:1, ex:"Japan surrendered days after the August 1945 bombings; the decision's morality is debated to this day, and nuclear weapons have shadowed the world since."},
+
+/* ---- G8 UNIT 5: Cold War, Civil Rights, Modern America (12) ---- */
+{u:5, q:"The Cold War is called 'cold' because",
+ c:["it was fought in the Arctic","the U.S. and USSR competed intensely but avoided direct all-out war with each other","it lasted only one winter","no weapons were ever built"],
+ a:1, ex:"The superpowers fought through proxy wars, arms races, and propaganda — but never directly, since nuclear war threatened both with destruction."},
+{u:5, q:"The U.S. policy of containment aimed to",
+ c:["spread communism","stop communism from expanding beyond where it already existed","end all alliances","annex the Soviet Union"],
+ a:1, ex:"Containment shaped U.S. actions for decades — the Marshall Plan, NATO, and the wars in Korea and Vietnam all flowed from it."},
+{u:5, stim:{kind:"Quote", text:"\"We will not prematurely or unnecessarily risk the costs of worldwide nuclear war... but neither will we shrink from that risk at any time it must be faced.\" — adapted from a presidential address, October 1962"},
+ q:"This address was delivered during which event?",
+ c:["Pearl Harbor","The Cuban Missile Crisis","The moon landing","The fall of the Berlin Wall"],
+ a:1, ex:"Kennedy's speech announced the naval quarantine of Cuba during the thirteen-day missile crisis — the Cold War's closest brush with nuclear war."},
+{u:5, q:"McCarthyism refers to",
+ c:["a program of school lunches","reckless accusations of communist disloyalty made without evidence in the early 1950s","a Soviet spy agency","a civil rights strategy"],
+ a:1, ex:"Senator McCarthy's evidence-free crusade ruined careers and spread fear until his own hearings exposed his methods."},
+{u:5, q:"In Brown v. Board of Education (1954), the Supreme Court ruled that",
+ c:["segregated public schools are unconstitutional because separate is inherently unequal","'separate but equal' was acceptable","only colleges must integrate","states could ignore the 14th Amendment"],
+ a:0, ex:"Brown overturned Plessy v. Ferguson, holding that segregated schools violate the 14th Amendment's equal protection guarantee."},
+{u:5, q:"The Montgomery Bus Boycott succeeded because",
+ c:["it lasted one day","Black residents sustained a 381-day boycott that pressured the city economically while courts struck down bus segregation","the buses were replaced by trains","it had no organized leadership"],
+ a:1, ex:"For over a year, tens of thousands walked and carpooled; the boycott's discipline made Dr. King a national leader and proved nonviolent protest could win."},
+{u:5, stim:{kind:"Quote", text:"\"I have a dream that my four little children will one day live in a nation where they will not be judged by the color of their skin but by the content of their character.\" — Martin Luther King Jr., March on Washington, 1963"},
+ q:"King's speech connects most directly to which founding document's promise?",
+ c:["The Magna Carta","The Declaration of Independence's statement that 'all men are created equal'","The Articles of Confederation","The Treaty of Versailles"],
+ a:1, ex:"Like Douglass and the Seneca Falls reformers before him, King held America to its own founding words — a 'promissory note' still unpaid."},
+{u:5, q:"The Civil Rights Act of 1964 and the Voting Rights Act of 1965 together",
+ c:["ended the Cold War","outlawed segregation in public places and banned the devices used to block Black voters","created Social Security","established the United Nations"],
+ a:1, ex:"These two laws finally enforced the 14th and 15th Amendments — completing, a century late, much of Reconstruction's unfinished work."},
+{u:5, q:"Shirley Chisholm of Brooklyn made history in 1968 by becoming",
+ c:["the first woman governor of New York","the first Black woman elected to the U.S. Congress","the first woman on the Supreme Court","mayor of New York City"],
+ a:1, ex:"'Unbought and unbossed,' Chisholm represented Brooklyn in Congress and in 1972 became the first Black woman to seek a major party's presidential nomination."},
+{u:5, q:"The Stonewall uprising of 1969 is considered a turning point because it",
+ c:["ended the Vietnam War","galvanized the modern movement for LGBTQ rights","desegregated baseball","ended the Cold War"],
+ a:1, ex:"Resistance to a police raid at a Greenwich Village bar sparked days of protest and a new era of organizing for LGBTQ equality."},
+{u:5, stim:{kind:"Photograph description", text:"A 1989 photograph shows crowds standing on top of a graffiti-covered concrete wall in Berlin, swinging hammers at it while border guards watch without intervening."},
+ q:"The scene in the photograph signaled",
+ c:["the beginning of the Cold War","the collapse of communist control in Eastern Europe and the approaching end of the Cold War","the start of World War II","the construction of a new wall"],
+ a:1, ex:"The fall of the Berlin Wall in November 1989 was the Cold War's most vivid ending symbol; the Soviet Union itself dissolved in 1991."},
+{u:5, q:"Which statement about the September 11, 2001 attacks is accurate?",
+ c:["They occurred in California","Terrorists destroyed the World Trade Center in New York, killing nearly 3,000 people and reshaping U.S. foreign policy","No lives were lost","They ended the Cold War"],
+ a:1, ex:"The 9/11 attacks on New York and the Pentagon led to the war in Afghanistan, new security policies, and a changed sense of American vulnerability."}
+];
+
+/* Grade 8 constructed-response prompts */
+const CRQS8 = [
+{u:1, prompt:"Explain how the 14th Amendment addressed the status of formerly enslaved people, and why its promise went unfulfilled for so long.",
+ model:"The 14th Amendment made everyone born in the United States a citizen and guaranteed all citizens 'equal protection of the laws,' directly overturning the Dred Scott decision. But after federal troops left the South in 1877, states nullified it in practice through Jim Crow laws, and the Supreme Court's Plessy v. Ferguson decision approved segregation. The amendment's words stayed in the Constitution, and nearly a century later Brown v. Board and the civil rights laws of the 1960s finally began enforcing them."},
+{u:1, prompt:"Describe two different methods white southerners used to limit the freedom of Black southerners after the Civil War.",
+ model:"Legally, states passed Black Codes and later Jim Crow laws, plus voting restrictions like poll taxes and literacy tests that stripped Black men of the ballot. Economically and violently, the sharecropping system trapped families in permanent debt, while the Ku Klux Klan used terror — beatings, burnings, and murder — to punish Black southerners who voted, owned land, or ran schools. (Any two well-explained methods earn full credit.)"},
+{u:2, prompt:"Explain how the Triangle Shirtwaist fire changed New York — and eventually the nation.",
+ model:"The 1911 fire killed 146 workers, mostly young immigrant women, who were trapped behind locked exit doors. Public outrage led New York to create a Factory Investigating Commission, whose members — including Frances Perkins, Al Smith, and Robert Wagner — pushed through the nation's toughest laws on fire safety, working hours, and factory conditions. When FDR became president, those same New York reformers helped write the New Deal, carrying the fire's lessons into national law."},
+{u:2, prompt:"Using one specific muckraker as an example, explain how journalism produced Progressive reform.",
+ model:"Upton Sinclair's novel The Jungle described rotten, contaminated meat being processed in filthy Chicago plants. Readers — including President Theodore Roosevelt — were revolted, and within months Congress passed the Meat Inspection Act and Pure Food and Drug Act of 1906. The pattern (expose, outrage, legislate) also fits Jacob Riis's tenement photographs leading to housing codes, or Ida Tarbell's Standard Oil series leading to the trust's breakup."},
+{u:3, prompt:"Explain why the United States shifted from neutrality to war between 1914 and 1917.",
+ model:"Wilson declared neutrality in 1914, and most Americans wanted no part of Europe's war. German submarine warfare eroded that stance — the 1915 sinking of the Lusitania killed 128 Americans — and when Germany resumed unrestricted submarine attacks in 1917 and the Zimmermann Telegram revealed its offer to help Mexico retake Texas and the Southwest, neutrality became impossible. Congress declared war in April 1917 to defend American lives, trade, and, in Wilson's words, to make the world 'safe for democracy.'"},
+{u:3, prompt:"How did World War I change life for African Americans, at the front and at home?",
+ model:"At the front, about 380,000 Black soldiers served in a segregated army; units like New York's Harlem Hellfighters fought with distinction — 191 days in the line — and earned France's highest honors even while facing discrimination from their own country. At home, wartime factory jobs accelerated the Great Migration, drawing hundreds of thousands of Black southerners to northern cities and building communities like Harlem. The gap between fighting for democracy abroad and being denied it at home sharpened demands for civil rights."},
+{u:4, prompt:"Explain how the New Deal changed the relationship between the federal government and ordinary Americans. Use two specific programs.",
+ model:"Before the Depression, the federal government took little direct responsibility for individual welfare. The New Deal changed that: programs like the WPA and CCC directly employed millions of jobless Americans on public projects, and the Social Security Act created a permanent system of retirement and unemployment insurance. Bank deposit insurance (FDIC) protected savings. Americans came to expect the federal government to act in economic crises — an expectation every generation since has debated but never abandoned."},
+{u:4, prompt:"Describe two ways the American home front contributed to victory in World War II, and one injustice that occurred on the home front.",
+ model:"Contributions: American factories became the 'arsenal of democracy,' out-producing the Axis in planes, ships, and tanks, with millions of women ('Rosie the Riveter') taking industrial jobs; civilians also rationed goods, bought war bonds, and planted victory gardens. Injustice: under Executive Order 9066, about 120,000 Japanese Americans — most of them citizens — were forced into internment camps without evidence of disloyalty, a wrong the U.S. formally apologized for in 1988."},
+{u:5, prompt:"Explain how the Cuban Missile Crisis was resolved and what lesson both superpowers drew from it.",
+ model:"After U.S. spy planes found Soviet nuclear missiles in Cuba, Kennedy imposed a naval quarantine rather than an immediate attack, and thirteen tense days of negotiation followed. The Soviets removed the missiles in exchange for a U.S. pledge not to invade Cuba (and the quiet removal of U.S. missiles from Turkey). Having looked over the nuclear edge, both sides installed a direct 'hotline' and began pursuing arms-control agreements — the crisis taught that miscalculation, not intention, was the greatest nuclear danger."},
+{u:5, prompt:"Explain the statement: 'The Civil Rights Movement finished the work of Reconstruction.'",
+ model:"Reconstruction wrote equality into the Constitution — the 14th Amendment's equal protection and the 15th Amendment's voting rights — but after 1877 the South nullified both through Jim Crow and disenfranchisement, with the Supreme Court's blessing in Plessy. The Civil Rights Movement forced the nation to enforce its own Constitution: Brown v. Board (1954) overturned Plessy using the 14th Amendment, the Civil Rights Act of 1964 outlawed segregation, and the Voting Rights Act of 1965 finally protected the ballot the 15th Amendment had promised in 1870."}
+];
+
+/* Grade 8 DBQ practice sets */
+const DBQS8 = [
+{u:1, docTitle:"Document: A freedman's petition to Congress (adapted, 1871)",
+ doc:"\"We built the schoolhouse with our own hands and our own dollars. Twice it has been burned in the night. Men in disguise have whipped our teacher and warned every parent who sends a child. We ask not for charity but for protection, that we may vote and learn as the law now says we may.\"",
+ scaffold:[
+   "What two rights are the petitioners trying to exercise?",
+   "What is preventing them, according to the document?",
+   "Using the document and your knowledge, explain why federal protection was essential to Reconstruction — and what happened when it was withdrawn."
+ ],
+ model:"The petitioners are trying to exercise the rights to education and to vote — rights promised by Reconstruction and the new amendments. Disguised night riders (the Klan) are blocking them through arson, whippings, and threats. The document shows why federal protection was essential: state and local authorities would not stop the terror, so only federal enforcement — like Grant's anti-Klan campaigns — allowed freed people to vote and learn. When the Compromise of 1877 withdrew federal troops, that protection vanished, and within a generation disenfranchisement and Jim Crow had stripped away the rights the petitioners describe."},
+{u:2, docTitle:"Document: Testimony after the Triangle fire (adapted, 1911)",
+ doc:"\"The Washington Place door was locked — it was always locked, the bosses said, to stop the girls from stealing a shirtwaist. When the fire leapt up from the eighth floor there was nowhere to go. The fire escape twisted from the wall. I watched from the street as girls chose the window over the flames.\"",
+ scaffold:[
+   "According to the witness, why were the exit doors locked?",
+   "What details show that the building was unprepared for fire?",
+   "Using the document and your knowledge, explain how this disaster changed New York law."
+ ],
+ model:"The witness says owners kept doors locked to prevent theft of shirtwaists — valuing merchandise over workers' lives. The locked door, the collapsing fire escape, and workers trapped at the windows show a building utterly unprepared for fire. The horror of 146 deaths, witnessed publicly on a Manhattan street, produced the Factory Investigating Commission, which wrote dozens of laws on fire drills, sprinklers, unlocked exits, and working hours — the strongest labor code in the nation. Commission veterans like Frances Perkins later carried these reforms into the New Deal, making the Triangle fire a turning point in national labor history."},
+{u:3, docTitle:"Document: Two views on empire (adapted, 1899)",
+ doc:"SENATOR FOR ANNEXATION: \"The Philippines give us coaling stations, the trade of the Pacific, and a chance to civilize and uplift. Providence has placed them in our hands.\" — ANTI-IMPERIALIST REPLY: \"We have bought ten million people at two dollars a head and propose to govern them without their consent. Read the Declaration of Independence to them, if you dare.\"",
+ scaffold:[
+   "What benefits does the senator claim empire will bring?",
+   "On what founding principle does the anti-imperialist base the reply?",
+   "Using both views and your knowledge, explain why the Philippines debate divided Americans."
+ ],
+ model:"The senator promises strategic naval bases, Pacific trade, and a self-flattering mission to 'civilize.' The anti-imperialist answers with the Declaration of Independence's core principle — government by consent of the governed — arguing that ruling ten million Filipinos without their consent betrays America's founding. The debate divided Americans because both sides claimed American ideals: one saw national greatness and duty, the other saw a republic becoming the kind of empire it had rebelled against. The bloody Philippine-American War that followed deepened the controversy, and the tension between power and principle has shaped U.S. foreign policy debates ever since."},
+{u:4, docTitle:"Document: A letter to the president (adapted, 1936)",
+ doc:"\"Dear Mr. President: My husband lost his work when the mill closed in '31. For two years we lived on nothing but what neighbors could spare. Now he has a WPA job on the new school building. It is not charity — he works hard for it — and my children look at their father differently. Whatever they say about your program, it has given us back our dignity.\"",
+ scaffold:[
+   "What happened to this family between 1931 and the letter?",
+   "Why does the writer insist the WPA job 'is not charity'?",
+   "Using the document and your knowledge, evaluate one strength and one criticism of the New Deal."
+ ],
+ model:"The family fell from steady mill work into two years of dependence on neighbors, then regained income through a WPA construction job. The writer stresses it 'is not charity' because her husband earns wages by building a school — the New Deal's work-relief design aimed to preserve dignity while providing relief. Strength: programs like the WPA employed millions and built lasting public works, restoring both incomes and morale, as the letter shows. Criticism: the New Deal never fully ended the Depression (full recovery came with WWII production), and critics argued it expanded federal power and debt — while others noted many programs excluded or underserved Black workers, especially in the South."},
+{u:5, docTitle:"Document: A student explains the sit-ins (adapted, 1960)",
+ doc:"\"We sat at the lunch counter in our best clothes with our schoolbooks open. They poured sugar and ketchup on us; we did not move and we did not strike back. Every seat we filled, another student filled behind us. We are not breaking the law — we are asking America to obey its own.\"",
+ scaffold:[
+   "What method of protest does the document describe, and what rules did the protesters follow?",
+   "What does the student mean by 'asking America to obey its own' law?",
+   "Using the document and your knowledge, explain how nonviolent direct action helped produce the Civil Rights Act of 1964."
+ ],
+ model:"The document describes a nonviolent sit-in: disciplined students occupied segregated lunch counters, absorbed abuse without retaliating, and kept coming in waves. 'Asking America to obey its own' law means the protesters claimed rights already promised — the 14th Amendment's equal protection and the Declaration's equality — so segregation, not the sit-in, was the real lawbreaking. Nonviolent direct action worked by making injustice visible: televised images of dignified students attacked for sitting quietly (and later of Birmingham's fire hoses) shifted national opinion and pressured Washington, helping push the Civil Rights Act of 1964, which outlawed segregation in public accommodations like those lunch counters."}
+];
+
+/* ============ SHARED DATA (both grades) ============ */
+
+/* NYS Social Studies Practices — each has a plain explanation plus an
+   honors "try this" task for each grade. */
+const SKILLS = [
+{
+  name: "Gathering, Interpreting, and Using Evidence",
+  plain: "Historians act like detectives. They collect sources (documents, images, objects), figure out who made each one and why, and use them as evidence to support claims. Always ask: Who created this? When? Why? What might they leave out?",
+  task7: "Find the Zenger trial in Unit 1. Write two sentences: one FACT the case gives us, and one QUESTION you would still want a primary source to answer.",
+  task8: "Reread the freedman's petition in the Unit 1 DBQ. Identify one thing it proves directly, and one claim it alone cannot prove without corroborating sources."
+},
+{
+  name: "Chronological Reasoning and Causation",
+  plain: "Put events in order, then ask how they connect. Causation means one event helps produce another. Look for both long-term causes (fuel) and short-term sparks (the match).",
+  task7: "Using the Timeline tab, pick three events from different units and write one sentence per link explaining HOW the earlier event helped cause the later one.",
+  task8: "Build a cause chain from the stock market crash to Social Security in four steps, writing one 'because' sentence for each link."
+},
+{
+  name: "Comparison and Contextualization",
+  plain: "Comparison means finding similarities and differences. Contextualization means understanding an event inside its own time — judging people by what was possible and believed then, while still evaluating honestly.",
+  task7: "Compare the Declaration of Independence (1776) and the Declaration of Sentiments (1848). List two things they share and one big difference in purpose.",
+  task8: "Compare Reconstruction (1865–77) and the Civil Rights Movement (1954–65): two shared goals, one difference in methods, and one difference in results."
+},
+{
+  name: "Geographic Reasoning",
+  plain: "Geography shapes history. Rivers, harbors, mountains, and climate influenced where people settled, what they grew, and who got rich. Ask: How did the land shape the choices people made here?",
+  task7: "Explain in 3-4 sentences how New York's geography (a deep harbor plus the Hudson River plus the Erie Canal route) helped it become the Empire State.",
+  task8: "Explain in 3-4 sentences why New York Harbor made the city the natural gateway for immigration — and why the Panama Canal mattered to a two-ocean nation."
+},
+{
+  name: "Economics and Economic Systems",
+  plain: "Follow the money. Economics asks how people produce, trade, and use resources. It explains why groups acted the way they did — from mercantilism to monopolies to the New Deal.",
+  task7: "In one paragraph, explain how the cotton economy made the South more committed to slavery even as the North industrialized. Use two key terms from Units 4 and 5.",
+  task8: "In one paragraph, explain how buying stocks on borrowed money helped cause the 1929 crash, and how two New Deal reforms tried to prevent a repeat."
+},
+{
+  name: "Civic Participation",
+  plain: "Democracy is a verb. Citizens participate by voting, petitioning, protesting, publishing, and organizing. Ordinary people changed history by acting together.",
+  task7: "Choose one reformer from Unit 4 or 5 and identify the METHOD they used (speech, newspaper, convention, direct action). Then name a modern method that does the same job today.",
+  task8: "Pick one method from this course — boycott, sit-in, muckraking, marching, or voting drives — and explain with one historical example why it worked. Then describe how it appears in civic life today."
+}
+];
+
+const READING_LESSONS = [
+{
+  title: "How to Read a Primary Source",
+  body: "1) SOURCE IT: Who wrote it, when, and for what audience? 2) CONTEXTUALIZE: What was happening at that moment? 3) READ CLOSELY: What is the author's claim and tone? Circle words that show opinion. 4) CORROBORATE: Does another source agree? A single angry letter is a clue, not proof. Remember: every source has a point of view — that doesn't make it useless; it makes it evidence about its author too."
+},
+{
+  title: "How to Read a Map",
+  body: "Start with the title, date, and legend (key). Check the compass rose and scale. Then ask the historian's question: what does this map show about movement, borders, resources, or power at that time? A map of the Erie Canal or the Great Migration isn't just geography — it's an argument about trade, opportunity, and change."
+},
+{
+  title: "How to Read a Political Cartoon",
+  body: "Cartoons persuade using symbols (an eagle = America), exaggeration (huge or tiny figures = importance or weakness), labels, and irony. Steps: 1) Identify every symbol and label. 2) Ask what action is happening. 3) State the cartoonist's opinion in one sentence. 4) Ask who would agree — and who would be angry."
+},
+{
+  title: "How to Attack a DBQ",
+  body: "A Document-Based Question gives you documents plus an essay task. Plan of attack: 1) Read the TASK first, and underline exactly what it asks. 2) Read each document with the task in mind; jot a 5-word summary next to each. 3) Group documents by idea, not by number. 4) Write a thesis that answers the task directly. 5) In each body paragraph, use the document AND your outside knowledge — name it, explain it, connect it. 6) Cite documents like this: (Doc 2). Never just quote a document without explaining what it proves."
+},
+{
+  title: "How to Study So It Sticks (Honors Edition)",
+  body: "Science-backed rules: 1) RETRIEVE, don't reread — quizzing yourself (like the Practice tab) beats rereading notes every time. 2) SPACE it out — three 20-minute sessions across a week beat one 60-minute cram. 3) MIX units — the Random Mix and Practice Final force your brain to tell topics apart, which is exactly what exams demand. 4) EXPLAIN it aloud — if you can teach a term to someone in your own words, you own it. 5) Use the flashcards in the Glossary tab for quick daily reps, and let your wrong answers tell you which unit to reread."
+},
+{
+  title: "Test-Day Game Plan",
+  body: "For multiple choice: read the question before the choices, predict an answer, then eliminate. Stimulus questions are open-book — the answer is usually IN the document, so quote it to yourself. Watch for absolute words like 'always' and 'only' (usually wrong) and for 'best' or 'most directly' (several answers may be true; pick the strongest). For written responses: answer the question in your first sentence, then prove it with specific evidence — names, dates, documents. Budget your time: number of questions divided by minutes, and never leave a blank."
+}
+];
+
+/* Resources — each opens in a new tab. */
+const RESOURCES = [
+["NYCDOE / NYSED Social Studies", "https://www.nysed.gov/curriculum-instruction/social-studies", "The official New York State standards, frameworks, and the Grades 7-8 Scope & Sequence."],
+["New York State Museum", "https://www.nysm.nysed.gov/", "Exhibits and digital collections on New York's Indigenous nations, colonial era, and modern history."],
+["Library of Congress — Primary Sources", "https://www.loc.gov/classroom-materials/", "Real letters, maps, photographs, and newspapers from every era in this course."],
+["National Archives — DocsTeach", "https://www.docsteach.org/", "The nation's founding documents plus activities built around primary sources."],
+["Gilder Lehrman Institute of American History", "https://www.gilderlehrman.org/", "Essays, documents, and study aids written by historians — excellent for honors-level depth."],
+["Smithsonian — National Museum of American History", "https://americanhistory.si.edu/explore", "Artifacts and stories from the Revolution through the modern era."],
+["National Museum of African American History and Culture", "https://nmaahc.si.edu/explore/stories", "Stories and collections on slavery, Reconstruction, the Great Migration, and the Civil Rights Movement."],
+["Ben's Guide to the U.S. Government", "https://bensguide.gpo.gov/", "A kid-safe guide to how the Constitution and the three branches actually work."],
+["National Constitution Center — Interactive Constitution", "https://constitutioncenter.org/the-constitution", "Read the Constitution clause by clause with short explanations from scholars."],
+["New-York Historical Society", "https://www.nyhistory.org/", "New York's oldest museum: slavery in New York, the Revolution, the Draft Riots, and city history."],
+["Erie Canal Museum", "https://eriecanalmuseum.org/", "The story of the canal that made New York the Empire State."],
+["Statue of Liberty & Ellis Island Foundation", "https://www.statueofliberty.org/", "Search real ship manifests and explore the immigration story of New York Harbor."],
+["Tenement Museum", "https://www.tenement.org/", "Walk through the actual Lower East Side apartments of immigrant families, room by room."],
+["FDR Presidential Library (Hyde Park, NY)", "https://www.fdrlibrary.org/", "The Depression, the New Deal, and WWII from New York's own president."],
+["9/11 Memorial & Museum", "https://www.911memorial.org/learn", "Learning resources on the September 11 attacks and their aftermath."]
+];
+
+/* ---------- Grade registry ---------- */
+const DATA = {
+  g7: {
+    num: "7", crest: "7H",
+    title: "Grade 7 Honors \u2014 United States and New York State History",
+    heroTag: "From the Great Law of Peace to Appomattox",
+    heroText: "Five units of United States and New York State history \u2014 from the Haudenosaunee Confederacy to the end of the Civil War \u2014 with a full glossary, a master timeline, skill lessons, flashcards, and a practice engine that remembers your scores.",
+    units: UNITS7, questions: QUESTIONS7, crqs: CRQS7, dbqs: DBQS7
+  },
+  g8: {
+    num: "8", crest: "8H",
+    title: "Grade 8 Honors \u2014 United States and New York State History",
+    heroTag: "From Reconstruction to the modern world",
+    heroText: "Five units carrying the story forward \u2014 Reconstruction, the Machine Age, world wars, the Cold War, and the Civil Rights Movement \u2014 with a full glossary, master timeline, skill lessons, flashcards, and a practice engine that remembers your scores for each grade separately.",
+    units: UNITS8, questions: QUESTIONS8, crqs: CRQS8, dbqs: DBQS8
+  }
+};
+
+/* =====================================================================
+   APPLICATION LOGIC — no edits needed below this line.
+   ===================================================================== */
+
+const $ = (sel, root=document) => root.querySelector(sel);
+const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
+const esc = s => String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+
+/* ---------- Persistent state (localStorage) ---------- */
+const STORE_KEY = "honors-history-hub-v2";
+function loadStore(){
+  try{
+    const s = JSON.parse(localStorage.getItem(STORE_KEY));
+    if(s && s.g7 && s.g8) return s;
+  }catch(e){}
+  return {grade:"g7", g7:{modes:{},unitStats:{}}, g8:{modes:{},unitStats:{}}};
+}
+function saveStore(){ try{ localStorage.setItem(STORE_KEY, JSON.stringify(store)); }catch(e){} }
+let store = loadStore();
+let grade = (store.grade === "g8") ? "g8" : "g7";
+const D = () => DATA[grade];
+const P = () => store[grade];
+
+/* ---------- Grade switching ---------- */
+function setGrade(g){
+  if(!DATA[g]) return;
+  grade = g;
+  store.grade = g;
+  saveStore();
+  $("#gbtn7").classList.toggle("on", g==="g7");
+  $("#gbtn8").classList.toggle("on", g==="g8");
+  $("#gbtn7").setAttribute("aria-selected", g==="g7" ? "true":"false");
+  $("#gbtn8").setAttribute("aria-selected", g==="g8" ? "true":"false");
+  $("#siteTitle").textContent = D().title;
+  $("#crest").textContent = D().crest;
+  document.title = "Honors History Hub \u2014 " + D().title;
+  quiz = null; glossMode = "list"; flash = null;
+  renderAll();
+}
+
+/* ---------- Tab navigation ---------- */
+const tabButtons = $$("nav.tabs button");
+function showView(name){
+  $$("section.view").forEach(v => v.classList.toggle("active", v.id === "view-"+name));
+  tabButtons.forEach(b => {
+    const on = b.dataset.view === name;
+    b.classList.toggle("active", on);
+    b.setAttribute("aria-selected", on ? "true" : "false");
+    b.setAttribute("tabindex", on ? "0" : "-1");
+  });
+  if(name === "home") renderHome();
+  window.scrollTo({top:0, behavior:"auto"});
+}
+tabButtons.forEach((b,i) => {
+  b.addEventListener("click", () => showView(b.dataset.view));
+  b.addEventListener("keydown", e => {
+    if(e.key === "ArrowRight" || e.key === "ArrowLeft"){
+      e.preventDefault();
+      const dir = e.key === "ArrowRight" ? 1 : -1;
+      const next = tabButtons[(i + dir + tabButtons.length) % tabButtons.length];
+      next.focus(); showView(next.dataset.view);
+    }
+  });
+});
+
+/* ---------- HOME ---------- */
+function renderHome(){
+  const modes = P().modes || {};
+  const rows = D().units.map(u => {
+    const m = modes["unit"+u.id];
+    const pct = m ? Math.round(100*m.best.correct/m.best.total) : 0;
+    const label = m ? pct+"% best" : "Not started";
+    return `<div class="prog-row">
+      <span class="lbl" style="color:${u.acc}">Unit ${u.id}</span>
+      <div class="prog-bar" role="img" aria-label="Unit ${u.id} best score ${label}"><div class="prog-fill" style="width:${pct}%"></div></div>
+      <span class="pct">${label}</span></div>`;
+  }).join("");
+  const fin = modes["final"];
+  const finPct = fin ? Math.round(100*fin.best.correct/fin.best.total) : 0;
+  $("#view-home").innerHTML = `
+    <div class="hero">
+      <div class="big-num" aria-hidden="true">${D().num}</div>
+      <div class="eyebrow" style="color:var(--gold-bright)">${esc(D().heroTag)}</div>
+      <h2>Everything you need. One page. No internet required.</h2>
+      <p>${esc(D().heroText)}</p>
+      <div class="rule"></div>
+    </div>
+    <div class="card howto">
+      <div class="eyebrow">How to use this app</div>
+      <ol>
+        <li><b>Pick your grade</b> with the Grade 7 / Grade 8 switch in the header \u2014 each grade has its own units, glossary, timeline, quizzes, and saved scores.</li>
+        <li><b>Learn</b> in the <b>Units</b> tab \u2014 each unit has a Big Picture summary, key terms, people, dates, and New York connections.</li>
+        <li><b>Connect</b> events in the <b>Timeline</b>, look up words in the <b>Glossary</b>, and drill vocabulary with its built-in <b>flashcards</b>.</li>
+        <li><b>Build skills</b> in the <b>Skills</b> tab \u2014 primary sources, maps, cartoons, DBQs, plus how to study and how to take tests.</li>
+        <li><b>Test yourself</b> in the <b>Practice</b> tab: quiz by unit, random mix, or the 25-question Practice Final. Scores save automatically on this device.</li>
+      </ol>
+    </div>
+    <div class="card">
+      <div class="eyebrow">Grade ${D().num} progress \u2014 best quiz scores</div>
+      <div class="progress-grid">${rows}
+      <div class="prog-row"><span class="lbl">Practice Final</span>
+        <div class="prog-bar" role="img" aria-label="Practice Final best score ${fin ? finPct+"%" : "not started"}"><div class="prog-fill" style="width:${finPct}%"></div></div>
+        <span class="pct">${fin ? finPct+"% best" : "Not started"}</span></div>
+      </div>
+      <div style="margin-top:16px"><button class="btn gold" onclick="showView('quiz')">Go to Practice &amp; Tests</button></div>
+    </div>`;
+}
+
+/* ---------- UNITS ---------- */
+function renderUnits(){
+  const cards = D().units.map(u => `
+    <article class="card unit-card" data-unit="${u.id}" style="--acc:${u.acc}">
+      <button class="unit-head" aria-expanded="false" onclick="toggleUnit(this)">
+        <span class="unit-num" aria-hidden="true">${u.id}</span>
+        <span class="t"><h3>${esc(u.title)}</h3><span class="years">${esc(u.years)}</span></span>
+        <span class="chev" aria-hidden="true"></span>
+      </button>
+      <div class="unit-body">
+        <div class="eq"><b>Essential Question:</b> ${esc(u.essentialQuestion)}</div>
+        <div class="ub-sec"><h4>The Big Picture</h4><p class="searchable">${esc(u.bigPicture)}</p></div>
+        <div class="ub-sec"><h4>Key Terms</h4>
+          <ul class="term-list">${u.keyTerms.map(t=>`<li class="searchable"><b>${esc(t[0])}</b> \u2014 ${esc(t[1])}</li>`).join("")}</ul>
+        </div>
+        <div class="ub-sec"><h4>Key People</h4>
+          <ul class="people-grid">${u.keyPeople.map(p=>`<li class="searchable"><b>${esc(p[0])}</b>${esc(p[1])}</li>`).join("")}</ul>
+        </div>
+        <div class="ub-sec"><h4>Key Dates</h4>
+          <ul class="mini-tl">${u.timeline.map(d=>`<li class="searchable"><b>${esc(d[0])}</b> \u2014 ${esc(d[1])}</li>`).join("")}</ul>
+        </div>
+        <div class="ub-sec"><h4>Why It Matters / NYS Connection</h4>
+          ${u.matters.map(m=>`<div class="matters searchable">${esc(m)}</div>`).join("")}
+        </div>
+      </div>
+    </article>`).join("");
+  $("#view-units").innerHTML = `
+    <h2 class="page-title">Grade ${D().num}: The Five Units</h2>
+    <p class="page-intro">Tap a unit to open it. Use the search box to find any term, person, date, or idea across all five units at once.</p>
+    <div class="search-wrap">
+      <label for="unitSearch" class="hidden">Search all units</label>
+      <input class="search" id="unitSearch" type="search" placeholder="Search all Grade ${D().num} units..." oninput="filterUnits(this.value)">
+      <div class="search-hint" id="unitSearchHint">Searching opens matching units automatically.</div>
+    </div>
+    ${cards}`;
+}
+function toggleUnit(btn){
+  const card = btn.closest(".unit-card");
+  const open = card.classList.toggle("open");
+  btn.setAttribute("aria-expanded", open ? "true" : "false");
+}
+function filterUnits(q){
+  q = q.trim().toLowerCase();
+  const cards = $$("#view-units .unit-card");
+  let hits = 0;
+  const re = q ? new RegExp("(?![^<]*>)("+q.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+")","gi") : null;
+  cards.forEach(card => {
+    const items = $$(".searchable", card);
+    let cardHit = false;
+    items.forEach(el => {
+      if(el.dataset.orig === undefined) el.dataset.orig = el.innerHTML;
+      if(!q){ el.classList.remove("hidden"); el.innerHTML = el.dataset.orig; return; }
+      const match = el.textContent.toLowerCase().includes(q);
+      el.classList.toggle("hidden", !match);
+      el.innerHTML = match ? el.dataset.orig.replace(re, "<mark>$1</mark>") : el.dataset.orig;
+      if(match) cardHit = true;
+    });
+    card.classList.toggle("hidden", q ? !cardHit : false);
+    card.classList.toggle("open", q ? cardHit : false);
+    $(".unit-head",card).setAttribute("aria-expanded", (q && cardHit) ? "true" : "false");
+    if(cardHit) hits++;
+  });
+  $("#unitSearchHint").textContent = q ? (hits ? hits+" unit(s) contain matches." : "No matches \u2014 check your spelling or try a shorter word.") : "Searching opens matching units automatically.";
+}
+
+/* ---------- TIMELINE ---------- */
+function timelineSortKey(label){
+  const m = label.match(/\d{3,4}/g);
+  return m ? parseInt(m[0],10) : 0;
+}
+function renderTimeline(){
+  const events = [];
+  D().units.forEach(u => u.timeline.forEach(d => events.push({year:d[0], text:d[1], unit:u.id, acc:u.acc, key:timelineSortKey(d[0])})));
+  events.sort((a,b) => a.key - b.key || a.unit - b.unit);
+  $("#view-timeline").innerHTML = `
+    <h2 class="page-title">Grade ${D().num} Master Timeline</h2>
+    <p class="page-intro">One continuous story. The colored tag shows which unit each event belongs to.</p>
+    <div class="card">
+      <ul class="timeline">
+        ${events.map(e=>`<li style="--acc:${e.acc}"><span class="tl-year">${esc(e.year)}</span><span class="tl-unit-tag">UNIT ${e.unit}</span><div class="tl-body">${esc(e.text)}</div></li>`).join("")}
+      </ul>
+    </div>`;
+}
+
+/* ---------- GLOSSARY + FLASHCARDS ---------- */
+let glossMode = "list";
+let flash = null; /* {deck, idx, flipped} */
+function allTerms(){
+  const all = [];
+  D().units.forEach(u => u.keyTerms.forEach(t => all.push({term:t[0], def:t[1], unit:u.id})));
+  return all;
+}
+function renderGlossary(filter=""){
+  if(glossMode === "cards"){ renderFlashcards(); return; }
+  const all = allTerms().sort((a,b)=>a.term.toLowerCase().localeCompare(b.term.toLowerCase()));
+  const q = filter.trim().toLowerCase();
+  const shown = q ? all.filter(t => (t.term+" "+t.def).toLowerCase().includes(q)) : all;
+  let html = "", letter = "";
+  shown.forEach(t => {
+    const L = t.term[0].toUpperCase();
+    if(L !== letter && !q){ letter = L; html += `<div class="gloss-letter">${L}</div>`; }
+    html += `<div class="gloss-item"><b>${esc(t.term)}</b> \u2014 ${esc(t.def)}<span class="src">Unit ${t.unit}</span></div>`;
+  });
+  $("#view-glossary").innerHTML = `
+    <h2 class="page-title">Grade ${D().num} Glossary</h2>
+    <p class="page-intro">Every vocabulary word from all five units, A to Z \u2014 ${all.length} terms. Switch to Flashcards for quick daily practice.</p>
+    <div class="gloss-modes">
+      <button class="btn gold" aria-pressed="true">Word list</button>
+      <button class="btn ghost" onclick="startFlash()" aria-pressed="false">Flashcards</button>
+    </div>
+    <div class="search-wrap">
+      <label for="glossSearch" class="hidden">Search glossary</label>
+      <input class="search" id="glossSearch" type="search" placeholder="Search ${all.length} terms..." value="${esc(filter)}" oninput="renderGlossary(this.value)">
+    </div>
+    <div class="card">${html || "<p>No terms match that search.</p>"}</div>`;
+  if(filter){ const inp = $("#glossSearch"); inp.focus(); inp.setSelectionRange(inp.value.length, inp.value.length); }
+}
+function startFlash(){
+  glossMode = "cards";
+  const deck = allTerms();
+  for(let i=deck.length-1;i>0;i--){ const j = Math.floor(Math.random()*(i+1)); [deck[i],deck[j]]=[deck[j],deck[i]]; }
+  flash = {deck, idx:0, flipped:false};
+  renderFlashcards();
+}
+function renderFlashcards(){
+  const t = flash.deck[flash.idx];
+  $("#view-glossary").innerHTML = `
+    <h2 class="page-title">Flashcards \u2014 Grade ${D().num}</h2>
+    <p class="page-intro">Tap the card to flip it. Say the definition out loud before you flip \u2014 retrieval is what makes it stick.</p>
+    <div class="gloss-modes">
+      <button class="btn ghost" onclick="glossMode='list';renderGlossary()" aria-pressed="false">Word list</button>
+      <button class="btn gold" aria-pressed="true">Flashcards</button>
+    </div>
+    <div class="flash-count">Card ${flash.idx+1} of ${flash.deck.length}</div>
+    <div class="flash-stage">
+      <button class="flash-card${flash.flipped ? " flipped":""}" onclick="flipFlash()" aria-label="Flashcard: ${esc(t.term)}. Activate to flip.">
+        <span class="flash-face flash-front"><span class="term">${esc(t.term)}</span><span class="tap">Tap to flip</span></span>
+        <span class="flash-face flash-back"><span>${esc(t.def)}</span><span class="u">Unit ${t.unit}</span></span>
+      </button>
+    </div>
+    <div class="flash-nav">
+      <button class="btn ghost" onclick="moveFlash(-1)">Previous</button>
+      <button class="btn" onclick="flipFlash()">Flip</button>
+      <button class="btn ghost" onclick="moveFlash(1)">Next</button>
+      <button class="btn gold" onclick="startFlash()">Shuffle deck</button>
+    </div>`;
+}
+function flipFlash(){ flash.flipped = !flash.flipped; renderFlashcards(); }
+function moveFlash(dir){
+  flash.idx = (flash.idx + dir + flash.deck.length) % flash.deck.length;
+  flash.flipped = false;
+  renderFlashcards();
+}
+
+/* ---------- SKILLS ---------- */
+function renderSkills(){
+  $("#view-skills").innerHTML = `
+    <h2 class="page-title">Skills \u2014 NYS Social Studies Practices</h2>
+    <p class="page-intro">These six practices are how historians think. Master them and every unit \u2014 and every future exam \u2014 gets easier. Try-this tasks match your selected grade.</p>
+    ${SKILLS.map((s,i)=>`<div class="card skill-card">
+      <div class="eyebrow">Practice ${["A","B","C","D","E","F"][i]}</div>
+      <h3>${esc(s.name)}</h3>
+      <p>${esc(s.plain)}</p>
+      <div class="try"><b>Try this (Grade ${D().num} honors)</b><br>${esc(grade==="g7" ? s.task7 : s.task8)}</div>
+    </div>`).join("")}
+    <h2 class="page-title" style="margin-top:28px">Reading Like a Historian &amp; Studying Like a Pro</h2>
+    <p class="page-intro">Field guides for documents, maps, cartoons, DBQs \u2014 plus how to study effectively and win on test day.</p>
+    ${READING_LESSONS.map(l=>`<div class="card skill-card"><h3>${esc(l.title)}</h3><p>${esc(l.body)}</p></div>`).join("")}`;
+}
+
+/* ---------- RESOURCES ---------- */
+function renderResources(){
+  $("#view-resources").innerHTML = `
+    <h2 class="page-title">Resources for Going Deeper</h2>
+    <p class="page-intro">Trusted places for primary sources and extra learning, covering both grades. Each link opens in a new tab (internet required for these only \u2014 everything else in this app works offline).</p>
+    ${RESOURCES.map(r=>`<a class="res-item" href="${esc(r[1])}" target="_blank" rel="noopener noreferrer"><b>${esc(r[0])}</b><span>${esc(r[2])}</span></a>`).join("")}`;
+}
+
+/* ---------- QUIZ ENGINE ---------- */
+let quiz = null;
+function shuffle(arr){
+  const a = arr.slice();
+  for(let i=a.length-1;i>0;i--){ const j = Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; }
+  return a;
+}
+function buildQuiz(mode){
+  const Q = D().questions;
+  let qs = [], label = "";
+  if(mode === "random"){
+    label = "Random Mix (20 questions)";
+    qs = shuffle(Q).slice(0,20);
+  } else if(mode === "final"){
+    label = "Practice Final (25 questions)";
+    for(let u=1;u<=5;u++) qs = qs.concat(shuffle(Q.filter(q=>q.u===u)).slice(0,5));
+    qs = shuffle(qs);
+  } else {
+    const u = parseInt(mode.replace("unit",""),10);
+    label = "Unit "+u+" Quiz ("+Q.filter(q=>q.u===u).length+" questions)";
+    qs = shuffle(Q.filter(q=>q.u===u));
+  }
+  /* Shuffle each question's answer choices so the correct letter varies
+     every attempt (prevents pattern-guessing and position memorization). */
+  qs = qs.map(q => {
+    const order = shuffle([0,1,2,3]);
+    return Object.assign({}, q, {_order: order, _a: order.indexOf(q.a)});
+  });
+  quiz = {mode, label, questions:qs, index:0, correct:0, perUnit:{}};
+  renderQuizQuestion();
+}
+function renderQuizSetup(){
+  const modes = P().modes;
+  const unitModes = D().units.map(u=>{
+    const m = modes["unit"+u.id];
+    return `<button class="mode-btn" style="border-left:5px solid ${u.acc}" onclick="buildQuiz('unit${u.id}')">
+      <b>Unit ${u.id} Quiz</b><span>${esc(u.title)}${m ? " \u2014 best "+Math.round(100*m.best.correct/m.best.total)+"%" : ""}</span></button>`;
+  }).join("");
+  const fin = modes["final"], rnd = modes["random"];
+  const crqHtml = D().crqs.map((c,i)=>`
+    <div class="card crq-q">
+      <div class="eyebrow">Constructed Response \u2014 Unit ${c.u}</div>
+      <div class="prompt">${esc(c.prompt)}</div>
+      <label class="hidden" for="crq${i}">Your answer</label>
+      <textarea class="answer-box" id="crq${i}" placeholder="Write your answer here (2-5 sentences), then compare with the model."></textarea>
+      <div class="quiz-nav">
+        <button class="btn ghost" onclick="document.getElementById('model${i}').classList.toggle('show')">Show / hide model answer</button>
+      </div>
+      <div class="model" id="model${i}"><b>Model answer:</b> ${esc(c.model)}</div>
+    </div>`).join("");
+  const dbqHtml = D().dbqs.map((d,i)=>`
+    <div class="card crq-q">
+      <div class="eyebrow">DBQ Practice \u2014 Unit ${d.u}</div>
+      <div class="stimulus"><span class="stype">${esc(d.docTitle)}</span>${esc(d.doc)}</div>
+      <ol style="margin:0 0 10px 20px">${d.scaffold.map(s=>`<li style="margin-bottom:6px">${esc(s)}</li>`).join("")}</ol>
+      <label class="hidden" for="dbq${i}">Your DBQ response</label>
+      <textarea class="answer-box" id="dbq${i}" placeholder="Answer the scaffolded questions, then write a short response using the document AND your outside knowledge."></textarea>
+      <div class="quiz-nav">
+        <button class="btn ghost" onclick="document.getElementById('dmodel${i}').classList.toggle('show')">Show / hide model response</button>
+      </div>
+      <div class="model" id="dmodel${i}"><b>Model response:</b> ${esc(d.model)}</div>
+    </div>`).join("");
+  $("#view-quiz").innerHTML = `
+    <h2 class="page-title">Grade ${D().num} Practice &amp; Tests</h2>
+    <p class="page-intro">Instant feedback on every question, with an explanation whether you are right or wrong. Scores save automatically on this device \u2014 separately for each grade.</p>
+    <div class="quiz-setup">
+      <div class="card">
+        <div class="eyebrow">Choose a quiz</div>
+        <div class="modes">
+          ${unitModes}
+          <button class="mode-btn" onclick="buildQuiz('random')"><b>Random Mix</b><span>20 questions from all units${rnd ? " \u2014 best "+Math.round(100*rnd.best.correct/rnd.best.total)+"%" : ""}</span></button>
+          <button class="mode-btn" onclick="buildQuiz('final')"><b>Practice Final</b><span>25 mixed questions, 5 from each unit${fin ? " \u2014 best "+Math.round(100*fin.best.correct/fin.best.total)+"%" : ""}</span></button>
+        </div>
+        <div class="quiz-nav"><button class="btn danger" onclick="resetProgress()">Reset saved progress for Grade ${D().num}</button></div>
+      </div>
+      <h2 class="page-title" style="margin-top:24px">Short Answer Practice</h2>
+      <p class="page-intro">Write first, then reveal the model. Comparing your answer to a model is one of the fastest ways to improve.</p>
+      ${crqHtml}
+      <h2 class="page-title" style="margin-top:24px">DBQ Practice</h2>
+      <p class="page-intro">One document set per unit. Use the "How to Attack a DBQ" guide in the Skills tab first.</p>
+      ${dbqHtml}
+      <p class="disclaimer">Note: All questions in this app were written originally for study practice in the style of New York State Regents-format assessments. There is no separate statewide Grade 7 or Grade 8 Regents exam in social studies; these questions mirror the stimulus-based multiple choice, constructed-response, and DBQ formats students will encounter on later NYS assessments.</p>
+    </div>`;
+}
+function renderQuizQuestion(){
+  const q = quiz.questions[quiz.index];
+  const stim = q.stim ? `<div class="stimulus"><span class="stype">${esc(q.stim.kind)}</span>${esc(q.stim.text)}</div>` : "";
+  $("#view-quiz").innerHTML = `
+    <div class="q-progress">
+      <span>${esc(quiz.label)}</span>
+      <span class="score-pill">Score: ${quiz.correct} / ${quiz.index}</span>
+    </div>
+    <div class="q-track"><div class="q-track-fill" style="width:${Math.round(100*quiz.index/quiz.questions.length)}%"></div></div>
+    <div class="card">
+      <div class="eyebrow">Question ${quiz.index+1} of ${quiz.questions.length} \u2014 Unit ${q.u}</div>
+      ${stim}
+      <div class="q-text">${esc(q.q)}</div>
+      <div class="choices">
+        ${q._order.map((ci,i)=>`<button class="choice" data-i="${i}" onclick="answer(${i})"><span class="letter">${["A","B","C","D"][i]}</span><span>${esc(q.c[ci])}</span></button>`).join("")}
+      </div>
+      <div class="feedback" id="fb" role="status"></div>
+      <div class="quiz-nav">
+        <button class="btn hidden" id="nextBtn" onclick="nextQ()">Next question</button>
+        <button class="btn ghost" onclick="quitQuiz()">Quit quiz</button>
+      </div>
+    </div>`;
+}
+function answer(i){
+  const q = quiz.questions[quiz.index];
+  const btns = $$("#view-quiz .choice");
+  if(btns[0].disabled) return;
+  btns.forEach(b=>b.disabled = true);
+  const right = i === q._a;
+  btns[q._a].classList.add("correct");
+  if(!right) btns[i].classList.add("wrong");
+  if(right) quiz.correct++;
+  quiz.perUnit[q.u] = quiz.perUnit[q.u] || {correct:0,total:0};
+  quiz.perUnit[q.u].total++; if(right) quiz.perUnit[q.u].correct++;
+  const fb = $("#fb");
+  fb.className = "feedback show " + (right ? "good" : "bad");
+  fb.innerHTML = `<b>${right ? "Correct." : "Not quite \u2014 the answer is "+["A","B","C","D"][q._a]+"."}</b>${esc(q.ex)}`;
+  $(".score-pill").textContent = "Score: "+quiz.correct+" / "+(quiz.index+1);
+  const nb = $("#nextBtn");
+  nb.classList.remove("hidden");
+  nb.textContent = quiz.index+1 < quiz.questions.length ? "Next question" : "See results";
+  nb.focus();
+}
+function nextQ(){
+  quiz.index++;
+  if(quiz.index < quiz.questions.length) renderQuizQuestion();
+  else finishQuiz();
+}
+function quitQuiz(){ quiz = null; renderQuizSetup(); }
+function finishQuiz(){
+  const total = quiz.questions.length, correct = quiz.correct;
+  const pct = Math.round(100*correct/total);
+  const modes = P().modes;
+  const m = modes[quiz.mode] || {attempts:0, best:{correct:0,total:total}};
+  m.attempts++;
+  if(correct/total >= (m.best.correct/m.best.total || 0)) m.best = {correct, total};
+  m.last = {correct, total};
+  modes[quiz.mode] = m;
+  Object.keys(quiz.perUnit).forEach(u=>{
+    const s = P().unitStats[u] || {correct:0,total:0};
+    s.correct += quiz.perUnit[u].correct; s.total += quiz.perUnit[u].total;
+    P().unitStats[u] = s;
+  });
+  saveStore();
+  const review = D().units.filter(u=>quiz.perUnit[u.id]).map(u=>{
+    const s = quiz.perUnit[u.id], p = Math.round(100*s.correct/s.total);
+    const ok = p >= 70;
+    return `<li><span style="border-left:4px solid ${u.acc};padding-left:8px">Unit ${u.id}: ${esc(u.title)}</span><span class="${ok?"tag-good":"tag-warn"}">${s.correct}/${s.total}${ok?"":" \u2014 review this unit"}</span></li>`;
+  }).join("");
+  const verdict = pct >= 90 ? "Outstanding \u2014 honors-level mastery." : pct >= 80 ? "Strong work. Polish the topics below and you are exam-ready." : pct >= 70 ? "Solid foundation. Focus your review on the flagged units." : "Good start \u2014 reread the flagged units' Big Picture and Key Terms, then try again.";
+  $("#view-quiz").innerHTML = `
+    <div class="card" style="text-align:center;padding:34px 20px">
+      <div class="eyebrow">${esc(quiz.label)} \u2014 Results</div>
+      <div class="results-big">${correct} / ${total}</div>
+      <p style="font-size:1.35rem;color:var(--gold);font-weight:700;font-family:Palatino,Georgia,serif">${pct}%</p>
+      <p style="max-width:540px;margin:8px auto 0">${verdict}</p>
+    </div>
+    <div class="card">
+      <div class="eyebrow">Breakdown by unit</div>
+      <ul class="review-list">${review}</ul>
+      <div class="quiz-nav">
+        <button class="btn gold" onclick="buildQuiz('${quiz.mode}')">Try again</button>
+        <button class="btn" onclick="quitQuiz()">Back to Practice menu</button>
+        <button class="btn ghost" onclick="showView('units')">Review the Units</button>
+      </div>
+    </div>`;
+}
+function resetProgress(){
+  if(confirm("Erase all saved scores and progress for Grade "+D().num+" on this device?")){
+    store[grade] = {modes:{}, unitStats:{}};
+    saveStore();
+    renderQuizSetup();
+  }
+}
+
+/* ---------- Boot ---------- */
+function renderAll(){
+  renderHome();
+  renderUnits();
+  renderTimeline();
+  glossMode = "list";
+  renderGlossary();
+  renderSkills();
+  renderQuizSetup();
+  renderResources();
+}
+setGrade(grade);
+</script>
+</body>
+</html>
